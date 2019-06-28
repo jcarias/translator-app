@@ -1,0 +1,13 @@
+{
+  "imported-files-title": "Ficheiros importados",
+
+  "table_imported_files_column_fileName": "Nome do Ficheiro",
+  "table_imported_files_column_status": "Status",
+  "table_importing_column_items": "Itens",
+  "table_importing_column_accepted_items": "Aceites",
+  "table_imported_files_column_rejected_items": "Rejeitados",
+  "table_importing_column_errors": "Erros",
+  "table_importing_column_critical_errors": "Críticos",
+  "table_importing_column_non_critical_errors": "Não-Críticos",
+  "table_column_label_processed_in": "Processado em"
+}

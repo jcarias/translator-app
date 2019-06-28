@@ -5,6 +5,7 @@ import AddIcon from "@material-ui/icons/AddLocation";
 import FolderIcon from "@material-ui/icons/FolderOpen";
 import ImportExport from "@material-ui/icons/ImportExport";
 import LocalizationTable from "./components/LocalizationTable";
+import ImportFileDialog from "./components/dialogs/ImportFileDialog";
 
 class App extends Component {
   constructor(props) {
@@ -30,12 +31,26 @@ class App extends Component {
               "Cras nec risus at dolor hendrerit rhoncus. Duis in velit nulla. Phasellus ut odio eget dui tempor mattis. Donec varius eros ut tempor finibus. Quisque magna dolor, pharetra id vestibulum ac, consequat nec ligula. Nullam sit amet tristique nisi, id suscipit nibh. Duis convallis quis elit non aliquet."
           }
         }
-      }
+      },
+      importDialogOpen: false
     };
   }
+
+  showImportDialog = () => {
+    this.setState({ importDialogOpen: true });
+  };
+
+  closeImportDialog = () => {
+    this.setState({ importDialogOpen: false });
+  };
+
   render() {
     return (
       <div>
+        <ImportFileDialog
+          open={this.state.importDialogOpen}
+          handleClose={this.closeImportDialog}
+        />
         <TopBar />
         <Grid container>
           <Grid item xs={12}>
@@ -46,7 +61,11 @@ class App extends Component {
               <IconButton variant="contained" color="primary">
                 <ImportExport />
               </IconButton>
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={this.showImportDialog}
+              >
                 <FolderIcon />
               </Button>
             </Toolbar>
