@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import {
   Table,
   TableHead,
@@ -7,6 +8,7 @@ import {
   TableBody,
   Typography
 } from "@material-ui/core";
+import { addLocale } from "core-js";
 
 const buildHeaderRow = locales =>
   locales.map((locale, key) => <TableCell key={key}>{locale}</TableCell>);
@@ -20,6 +22,7 @@ const buildTranslationsRow = (locales, localizationDataLabel) => (
 );
 
 const LocalizationTable = props => {
+  console.log(props);
   return (
     <Table>
       <TableHead>
@@ -47,4 +50,22 @@ const LocalizationTable = props => {
   );
 };
 
-export default LocalizationTable;
+const mapStateToProps = (state, ownProps) => {
+  console.log(state);
+  return {
+    data: state
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addLocale: locale => {
+      dispatch(addLocale(locale));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LocalizationTable);
