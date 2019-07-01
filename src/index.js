@@ -4,10 +4,16 @@ import App from "./App";
 import { ThemeProvider } from "@material-ui/styles";
 import * as serviceWorker from "./serviceWorker";
 import { theme } from "./Theme/MyTheme";
+import { Provider as ReduxProvider } from "react-redux";
+import configureStore from "./modules/store";
+
+const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <App />
+    <ReduxProvider store={configureStore()}>
+      <App />
+    </ReduxProvider>
   </ThemeProvider>,
   document.getElementById("root")
 );

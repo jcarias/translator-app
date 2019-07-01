@@ -36,7 +36,9 @@ const LocalizationTable = props => {
         {Object.keys(props.data.localizationData).map((key, index) => (
           <TableRow key={index} hover>
             <TableCell variant="body" nowrap="nowrap">
-              <Typography noWrap>{key}</Typography>
+              <Typography noWrap color="textSecondary">
+                {key}
+              </Typography>
             </TableCell>
             {buildTranslationsRow(
               props.data.locales,

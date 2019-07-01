@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import _ from "lodash";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -8,7 +9,8 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import FilesDropper from "../utils/FilesDropper";
 import { withStyles } from "@material-ui/core/styles";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
+import { localizationParser } from "../../utils/FileUtils";
 
 const styles = theme => ({
   root: {
@@ -42,17 +44,36 @@ class ImportFileDialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locale: "en-EN",
-      file: null
+      locale: "en-US",
+      file: null,
+      fileData: null
     };
   }
 
+  handleChange = evt => {
+    console.log(evt);
+    if (evt && evt.target) {
+      this.setState({ [evt.target.name]: evt.target.value });
+    }
+  };
+
   handleFilesChanged = files => {
-    console.log(files);
+    if (!_.isEmpty(files)) {
+      const fileList = Object.keys(files).map(key => files.item(key));
+      this.setState({ file: fileList[0] }, () =>
+        localizationParser(this.state.locale, this.state.file)
+          .then(data => this.setState({ fileData: data }))
+          .catch(err => console.error(err))
+      );
+    }
+  };
+
+  handleImportClick = () => {
+    return this.props.handleImport(this.state.fileData);
   };
 
   render() {
-    const { classes, open, handleClose } = this.props;
+    const { classes, open, handleClose, handleImportClick } = this.props;
     return (
       <Dialog
         open={open}
@@ -63,24 +84,6 @@ class ImportFileDialog extends Component {
       >
         <DialogTitle id="form-dialog-title">Import file</DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Select the file with localization string to import
-          </DialogContentText>
-          <FilesDropper
-            componentId="import-files"
-            handleDrop={this.handleFilesChanged}
-            accept="application/json"
-            draggingClass={classes.draggingClass}
-          >
-            <div className={classes.emptyDropArea}>
-              {this.state.file ? (
-                <span>{this.state.file.name}</span>
-              ) : (
-                <Typography>Drop files here</Typography>
-              )}
-            </div>
-          </FilesDropper>
-
           <TextField
             autoFocus
             margin="dense"
@@ -92,13 +95,40 @@ class ImportFileDialog extends Component {
             placeholder="e.g. en-EN"
             helperText="Enter a locale using a ISO 639-1 language code and a ISO 3166-2 country code."
             fullWidth
+            onChange={this.handleChange}
           />
+          <DialogContentText>
+            Select the file with localization string to import
+          </DialogContentText>
+          <FilesDropper
+            componentId="import-files"
+            handleDrop={this.handleFilesChanged}
+            accept="application/json"
+            draggingClass={classes.draggingClass}
+          >
+            <div className={classes.emptyDropArea}>
+              {this.state.file ? (
+                <React.Fragment>
+                  <Typography>{this.state.file.name}</Typography>
+                  <Typography variant="caption">
+                    {this.state.file.size}
+                  </Typography>
+                </React.Fragment>
+              ) : (
+                <Typography>Drop files here</Typography>
+              )}
+            </div>
+          </FilesDropper>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary" variant="contained">
+          <Button
+            onClick={this.handleImportClick}
+            color="primary"
+            variant="contained"
+          >
             Import
           </Button>
         </DialogActions>

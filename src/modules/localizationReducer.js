@@ -2,7 +2,7 @@ import ACTIONS from "./actions";
 import _ from "lodash";
 
 const defaultState = {
-  locales: ["en-EN"],
+  locales: ["en-US"],
   localizationData: {}
 };
 
@@ -45,6 +45,23 @@ const todoReducer = (state = defaultState, action) => {
       return newState;
     }
 
+    case ACTIONS.Types.IMPORT_FILE: {
+      let newState = _.cloneDeep(state);
+      if (newState.locales.indexOf(action.locale) < 0) {
+        newState.locales.push(action.locale);
+      }
+      for (const key in action.localizationStrings) {
+        if (action.localizationStrings.hasOwnProperty(key)) {
+          const localizationString = action.localizationStrings[key];
+
+          newState.localizationData[key] = {
+            ...newState.localizationData[key],
+            [action.locale]: localizationString
+          };
+        }
+      }
+      return newState;
+    }
     default:
       return state;
   }
