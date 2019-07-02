@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function MenuAppBar() {
+export default function MenuAppBar(props) {
   const classes = useStyles();
 
   return (
@@ -26,6 +26,7 @@ export default function MenuAppBar() {
           <Typography variant="h6" className={classes.title}>
             Localization App
           </Typography>
+          {props.children}
         </Toolbar>
       </AppBar>
     </div>

@@ -5,7 +5,8 @@ const Types = {
   UPDATE_LOCALE: "UPDATE_LOCALE",
   IMPORT_FILE: "IMPORT_FILE",
   EXPORT_LOCALE_DATA: "EXPORT_LOCALE_DATA",
-  ADD_LOCALIZED_STRING: "ADD_LOCALIZED_STRING"
+  ADD_LOCALIZED_STRING: "ADD_LOCALIZED_STRING",
+  REMOVE_LOCALIZED_STRING: "REMOVE_LOCALIZED_STRING"
 };
 
 // actions
@@ -14,7 +15,6 @@ const addLocale = locale => ({
   locale
 });
 
-// actions
 const removeLocale = locale => ({
   type: Types.REMOVE_LOCALE,
   locale
@@ -37,11 +37,15 @@ const exportLocaleData = locale => ({
   locale
 });
 
-const addLocalizedString = (locale, key, value) => ({
+const addLocalizedString = (key, localizedValues) => ({
   type: Types.ADD_LOCALIZED_STRING,
-  locale,
   key,
-  value
+  localizedValues
+});
+
+const removeLocalizedString = key => ({
+  type: Types.REMOVE_LOCALIZED_STRING,
+  key
 });
 
 export default {
@@ -51,5 +55,6 @@ export default {
   importFile,
   exportLocaleData,
   addLocalizedString,
+  removeLocalizedString,
   Types
 };

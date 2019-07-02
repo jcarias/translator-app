@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TopBar from "./components/TopBar";
-import { Grid, Toolbar, Button, IconButton } from "@material-ui/core";
+import { Grid, Toolbar, IconButton, Tooltip } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/AddLocation";
-import FolderIcon from "@material-ui/icons/FolderOpen";
+import FolderIcon from "@material-ui/icons/FolderOpenRounded";
 import ImportExport from "@material-ui/icons/ImportExport";
 import LocalizationTable from "./components/LocalizationTable";
 import ImportFileDialog from "./components/dialogs/ImportFileDialog";
@@ -38,7 +38,13 @@ class App extends Component {
           handleClose={this.closeImportDialog}
           handleImport={this.handleFileImport}
         />
-        <TopBar />
+        <TopBar>
+          <Tooltip title="Import existing localization files">
+            <IconButton color="inherit" onClick={this.showImportDialog}>
+              <FolderIcon />
+            </IconButton>
+          </Tooltip>
+        </TopBar>
         <Grid container>
           <Grid item xs={12}>
             <Toolbar>
@@ -48,13 +54,6 @@ class App extends Component {
               <IconButton variant="contained" color="primary">
                 <ImportExport />
               </IconButton>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={this.showImportDialog}
-              >
-                <FolderIcon />
-              </Button>
             </Toolbar>
           </Grid>
           <Grid item xs={12}>
