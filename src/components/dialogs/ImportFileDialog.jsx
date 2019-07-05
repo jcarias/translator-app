@@ -7,10 +7,16 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import FilesDropper from "../utils/FilesDropper";
+import Typography from "@material-ui/core/Typography";
+import Divider from "@material-ui/core/Divider";
+import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
-import { Typography } from "@material-ui/core";
+import FilesDropper from "../utils/FilesDropper";
 import { localizationParser } from "../../utils/FileUtils";
+import FileItem from "../FileItem";
+
+import ClearIcon from "@material-ui/icons/Clear";
+import { IconButton } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
@@ -32,7 +38,8 @@ const styles = theme => ({
     border: "2px dashed",
     borderColor: theme.palette.primary.main,
     borderRadius: theme.spacing(1),
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    flexDirection: "column"
   },
   draggingClass: {
     backgroundColor: theme.palette.primary.main.light,
@@ -51,7 +58,6 @@ class ImportFileDialog extends Component {
   }
 
   handleChange = evt => {
-    console.log(evt);
     if (evt && evt.target) {
       this.setState({ [evt.target.name]: evt.target.value });
     }
@@ -69,11 +75,13 @@ class ImportFileDialog extends Component {
   };
 
   handleImportClick = () => {
-    return this.props.handleImport(this.state.fileData);
+    localizationParser(this.state.locale, this.state.file)
+      .then(data => this.props.handleImport(data))
+      .catch(err => console.error(err));
   };
 
   render() {
-    const { classes, open, handleClose, handleImportClick } = this.props;
+    const { classes, open, handleClose } = this.props;
     return (
       <Dialog
         open={open}
@@ -84,42 +92,52 @@ class ImportFileDialog extends Component {
       >
         <DialogTitle id="form-dialog-title">Import file</DialogTitle>
         <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="locale"
-            name="locale"
-            label="Locale"
-            type="text"
-            value={this.state.locale}
-            placeholder="e.g. en-EN"
-            helperText="Enter a locale using a ISO 639-1 language code and a ISO 3166-2 country code."
-            fullWidth
-            onChange={this.handleChange}
-          />
-          <DialogContentText>
-            Select the file with localization string to import
-          </DialogContentText>
-          <FilesDropper
-            componentId="import-files"
-            handleDrop={this.handleFilesChanged}
-            accept="application/json"
-            draggingClass={classes.draggingClass}
-          >
-            <div className={classes.emptyDropArea}>
-              {this.state.file ? (
-                <React.Fragment>
-                  <Typography>{this.state.file.name}</Typography>
-                  <Typography variant="caption">
-                    {this.state.file.size}
-                  </Typography>
-                </React.Fragment>
-              ) : (
-                <Typography>Drop files here</Typography>
-              )}
-            </div>
-          </FilesDropper>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="locale"
+                name="locale"
+                label="Locale"
+                type="text"
+                value={this.state.locale}
+                placeholder="e.g. en-EN"
+                helperText="Enter a locale using a ISO 639-1 language code and a ISO 3166-2 country code."
+                fullWidth
+                onChange={this.handleChange}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <DialogContentText>
+                Select the file with localization string to import
+              </DialogContentText>
+              <FilesDropper
+                componentId="import-files"
+                handleDrop={this.handleFilesChanged}
+                accept="application/json"
+                draggingClass={classes.draggingClass}
+              >
+                <div className={classes.emptyDropArea}>
+                  {this.state.file ? (
+                    <FileItem file={this.state.file}>
+                      <IconButton>
+                        <ClearIcon />
+                      </IconButton>
+                    </FileItem>
+                  ) : (
+                    <React.Fragment>
+                      <Typography color="primary">Drop files here</Typography>
+                      <Typography color="textSecondary">or</Typography>
+                      <Typography color="primary">Click to browse</Typography>
+                    </React.Fragment>
+                  )}
+                </div>
+              </FilesDropper>
+            </Grid>
+          </Grid>
         </DialogContent>
+        <Divider />
         <DialogActions>
           <Button onClick={handleClose} color="primary">
             Cancel

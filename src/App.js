@@ -1,19 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TopBar from "./components/TopBar";
-import { Grid, Toolbar, IconButton, Tooltip } from "@material-ui/core";
+import {
+  Grid,
+  Toolbar,
+  IconButton,
+  Tooltip,
+  Button,
+  Fab,
+  Icon
+} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/AddLocation";
 import FolderIcon from "@material-ui/icons/FolderOpenRounded";
 import ImportExport from "@material-ui/icons/ImportExport";
+import EditIcon from "@material-ui/icons/Edit";
 import LocalizationTable from "./components/LocalizationTable";
 import ImportFileDialog from "./components/dialogs/ImportFileDialog";
 import ACTIONS from "./modules/actions";
+import { withStyles } from "@material-ui/styles";
+import DialogEditKey from "./components/dialogs/DialogEditKey";
+
+const styles = theme => ({
+  fab: {
+    position: "absolute",
+    bottom: theme.spacing(2),
+    right: theme.spacing(2)
+  }
+});
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      importDialogOpen: false
+      importDialogOpen: false,
+      editKeyDialogOpen: false
     };
   }
 
@@ -30,13 +50,31 @@ class App extends Component {
     this.closeImportDialog();
   };
 
+  showEditKeyDialog = () => {
+    this.setState({ editKeyDialogOpen: true });
+  };
+
+  closeEditKeyDialog = () => {
+    this.setState({ editKeyDialogOpen: false });
+  };
+
+  confirmSave = data => {
+    console.log(data);
+  };
+
   render() {
+    const { classes } = this.props;
     return (
       <div>
         <ImportFileDialog
           open={this.state.importDialogOpen}
           handleClose={this.closeImportDialog}
           handleImport={this.handleFileImport}
+        />
+        <DialogEditKey
+          open={this.state.editKeyDialogOpen}
+          handleClose={this.closeEditKeyDialog}
+          confirmUpdate={this.confirmSave}
         />
         <TopBar>
           <Tooltip title="Import existing localization files">
@@ -60,6 +98,13 @@ class App extends Component {
             <LocalizationTable />
           </Grid>
         </Grid>
+        <Fab
+          color="secondary"
+          className={classes.fab}
+          onClick={this.showEditKeyDialog}
+        >
+          <EditIcon />
+        </Fab>
       </div>
     );
   }
@@ -80,4 +125,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(App);
+)(withStyles(styles)(App));

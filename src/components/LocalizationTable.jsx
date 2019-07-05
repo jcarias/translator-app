@@ -10,20 +10,20 @@ import {
   Grid,
   IconButton
 } from "@material-ui/core";
+import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import Actions from "../modules/actions";
 import DialogDeleteKeyConfirm from "./dialogs/DialogDeleteKeyConfirm";
+import { makeStyles } from "@material-ui/styles";
 
 const buildHeaderRow = (locales, handleDeleteClick) =>
   locales.map((locale, key) => (
     <TableCell key={key}>
-      <Grid container>
-        <Grid item xs>
-          {locale}
-        </Grid>
+      <Grid container alignItems="center">
+        <Grid item>{locale}</Grid>
         <Grid item>
-          <IconButton onClick={() => handleDeleteClick(locale)}>
-            <DeleteIcon />
+          <IconButton onClick={() => handleDeleteClick(locale)} size="small">
+            <DeleteIcon fontSize="inherit" />
           </IconButton>
         </Grid>
       </Grid>
@@ -38,7 +38,14 @@ const buildTranslationsRow = (locales, localizationDataLabel) => (
   </React.Fragment>
 );
 
+const useStyles = makeStyles(theme => ({
+  destructiveBtn: {
+    color: theme.palette.error.main
+  }
+}));
+
 const LocalizationTable = props => {
+  const classes = useStyles();
   const [openDeleteRowDialog, setOpenDeleteRowDialog] = React.useState(false);
   const [selKey, setSelKey] = React.useState(false);
 
@@ -80,10 +87,16 @@ const LocalizationTable = props => {
                   props.data.localizationData[localizationKey]
                 )}
                 <TableCell>
+                  <IconButton size="small">
+                    <EditIcon fontSize="inherit" />
+                  </IconButton>
+
                   <IconButton
+                    size="small"
                     onClick={() => showConfirmDeleteRow(localizationKey)}
+                    className={classes.destructiveBtn}
                   >
-                    <DeleteIcon />
+                    <DeleteIcon fontSize="inherit" />
                   </IconButton>
                 </TableCell>
               </TableRow>
