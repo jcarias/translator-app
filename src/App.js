@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import TopBar from "./components/TopBar";
-import {
-  Grid,
-  Toolbar,
-  IconButton,
-  Tooltip,
-  Button,
-  Fab,
-  Icon
-} from "@material-ui/core";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
+import Fab from "@material-ui/core/Fab";
+import Grid from "@material-ui/core/Grid";
 import AddIcon from "@material-ui/icons/AddLocation";
 import FolderIcon from "@material-ui/icons/FolderOpenRounded";
 import ImportExport from "@material-ui/icons/ImportExport";
@@ -17,7 +13,7 @@ import EditIcon from "@material-ui/icons/Edit";
 import LocalizationTable from "./components/LocalizationTable";
 import ImportFileDialog from "./components/dialogs/ImportFileDialog";
 import ACTIONS from "./modules/actions";
-import { withStyles } from "@material-ui/styles";
+import withStyles from "@material-ui/styles/withStyles";
 import DialogEditKey from "./components/dialogs/DialogEditKey";
 
 const styles = theme => ({

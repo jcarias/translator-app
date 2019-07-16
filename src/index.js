@@ -11,7 +11,7 @@ const reduxStore = configureStore(window.REDUX_INITIAL_DATA);
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <ReduxProvider store={configureStore()}>
+    <ReduxProvider store={reduxStore}>
       <App />
     </ReduxProvider>
   </ThemeProvider>,

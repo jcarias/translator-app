@@ -57,7 +57,15 @@ const todoReducer = (state = defaultState, action) => {
       delete newState.localizationData[action.key];
       return newState;
     }
+
+    case ACTIONS.Types.ADD_LOCALIZED_STRING: {
+      let newState = _.cloneDeep(state);
+      newState.localizationData[action.key] = action.localizedValues;
+      return newState;
+    }
+
     default:
+      console.log(action);
       return state;
   }
 };

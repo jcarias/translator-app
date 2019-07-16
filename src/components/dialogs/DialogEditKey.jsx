@@ -1,71 +1,106 @@
-import React, { useEffect } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import BaseDialog from "./BaseDialog";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ACTIONS from "../../modules/actions";
-import { CHILD_MESSAGE_INITIALIZE } from "jest-worker/build/types";
 
-function DialogEditKey(props) {
-  const { localizationKey, locales, handleClose } = props;
-  const [key, setKey] = React.useState("");
-  const [translations, setTranslations] = React.useState(() => {
-    let tempTranslations = {};
-    locales.forEach(locale => {
-      tempTranslations[locale] = "";
-    });
-
-    return tempTranslations;
-  });
-
-  function initState() {
-    setKey("");
-    let tempTranslations = {};
-    locales.forEach(locale => {
-      tempTranslations[locale] = "";
-    });
-    setTranslations(tempTranslations);
+class DialogEditKey extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      locales: [],
+      key: "",
+      translations: {}
+    };
   }
 
-  function handleKeyChange(evt) {
-    if (evt && evt.target) {
-      setKey(evt.target.value);
+  generateDefaultTranslations = () => {
+    let defaultTransalations = {};
+    this.props.locales.forEach(locale => {
+      if (
+        this.props.translations &&
+        this.props.translations.hasOwnProperty(locale)
+      )
+        defaultTransalations[locale] = this.props.translations[locale];
+      else defaultTransalations[locale] = "";
+    });
+
+    return defaultTransalations;
+  };
+
+  componentDidMount() {
+    this.setState({
+      ...this.state,
+      locales: this.props.locales,
+      key: this.props.key || "",
+      translations: this.generateDefaultTranslations(this.props.locales)
+    });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!_.isEqual(prevProps.locales, this.props.locales)) {
+      this.setState(
+        {
+          ...this.state,
+          locales: this.props.locales,
+          translations: this.generateDefaultTranslations(this.props.locales)
+        },
+        () => console.log(this.state)
+      );
+    }
+
+    if (!_.isEqual(prevProps.key, this.props.key)) {
+      this.setState({ ...this.state, key: this.props.key });
+    }
+
+    if (!_.isEqual(prevProps.key, this.props.translations)) {
+      this.setState({ ...this.state, translations: this.props.translations });
     }
   }
 
-  function handleTranslationChange(evt, locale) {
+  handleKeyChange = evt => {
     if (evt && evt.target) {
-      setTranslations({ ...translations, [locale]: evt.target.value });
+      this.setState({ key: evt.target.value });
     }
-  }
+  };
 
-  function handleSubmit(ev) {
-    console.log(ev);
-  }
+  handleTranslationChange = (evt, locale) => {
+    if (evt && evt.target) {
+      this.setState({
+        translations: { ...this.state.translations, [locale]: evt.target.value }
+      });
+    }
+  };
 
-  return (
-    <form onSubmit={e => handleSubmit(e)} id="form">
+  handleSubmit = () => {
+    this.props.addLocalizedString(this.state.key, this.state.translations);
+    this.props.handleClose();
+  };
+
+  render() {
+    const { open, handleClose } = this.props;
+    return (
       <BaseDialog
-        open={props.open}
+        open={open}
         handleClose={handleClose}
         title={"Add new translation"}
-        onEnter={initState}
         content={
           <React.Fragment>
             <TextField
-              autoFocus={_.isEmpty(key)}
+              autoFocus={_.isEmpty(this.state.key)}
               margin="dense"
               id="key"
               name="key"
               label="Translation key"
               type="text"
-              value={key}
+              value={this.state.key}
               placeholder="my-key"
               fullWidth
-              onChange={handleKeyChange}
+              onChange={this.handleKeyChange}
             />
-            {locales.map((locale, index) => (
+            {this.state.locales.map((locale, index) => (
               <TextField
                 key={index}
                 autoFocus
@@ -74,9 +109,9 @@ function DialogEditKey(props) {
                 name={`value-${locale}`}
                 label={`Translation for: ${locale}`}
                 type="text"
-                value={translations[locale]}
+                value={this.state.translations[locale]}
                 fullWidth
-                onChange={evt => handleTranslationChange(evt, locale)}
+                onChange={evt => this.handleTranslationChange(evt, locale)}
               />
             ))}
           </React.Fragment>
@@ -86,12 +121,18 @@ function DialogEditKey(props) {
             <Button onClick={handleClose} autoFocus>
               Cancel
             </Button>
-            <input type="submit" value="Save Translation" />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.handleSubmit}
+            >
+              Save translation
+            </Button>
           </React.Fragment>
         }
       />
-    </form>
-  );
+    );
+  }
 }
 
 const mapStateToProps = (state, ownProps) => {
