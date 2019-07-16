@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import isEmpty from "lodash/isEmpty";
 import {
   Table,
   TableHead,
@@ -13,14 +14,18 @@ import {
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/styles";
+import actions from "../modules/actions";
 
-const buildHeaderRow = (locales, handleDeleteClick) =>
+const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
     <TableCell key={key}>
       <Grid container alignItems="center">
         <Grid item>{locale}</Grid>
         <Grid item>
-          <IconButton onClick={() => handleDeleteClick(locale)} size="small">
+          <IconButton
+            onClick={() => showConfirmRemoveLocale(locale)}
+            size="small"
+          >
             <DeleteIcon fontSize="inherit" />
           </IconButton>
         </Grid>
@@ -76,7 +81,8 @@ const LocalizationTable = props => {
         <TableHead>
           <TableRow>
             <TableCell>i18N Key</TableCell>
-            {buildHeaderRow(props.data.locales, props.removeLocale)}
+            {!isEmpty(props.data.locales) &&
+              buildHeaderRow(props.data.locales, props.showConfirmDeleteLocale)}
             <TableCell>Tools</TableCell>
           </TableRow>
         </TableHead>

@@ -15,10 +15,13 @@ const addLocale = locale => ({
   locale
 });
 
-const removeLocale = locale => ({
-  type: Types.REMOVE_LOCALE,
-  locale
-});
+const removeLocale = locale => {
+  console.log(locale);
+  return {
+    type: Types.REMOVE_LOCALE,
+    locale
+  };
+};
 
 const updateLocale = (oldLocale, newLocale) => ({
   type: Types.UPDATE_LOCALE,

@@ -6,16 +6,17 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Fab from "@material-ui/core/Fab";
 import Grid from "@material-ui/core/Grid";
-import AddIcon from "@material-ui/icons/AddLocation";
+import AddIcon from "@material-ui/icons/Add";
 import FolderIcon from "@material-ui/icons/FolderOpenRounded";
 import ImportExport from "@material-ui/icons/ImportExport";
-import EditIcon from "@material-ui/icons/Edit";
+import EditIcon from "@material-ui/icons/Add";
 import LocalizationTable from "./components/LocalizationTable";
 import ImportFileDialog from "./components/dialogs/ImportFileDialog";
 import ACTIONS from "./modules/actions";
 import withStyles from "@material-ui/styles/withStyles";
 import DialogEditKey from "./components/dialogs/DialogEditKey";
 import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm";
+import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteLocale";
 
 const styles = theme => ({
   fab: {
@@ -32,7 +33,9 @@ class App extends Component {
       importDialogOpen: false,
       editKeyDialogOpen: false,
       openDeleteRowDialog: false,
-      selKey: null
+      selKey: null,
+      selLocale: null,
+      deleteLocaleDialogOpen: false
     };
   }
 
@@ -69,9 +72,22 @@ class App extends Component {
     this.setState({ openDeleteRowDialog: false });
   };
 
-  confirmDelete = key => {
+  confirmDeleteKey = key => {
     this.props.removeLocalizedString(key);
     this.setState({ selKey: null, openDeleteRowDialog: false });
+  };
+
+  showConfirmDeleteLocale = locale => {
+    this.setState({ selLocale: locale, deleteLocaleDialogOpen: true });
+  };
+
+  closeConfirmDeleteLocale = () => {
+    this.setState({ deleteLocaleDialogOpen: false });
+  };
+
+  confirmDeleteLocale = () => {
+    this.props.removeLocale(this.state.selLocale);
+    this.setState({ selLocale: null, deleteLocaleDialogOpen: false });
   };
 
   render() {
@@ -92,7 +108,13 @@ class App extends Component {
           open={this.state.openDeleteRowDialog}
           localizationKey={this.state.selKey}
           handleClose={this.closeConfirmDeleteRow}
-          confirmDeleteKey={this.confirmDelete}
+          confirmDeleteKey={this.confirmDeleteKey}
+        />
+        <DialogConfirmDeleteLocale
+          open={this.state.deleteLocaleDialogOpen}
+          locale={this.state.selLocale}
+          handleClose={this.closeConfirmDeleteLocale}
+          confirmDeleteLocale={this.confirmDeleteLocale}
         />
         <TopBar>
           <Tooltip title="Import existing localization files">
@@ -115,6 +137,7 @@ class App extends Component {
           <Grid item xs={12}>
             <LocalizationTable
               showConfirmDeleteRow={this.showConfirmDeleteRow}
+              showConfirmDeleteLocale={this.showConfirmDeleteLocale}
             />
           </Grid>
         </Grid>
@@ -138,7 +161,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     importFile: (locale, localizationStrings) =>
       dispatch(ACTIONS.importFile(locale, localizationStrings)),
-    removeLocalizedString: key => dispatch(ACTIONS.removeLocalizedString(key))
+    removeLocalizedString: key => dispatch(ACTIONS.removeLocalizedString(key)),
+    removeLocale: locale => dispatch(ACTIONS.removeLocale(locale))
   };
 };
 
