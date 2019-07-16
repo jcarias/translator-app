@@ -12,8 +12,6 @@ import {
 } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
-import Actions from "../modules/actions";
-import DialogDeleteKeyConfirm from "./dialogs/DialogDeleteKeyConfirm";
 import { makeStyles } from "@material-ui/styles";
 
 const buildHeaderRow = (locales, handleDeleteClick) =>
@@ -30,12 +28,37 @@ const buildHeaderRow = (locales, handleDeleteClick) =>
     </TableCell>
   ));
 
-const buildTranslationsRow = (locales, localizationDataLabel) => (
-  <React.Fragment>
+const buildTranslationsRow = (
+  localizationKey,
+  index,
+  locales,
+  localizationDataLabel,
+  classes,
+  showConfirmDeleteRow
+) => (
+  <TableRow hover key={index}>
+    <TableCell variant="body" nowrap="nowrap">
+      <Typography noWrap color="textSecondary">
+        <em>{localizationKey}</em>
+      </Typography>
+    </TableCell>
     {locales.map((locale, index) => (
       <TableCell key={index}>{localizationDataLabel[locale]}</TableCell>
     ))}
-  </React.Fragment>
+    <TableCell>
+      <IconButton size="small">
+        <EditIcon fontSize="inherit" />
+      </IconButton>
+
+      <IconButton
+        size="small"
+        onClick={() => showConfirmDeleteRow(localizationKey)}
+        className={classes.destructiveBtn}
+      >
+        <DeleteIcon fontSize="inherit" />
+      </IconButton>
+    </TableCell>
+  </TableRow>
 );
 
 const useStyles = makeStyles(theme => ({
@@ -46,22 +69,6 @@ const useStyles = makeStyles(theme => ({
 
 const LocalizationTable = props => {
   const classes = useStyles();
-  const [openDeleteRowDialog, setOpenDeleteRowDialog] = React.useState(false);
-  const [selKey, setSelKey] = React.useState(false);
-
-  const showConfirmDeleteRow = key => {
-    setSelKey(key);
-    setOpenDeleteRowDialog(true);
-  };
-
-  const hideConfirmDeleteRow = () => {
-    setOpenDeleteRowDialog(false);
-  };
-
-  const deleteKey = key => {
-    props.removeLocalizedString(key);
-    hideConfirmDeleteRow();
-  };
 
   return (
     <React.Fragment>
@@ -75,59 +82,30 @@ const LocalizationTable = props => {
         </TableHead>
         <TableBody>
           {Object.keys(props.data.localizationData).map(
-            (localizationKey, index) => (
-              <TableRow key={index} hover>
-                <TableCell variant="body" nowrap="nowrap">
-                  <Typography noWrap color="textSecondary">
-                    <em>{localizationKey}</em>
-                  </Typography>
-                </TableCell>
-                {buildTranslationsRow(
-                  props.data.locales,
-                  props.data.localizationData[localizationKey]
-                )}
-                <TableCell>
-                  <IconButton size="small">
-                    <EditIcon fontSize="inherit" />
-                  </IconButton>
-
-                  <IconButton
-                    size="small"
-                    onClick={() => showConfirmDeleteRow(localizationKey)}
-                    className={classes.destructiveBtn}
-                  >
-                    <DeleteIcon fontSize="inherit" />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            )
+            (localizationKey, index) =>
+              buildTranslationsRow(
+                localizationKey,
+                index,
+                props.data.locales,
+                props.data.localizationData[localizationKey],
+                classes,
+                props.showConfirmDeleteRow
+              )
           )}
-          <TableRow />
         </TableBody>
       </Table>
-      <DialogDeleteKeyConfirm
-        open={openDeleteRowDialog}
-        localizationKey={selKey}
-        handleClose={hideConfirmDeleteRow}
-        confirmDeleteKey={deleteKey}
-      />
     </React.Fragment>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state);
+const mapStateToProps = state => {
   return {
     data: state
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    addLocale: locale => dispatch(Actions.addLocale(locale)),
-    removeLocale: locale => dispatch(Actions.removeLocale(locale)),
-    removeLocalizedString: key => dispatch(Actions.removeLocalizedString(key))
-  };
+const mapDispatchToProps = dispatch => {
+  return {};
 };
 
 export default connect(

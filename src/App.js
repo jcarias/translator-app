@@ -15,10 +15,11 @@ import ImportFileDialog from "./components/dialogs/ImportFileDialog";
 import ACTIONS from "./modules/actions";
 import withStyles from "@material-ui/styles/withStyles";
 import DialogEditKey from "./components/dialogs/DialogEditKey";
+import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm";
 
 const styles = theme => ({
   fab: {
-    position: "absolute",
+    position: "fixed",
     bottom: theme.spacing(2),
     right: theme.spacing(2)
   }
@@ -29,7 +30,9 @@ class App extends Component {
     super(props);
     this.state = {
       importDialogOpen: false,
-      editKeyDialogOpen: false
+      editKeyDialogOpen: false,
+      openDeleteRowDialog: false,
+      selKey: null
     };
   }
 
@@ -58,6 +61,19 @@ class App extends Component {
     console.log(data);
   };
 
+  showConfirmDeleteRow = key => {
+    this.setState({ selKey: key, openDeleteRowDialog: true });
+  };
+
+  closeConfirmDeleteRow = () => {
+    this.setState({ openDeleteRowDialog: false });
+  };
+
+  confirmDelete = key => {
+    this.props.removeLocalizedString(key);
+    this.setState({ selKey: null, openDeleteRowDialog: false });
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -71,6 +87,12 @@ class App extends Component {
           open={this.state.editKeyDialogOpen}
           handleClose={this.closeEditKeyDialog}
           confirmUpdate={this.confirmSave}
+        />
+        <DialogDeleteKeyConfirm
+          open={this.state.openDeleteRowDialog}
+          localizationKey={this.state.selKey}
+          handleClose={this.closeConfirmDeleteRow}
+          confirmDeleteKey={this.confirmDelete}
         />
         <TopBar>
           <Tooltip title="Import existing localization files">
@@ -91,7 +113,9 @@ class App extends Component {
             </Toolbar>
           </Grid>
           <Grid item xs={12}>
-            <LocalizationTable />
+            <LocalizationTable
+              showConfirmDeleteRow={this.showConfirmDeleteRow}
+            />
           </Grid>
         </Grid>
         <Fab
@@ -112,9 +136,9 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    importFile: (locale, localizationStrings) => {
-      dispatch(ACTIONS.importFile(locale, localizationStrings));
-    }
+    importFile: (locale, localizationStrings) =>
+      dispatch(ACTIONS.importFile(locale, localizationStrings)),
+    removeLocalizedString: key => dispatch(ACTIONS.removeLocalizedString(key))
   };
 };
 
