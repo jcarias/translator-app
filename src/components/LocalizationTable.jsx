@@ -14,7 +14,6 @@ import {
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/styles";
-import actions from "../modules/actions";
 
 const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
