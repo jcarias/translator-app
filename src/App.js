@@ -20,6 +20,7 @@ import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm"
 import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteLocale";
 import Icon from "./components/utils/Icon";
 import { ICONS } from "./utils/constants/icons";
+import { Divider, Badge, Typography, Button, Link } from "@material-ui/core";
 
 const styles = theme => ({
   fab: {
@@ -129,8 +130,37 @@ class App extends Component {
             </IconButton>
           </Tooltip>
         </TopBar>
-        <Grid container>
+        <Grid container spacing={2}>
           <Grid item xs={12}>
+            <Toolbar variant="dense">
+              <Tooltip title={"Add a new Translation key"}>
+                <IconButton
+                  disabled={
+                    !this.props.locales || this.props.locales.length === 0
+                  }
+                >
+                  <Icon icon={ICONS.EDIT} />
+                </IconButton>
+              </Tooltip>
+
+              <Tooltip title={"Manage locales"}>
+                <IconButton>
+                  <Badge
+                    className={classes.margin}
+                    badgeContent={
+                      this.props.locales ? this.props.locales.length : 0
+                    }
+                    max={10}
+                    color="primary"
+                  >
+                    <Icon icon={ICONS.GLOBE} />
+                  </Badge>
+                </IconButton>
+              </Tooltip>
+            </Toolbar>
+          </Grid>
+          <Grid item xs={12}>
+            <Divider />
             <Toolbar>
               <IconButton variant="contained" color="primary">
                 <AddIcon />
@@ -139,17 +169,64 @@ class App extends Component {
                 <ImportExport />
               </IconButton>
               {Object.keys(ICONS).map(iconKey => (
-                <IconButton variant="contained" color="secondary" key={iconKey}>
-                  <Icon icon={ICONS[iconKey]} size={22} />
-                </IconButton>
+                <Tooltip title={iconKey} key={iconKey}>
+                  <IconButton variant="contained" color="primary">
+                    <Icon icon={ICONS[iconKey]} size={16} />
+                  </IconButton>
+                </Tooltip>
               ))}
             </Toolbar>
           </Grid>
           <Grid item xs={12}>
-            <LocalizationTable
-              showConfirmDeleteRow={this.showConfirmDeleteRow}
-              showConfirmDeleteLocale={this.showConfirmDeleteLocale}
-            />
+            {this.props.locales && this.props.locales.length > 0 ? (
+              <div>
+                <LocalizationTable
+                  showConfirmDeleteRow={this.showConfirmDeleteRow}
+                  showConfirmDeleteLocale={this.showConfirmDeleteLocale}
+                  showEditKeyDialog={this.showEditKeyDialog}
+                  showImportDialog={this.showImportDialog}
+                />
+              </div>
+            ) : (
+              <React.Fragment>
+                <Divider />
+                <Grid
+                  container
+                  direction="column"
+                  alignContent="center"
+                  alignItems="center"
+                  style={{ padding: "2em" }}
+                >
+                  <Grid item>
+                    <Icon
+                      icon={ICONS.GLOBE}
+                      size={250}
+                      color={"rgba(0,0,0,0.1)"}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle1" color="textSecondary">
+                      Add locales!
+                    </Typography>
+                  </Grid>
+                  <Typography variant="subtitle2" color="textSecondary">
+                    <Link component="button" variant="subtitle2">
+                      Manage
+                    </Link>{" "}
+                    your locales or{" "}
+                    <Link
+                      component="button"
+                      variant="subtitle2"
+                      onClick={this.showImportDialog}
+                    >
+                      import
+                    </Link>{" "}
+                    existing localization files.
+                  </Typography>
+                </Grid>
+                <Divider />
+              </React.Fragment>
+            )}
           </Grid>
         </Grid>
         <Fab
@@ -165,7 +242,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return {
+    locales: state.locales
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {

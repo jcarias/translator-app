@@ -9,7 +9,8 @@ import {
   TableBody,
   Typography,
   Grid,
-  IconButton
+  IconButton,
+  Link
 } from "@material-ui/core";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -78,7 +79,7 @@ const LocalizationTable = props => {
 
   return (
     <React.Fragment>
-      <Table>
+      <Table style={{ marginBottom: 72 }}>
         <TableHead>
           <TableRow>
             <TableCell>i18N Key</TableCell>
@@ -118,7 +119,22 @@ const LocalizationTable = props => {
             </Typography>
           </Grid>
           <Typography variant="subtitle2" color="textSecondary">
-            Add keys manually or import i18N files.
+            <Link
+              component="button"
+              variant="subtitle2"
+              onClick={props.showEditKeyDialog}
+            >
+              Add keys
+            </Link>{" "}
+            manually or{" "}
+            <Link
+              component="button"
+              variant="subtitle2"
+              onClick={props.showImportDialog}
+            >
+              import
+            </Link>{" "}
+            i18N files.
           </Typography>
         </Grid>
       )}
