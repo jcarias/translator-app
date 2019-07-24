@@ -14,6 +14,8 @@ import {
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 import { makeStyles } from "@material-ui/styles";
+import Icon from "./utils/Icon";
+import { ICONS } from "../utils/constants/icons";
 
 const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
@@ -99,6 +101,27 @@ const LocalizationTable = props => {
           )}
         </TableBody>
       </Table>
+      {isEmpty(props.data.localizationData) && (
+        <Grid
+          container
+          direction="column"
+          alignContent="center"
+          alignItems="center"
+          style={{ padding: "2em" }}
+        >
+          <Grid item>
+            <Icon icon={ICONS.LANGUAGE} size={250} color={"rgba(0,0,0,0.1)"} />
+          </Grid>
+          <Grid item>
+            <Typography variant="subtitle1" color="textSecondary">
+              No translation keys.
+            </Typography>
+          </Grid>
+          <Typography variant="subtitle2" color="textSecondary">
+            Add keys manually or import i18N files.
+          </Typography>
+        </Grid>
+      )}
     </React.Fragment>
   );
 };

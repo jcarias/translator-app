@@ -14,15 +14,21 @@ import LocalizationTable from "./components/LocalizationTable";
 import ImportFileDialog from "./components/dialogs/ImportFileDialog";
 import ACTIONS from "./modules/actions";
 import withStyles from "@material-ui/styles/withStyles";
+import withTheme from "@material-ui/styles/withTheme";
 import DialogEditKey from "./components/dialogs/DialogEditKey";
 import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm";
 import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteLocale";
+import Icon from "./components/utils/Icon";
+import { ICONS } from "./utils/constants/icons";
 
 const styles = theme => ({
   fab: {
     position: "fixed",
     bottom: theme.spacing(2),
     right: theme.spacing(2)
+  },
+  test: {
+    fill: theme.palette.primary.main
   }
 });
 
@@ -132,6 +138,11 @@ class App extends Component {
               <IconButton variant="contained" color="primary">
                 <ImportExport />
               </IconButton>
+              {Object.keys(ICONS).map(iconKey => (
+                <IconButton variant="contained" color="secondary" key={iconKey}>
+                  <Icon icon={ICONS[iconKey]} size={22} />
+                </IconButton>
+              ))}
             </Toolbar>
           </Grid>
           <Grid item xs={12}>
@@ -169,4 +180,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(App));
+)(withStyles(styles)(withTheme(App)));
