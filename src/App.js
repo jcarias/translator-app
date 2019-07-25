@@ -20,7 +20,7 @@ import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm"
 import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteLocale";
 import Icon from "./components/utils/Icon";
 import { ICONS } from "./utils/constants/icons";
-import { Divider, Badge, Typography, Button, Link } from "@material-ui/core";
+import { Divider, Badge, Typography, Link } from "@material-ui/core";
 
 const styles = theme => ({
   fab: {
