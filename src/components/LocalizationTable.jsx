@@ -69,6 +69,9 @@ const buildTranslationsRow = (
 );
 
 const useStyles = makeStyles(theme => ({
+  table: {
+    marginBottom: 72
+  },
   destructiveBtn: {
     color: theme.palette.error.main
   }
@@ -79,7 +82,7 @@ const LocalizationTable = props => {
 
   return (
     <React.Fragment>
-      <Table style={{ marginBottom: 72 }}>
+      <Table className={classes.table}>
         <TableHead>
           <TableRow>
             <TableCell>i18N Key</TableCell>
@@ -100,44 +103,52 @@ const LocalizationTable = props => {
                 props.showConfirmDeleteRow
               )
           )}
+          {isEmpty(props.data.localizationData) && (
+            <TableRow>
+              <TableCell colSpan={3}>
+                <Grid
+                  container
+                  direction="column"
+                  alignContent="center"
+                  alignItems="center"
+                  style={{ paddingTop: "2em", paddingBottom: "2em" }}
+                >
+                  <Grid item>
+                    <Icon
+                      icon={ICONS.LANGUAGE}
+                      size={250}
+                      color={"rgba(0,0,0,0.1)"}
+                    />
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle1" color="textSecondary">
+                      No translation keys.
+                    </Typography>
+                  </Grid>
+                  <Typography variant="subtitle2" color="textSecondary">
+                    <Link
+                      component="button"
+                      variant="subtitle2"
+                      onClick={props.showEditKeyDialog}
+                    >
+                      Add keys
+                    </Link>{" "}
+                    manually or{" "}
+                    <Link
+                      component="button"
+                      variant="subtitle2"
+                      onClick={props.showImportDialog}
+                    >
+                      import
+                    </Link>{" "}
+                    i18N files.
+                  </Typography>
+                </Grid>
+              </TableCell>
+            </TableRow>
+          )}
         </TableBody>
       </Table>
-      {isEmpty(props.data.localizationData) && (
-        <Grid
-          container
-          direction="column"
-          alignContent="center"
-          alignItems="center"
-          style={{ padding: "2em" }}
-        >
-          <Grid item>
-            <Icon icon={ICONS.LANGUAGE} size={250} color={"rgba(0,0,0,0.1)"} />
-          </Grid>
-          <Grid item>
-            <Typography variant="subtitle1" color="textSecondary">
-              No translation keys.
-            </Typography>
-          </Grid>
-          <Typography variant="subtitle2" color="textSecondary">
-            <Link
-              component="button"
-              variant="subtitle2"
-              onClick={props.showEditKeyDialog}
-            >
-              Add keys
-            </Link>{" "}
-            manually or{" "}
-            <Link
-              component="button"
-              variant="subtitle2"
-              onClick={props.showImportDialog}
-            >
-              import
-            </Link>{" "}
-            i18N files.
-          </Typography>
-        </Grid>
-      )}
     </React.Fragment>
   );
 };

@@ -130,14 +130,15 @@ class App extends Component {
             </IconButton>
           </Tooltip>
         </TopBar>
-        <Grid container spacing={2}>
+        <Grid container>
           <Grid item xs={12}>
-            <Toolbar variant="dense">
+            <Toolbar>
               <Tooltip title={"Add a new Translation key"}>
                 <IconButton
                   disabled={
                     !this.props.locales || this.props.locales.length === 0
                   }
+                  onClick={this.showEditKeyDialog}
                 >
                   <Icon icon={ICONS.EDIT} />
                 </IconButton>
@@ -158,9 +159,9 @@ class App extends Component {
                 </IconButton>
               </Tooltip>
             </Toolbar>
+            <Divider />
           </Grid>
           <Grid item xs={12}>
-            <Divider />
             <Toolbar>
               <IconButton variant="contained" color="primary">
                 <AddIcon />
