@@ -17,17 +17,17 @@ class DialogEditKey extends Component {
   }
 
   generateDefaultTranslations = () => {
-    let defaultTransalations = {};
+    let defaultTranslations = {};
     this.props.locales.forEach(locale => {
       if (
         this.props.translations &&
-        this.props.translations.hasOwnProperty(locale)
+        this.props.translations.hasOwnProperty(locale.i)
       )
-        defaultTransalations[locale] = this.props.translations[locale];
-      else defaultTransalations[locale] = "";
+        defaultTranslations[locale.i] = this.props.translations[locale.i];
+      else defaultTranslations[locale.i] = "";
     });
 
-    return defaultTransalations;
+    return defaultTranslations;
   };
 
   componentDidMount() {
@@ -41,14 +41,11 @@ class DialogEditKey extends Component {
 
   componentDidUpdate(prevProps) {
     if (!_.isEqual(prevProps.locales, this.props.locales)) {
-      this.setState(
-        {
-          ...this.state,
-          locales: this.props.locales,
-          translations: this.generateDefaultTranslations(this.props.locales)
-        },
-        () => console.log(this.state)
-      );
+      this.setState({
+        ...this.state,
+        locales: this.props.locales,
+        translations: this.generateDefaultTranslations(this.props.locales)
+      });
     }
 
     if (!_.isEqual(prevProps.key, this.props.key)) {
@@ -69,7 +66,10 @@ class DialogEditKey extends Component {
   handleTranslationChange = (evt, locale) => {
     if (evt && evt.target) {
       this.setState({
-        translations: { ...this.state.translations, [locale]: evt.target.value }
+        translations: {
+          ...this.state.translations,
+          [locale.i]: evt.target.value
+        }
       });
     }
   };
@@ -105,11 +105,11 @@ class DialogEditKey extends Component {
                 key={index}
                 autoFocus
                 margin="dense"
-                id={`value-${locale}`}
-                name={`value-${locale}`}
-                label={`Translation for: ${locale}`}
+                id={`value-${locale.i}`}
+                name={`value-${locale.i}`}
+                label={`Translation for: ${locale.i} (${locale.l})`}
                 type="text"
-                value={this.state.translations[locale]}
+                value={this.state.translations[locale.i]}
                 fullWidth
                 onChange={evt => this.handleTranslationChange(evt, locale)}
               />

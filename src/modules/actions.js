@@ -6,6 +6,7 @@ const Types = {
   IMPORT_FILE: "IMPORT_FILE",
   EXPORT_LOCALE_DATA: "EXPORT_LOCALE_DATA",
   ADD_LOCALIZED_STRING: "ADD_LOCALIZED_STRING",
+  TOGGLE_LOCALE: "TOGGLE_LOCALE",
   REMOVE_LOCALIZED_STRING: "REMOVE_LOCALIZED_STRING"
 };
 
@@ -28,6 +29,22 @@ const updateLocale = (oldLocale, newLocale) => ({
   oldLocale,
   newLocale
 });
+
+const toggleLocale = (currentLocales, locale) => {
+  if (currentLocales.some(l => l.i === locale.i)) {
+    //Locale exists: Remove it
+    return {
+      type: Types.REMOVE_LOCALE,
+      locale
+    };
+  } else {
+    //Locale doesn't exist: Add it
+    return {
+      type: Types.ADD_LOCALE,
+      locale
+    };
+  }
+};
 
 const importFile = (locale, localizationStrings) => ({
   type: Types.IMPORT_FILE,
@@ -59,5 +76,6 @@ export default {
   exportLocaleData,
   addLocalizedString,
   removeLocalizedString,
-  Types
+  Types,
+  toggleLocale
 };

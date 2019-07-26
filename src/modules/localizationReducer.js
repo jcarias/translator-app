@@ -2,7 +2,7 @@ import ACTIONS from "./actions";
 import _ from "lodash";
 
 const defaultState = {
-  locales: ["en-US"],
+  locales: [],
   localizationData: {}
 };
 
@@ -11,15 +11,14 @@ const todoReducer = (state = defaultState, action) => {
   switch (action.type) {
     case ACTIONS.Types.ADD_LOCALE: {
       let newState = _.cloneDeep(state);
-      let newLocale = action.locale;
-      return addLocale(newLocale, newState);
+      return addLocale(action.locale, newState);
     }
 
     case ACTIONS.Types.REMOVE_LOCALE: {
       let newState = _.cloneDeep(state);
       const localeToDelete = action.locale;
       newState.locales = newState.locales.filter(
-        locale => locale !== localeToDelete
+        locale => locale.i !== localeToDelete.i
       );
 
       //update localization data
@@ -27,7 +26,7 @@ const todoReducer = (state = defaultState, action) => {
         for (const key in newState.localizationData) {
           if (newState.localizationData.hasOwnProperty(key)) {
             let localization = newState.localizationData[key];
-            delete localization[localeToDelete];
+            delete localization[localeToDelete.i];
           }
         }
       }
@@ -36,16 +35,16 @@ const todoReducer = (state = defaultState, action) => {
 
     case ACTIONS.Types.IMPORT_FILE: {
       let newState = _.cloneDeep(state);
-      console.log(action);
-      if (newState.locales.indexOf(action.locale) < 0) {
-        newState = addLocale(action.locale, newState);
-      }
+
+      //addLocale(...) will only add a locale if it doesn't exists.
+      newState = addLocale(action.locale, newState);
+
       for (const key in action.localizationStrings) {
         if (action.localizationStrings.hasOwnProperty(key)) {
           const localizationString = action.localizationStrings[key];
           newState.localizationData[key] = {
             ...newState.localizationData[key],
-            [action.locale]: localizationString
+            [action.locale.i]: localizationString
           };
         }
       }
@@ -71,15 +70,18 @@ const todoReducer = (state = defaultState, action) => {
 };
 
 const addLocale = (locale, stateData) => {
-  if (stateData.locales.indexOf(locale) < 0) {
-    //update locales array
-    stateData.locales.push(locale);
-    //update localization data
-    if (!_.isEmpty(stateData.localizationData)) {
-      for (const key in stateData.localizationData) {
-        if (stateData.localizationData.hasOwnProperty(key)) {
-          let localization = stateData.localizationData[key];
-          localization = { ...localization, [locale]: null };
+  if (!_.isEmpty(locale)) {
+    if (!stateData.locales.some(l => l.i === locale.i)) {
+      //update locales array
+      stateData.locales = [...stateData.locales, locale];
+
+      //update localization data
+      if (!_.isEmpty(stateData.localizationData)) {
+        for (const key in stateData.localizationData) {
+          if (stateData.localizationData.hasOwnProperty(key)) {
+            let localization = stateData.localizationData[key];
+            localization = { ...localization, [locale.i]: null };
+          }
         }
       }
     }

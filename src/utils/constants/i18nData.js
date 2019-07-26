@@ -1,1967 +1,2771 @@
 export const i18n = [ 
   { 
-    "i18n": "af-NA", 
-    "country": "Namibia", 
-    "language": "Afrikaans" 
+    "i": "af-NA", 
+    "cc": "NA", 
+    "lc": "af", 
+    "c": "Namibia", 
+    "l": "Afrikaans" 
   }, 
   { 
-    "i18n": "af-ZA", 
-    "country": "South Africa", 
-    "language": "Afrikaans" 
+    "i": "af-ZA", 
+    "cc": "ZA", 
+    "lc": "af", 
+    "c": "South Africa", 
+    "l": "Afrikaans" 
   }, 
   { 
-    "i18n": "ak-GH", 
-    "country": "Ghana", 
-    "language": "Akan" 
+    "i": "ak-GH", 
+    "cc": "GH", 
+    "lc": "ak", 
+    "c": "Ghana", 
+    "l": "Akan" 
   }, 
   { 
-    "i18n": "am-ET", 
-    "country": "Ethiopia", 
-    "language": "Amharic" 
+    "i": "am-ET", 
+    "cc": "ET", 
+    "lc": "am", 
+    "c": "Ethiopia", 
+    "l": "Amharic" 
   }, 
   { 
-    "i18n": "ar-AE", 
-    "country": "United Arab Emirates", 
-    "language": "Arabic" 
+    "i": "ar-AE", 
+    "cc": "AE", 
+    "lc": "ar", 
+    "c": "United Arab Emirates", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-BH", 
-    "country": "Bahrain", 
-    "language": "Arabic" 
+    "i": "ar-BH", 
+    "cc": "BH", 
+    "lc": "ar", 
+    "c": "Bahrain", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-DJ", 
-    "country": "Djibouti", 
-    "language": "Arabic" 
+    "i": "ar-DJ", 
+    "cc": "DJ", 
+    "lc": "ar", 
+    "c": "Djibouti", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-DZ", 
-    "country": "Algeria", 
-    "language": "Arabic" 
+    "i": "ar-DZ", 
+    "cc": "DZ", 
+    "lc": "ar", 
+    "c": "Algeria", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-EG", 
-    "country": "Egypt", 
-    "language": "Arabic" 
+    "i": "ar-EG", 
+    "cc": "EG", 
+    "lc": "ar", 
+    "c": "Egypt", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-EH", 
-    "country": "Western Sahara", 
-    "language": "Arabic" 
+    "i": "ar-EH", 
+    "cc": "EH", 
+    "lc": "ar", 
+    "c": "Western Sahara", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-ER", 
-    "country": "Eritrea", 
-    "language": "Arabic" 
+    "i": "ar-ER", 
+    "cc": "ER", 
+    "lc": "ar", 
+    "c": "Eritrea", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-IL", 
-    "country": "Israel", 
-    "language": "Arabic" 
+    "i": "ar-IL", 
+    "cc": "IL", 
+    "lc": "ar", 
+    "c": "Israel", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-IQ", 
-    "country": "Iraq", 
-    "language": "Arabic" 
+    "i": "ar-IQ", 
+    "cc": "IQ", 
+    "lc": "ar", 
+    "c": "Iraq", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-JO", 
-    "country": "Jordan", 
-    "language": "Arabic" 
+    "i": "ar-JO", 
+    "cc": "JO", 
+    "lc": "ar", 
+    "c": "Jordan", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-KM", 
-    "country": "Comoros", 
-    "language": "Arabic" 
+    "i": "ar-KM", 
+    "cc": "KM", 
+    "lc": "ar", 
+    "c": "Comoros", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-KW", 
-    "country": "Kuwait", 
-    "language": "Arabic" 
+    "i": "ar-KW", 
+    "cc": "KW", 
+    "lc": "ar", 
+    "c": "Kuwait", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-LB", 
-    "country": "Lebanon", 
-    "language": "Arabic" 
+    "i": "ar-LB", 
+    "cc": "LB", 
+    "lc": "ar", 
+    "c": "Lebanon", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-LY", 
-    "country": "Libya", 
-    "language": "Arabic" 
+    "i": "ar-LY", 
+    "cc": "LY", 
+    "lc": "ar", 
+    "c": "Libya", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-MA", 
-    "country": "Morocco", 
-    "language": "Arabic" 
+    "i": "ar-MA", 
+    "cc": "MA", 
+    "lc": "ar", 
+    "c": "Morocco", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-MR", 
-    "country": "Mauritania", 
-    "language": "Arabic" 
+    "i": "ar-MR", 
+    "cc": "MR", 
+    "lc": "ar", 
+    "c": "Mauritania", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-OM", 
-    "country": "Oman", 
-    "language": "Arabic" 
+    "i": "ar-OM", 
+    "cc": "OM", 
+    "lc": "ar", 
+    "c": "Oman", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-PS", 
-    "country": "Palestine, State of", 
-    "language": "Arabic" 
+    "i": "ar-PS", 
+    "cc": "PS", 
+    "lc": "ar", 
+    "c": "Palestine, State of", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-QA", 
-    "country": "Qatar", 
-    "language": "Arabic" 
+    "i": "ar-QA", 
+    "cc": "QA", 
+    "lc": "ar", 
+    "c": "Qatar", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-SA", 
-    "country": "Saudi Arabia", 
-    "language": "Arabic" 
+    "i": "ar-SA", 
+    "cc": "SA", 
+    "lc": "ar", 
+    "c": "Saudi Arabia", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-SD", 
-    "country": "Sudan", 
-    "language": "Arabic" 
+    "i": "ar-SD", 
+    "cc": "SD", 
+    "lc": "ar", 
+    "c": "Sudan", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-SO", 
-    "country": "Somalia", 
-    "language": "Arabic" 
+    "i": "ar-SO", 
+    "cc": "SO", 
+    "lc": "ar", 
+    "c": "Somalia", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-SS", 
-    "country": "South Sudan", 
-    "language": "Arabic" 
+    "i": "ar-SS", 
+    "cc": "SS", 
+    "lc": "ar", 
+    "c": "South Sudan", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-SY", 
-    "country": "Syrian Arab Republic", 
-    "language": "Arabic" 
+    "i": "ar-SY", 
+    "cc": "SY", 
+    "lc": "ar", 
+    "c": "Syrian Arab Republic", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-TD", 
-    "country": "Chad", 
-    "language": "Arabic" 
+    "i": "ar-TD", 
+    "cc": "TD", 
+    "lc": "ar", 
+    "c": "Chad", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-TN", 
-    "country": "Tunisia", 
-    "language": "Arabic" 
+    "i": "ar-TN", 
+    "cc": "TN", 
+    "lc": "ar", 
+    "c": "Tunisia", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "ar-YE", 
-    "country": "Yemen", 
-    "language": "Arabic" 
+    "i": "ar-YE", 
+    "cc": "YE", 
+    "lc": "ar", 
+    "c": "Yemen", 
+    "l": "Arabic" 
   }, 
   { 
-    "i18n": "as-IN", 
-    "country": "India", 
-    "language": "Assamese" 
+    "i": "as-IN", 
+    "cc": "IN", 
+    "lc": "as", 
+    "c": "India", 
+    "l": "Assamese" 
   }, 
   { 
-    "i18n": "be-BY", 
-    "country": "Belarus", 
-    "language": "Belarusian" 
+    "i": "be-BY", 
+    "cc": "BY", 
+    "lc": "be", 
+    "c": "Belarus", 
+    "l": "Belarusian" 
   }, 
   { 
-    "i18n": "bg-BG", 
-    "country": "Bulgaria", 
-    "language": "Bulgarian" 
+    "i": "bg-BG", 
+    "cc": "BG", 
+    "lc": "bg", 
+    "c": "Bulgaria", 
+    "l": "Bulgarian" 
   }, 
   { 
-    "i18n": "bm-ML", 
-    "country": "Mali", 
-    "language": "Bambara" 
+    "i": "bm-ML", 
+    "cc": "ML", 
+    "lc": "bm", 
+    "c": "Mali", 
+    "l": "Bambara" 
   }, 
   { 
-    "i18n": "bn-BD", 
-    "country": "Bangladesh", 
-    "language": "Bengali" 
+    "i": "bn-BD", 
+    "cc": "BD", 
+    "lc": "bn", 
+    "c": "Bangladesh", 
+    "l": "Bengali" 
   }, 
   { 
-    "i18n": "bn-IN", 
-    "country": "India", 
-    "language": "Bengali" 
+    "i": "bn-IN", 
+    "cc": "IN", 
+    "lc": "bn", 
+    "c": "India", 
+    "l": "Bengali" 
   }, 
   { 
-    "i18n": "bo-CN", 
-    "country": "China", 
-    "language": "Tibetan" 
+    "i": "bo-CN", 
+    "cc": "CN", 
+    "lc": "bo", 
+    "c": "China", 
+    "l": "Tibetan" 
   }, 
   { 
-    "i18n": "bo-IN", 
-    "country": "India", 
-    "language": "Tibetan" 
+    "i": "bo-IN", 
+    "cc": "IN", 
+    "lc": "bo", 
+    "c": "India", 
+    "l": "Tibetan" 
   }, 
   { 
-    "i18n": "br-FR", 
-    "country": "France", 
-    "language": "Breton" 
+    "i": "br-FR", 
+    "cc": "FR", 
+    "lc": "br", 
+    "c": "France", 
+    "l": "Breton" 
   }, 
   { 
-    "i18n": "ca-AD", 
-    "country": "Andorra", 
-    "language": "Catalan; Valencian" 
+    "i": "ca-AD", 
+    "cc": "AD", 
+    "lc": "ca", 
+    "c": "Andorra", 
+    "l": "Catalan; Valencian" 
   }, 
   { 
-    "i18n": "ca-ES", 
-    "country": "Spain", 
-    "language": "Catalan; Valencian" 
+    "i": "ca-ES", 
+    "cc": "ES", 
+    "lc": "ca", 
+    "c": "Spain", 
+    "l": "Catalan; Valencian" 
   }, 
   { 
-    "i18n": "ca-FR", 
-    "country": "France", 
-    "language": "Catalan; Valencian" 
+    "i": "ca-FR", 
+    "cc": "FR", 
+    "lc": "ca", 
+    "c": "France", 
+    "l": "Catalan; Valencian" 
   }, 
   { 
-    "i18n": "ca-IT", 
-    "country": "Italy", 
-    "language": "Catalan; Valencian" 
+    "i": "ca-IT", 
+    "cc": "IT", 
+    "lc": "ca", 
+    "c": "Italy", 
+    "l": "Catalan; Valencian" 
   }, 
   { 
-    "i18n": "ce-RU", 
-    "country": "Russian Federation", 
-    "language": "Chechen" 
+    "i": "ce-RU", 
+    "cc": "RU", 
+    "lc": "ce", 
+    "c": "Russian Federation", 
+    "l": "Chechen" 
   }, 
   { 
-    "i18n": "cs-CZ", 
-    "country": "Czech Republic", 
-    "language": "Czech" 
+    "i": "cs-CZ", 
+    "cc": "CZ", 
+    "lc": "cs", 
+    "c": "Czech Republic", 
+    "l": "Czech" 
   }, 
   { 
-    "i18n": "cu-RU", 
-    "country": "Russian Federation", 
-    "language": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic" 
+    "i": "cu-RU", 
+    "cc": "RU", 
+    "lc": "cu", 
+    "c": "Russian Federation", 
+    "l": "Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic" 
   }, 
   { 
-    "i18n": "cy-GB", 
-    "country": "United Kingdom", 
-    "language": "Welsh" 
+    "i": "cy-GB", 
+    "cc": "GB", 
+    "lc": "cy", 
+    "c": "United Kingdom", 
+    "l": "Welsh" 
   }, 
   { 
-    "i18n": "da-DK", 
-    "country": "Denmark", 
-    "language": "Danish" 
+    "i": "da-DK", 
+    "cc": "DK", 
+    "lc": "da", 
+    "c": "Denmark", 
+    "l": "Danish" 
   }, 
   { 
-    "i18n": "da-GL", 
-    "country": "Greenland", 
-    "language": "Danish" 
+    "i": "da-GL", 
+    "cc": "GL", 
+    "lc": "da", 
+    "c": "Greenland", 
+    "l": "Danish" 
   }, 
   { 
-    "i18n": "de-AT", 
-    "country": "Austria", 
-    "language": "German" 
+    "i": "de-AT", 
+    "cc": "AT", 
+    "lc": "de", 
+    "c": "Austria", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "de-BE", 
-    "country": "Belgium", 
-    "language": "German" 
+    "i": "de-BE", 
+    "cc": "BE", 
+    "lc": "de", 
+    "c": "Belgium", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "de-CH", 
-    "country": "Switzerland", 
-    "language": "German" 
+    "i": "de-CH", 
+    "cc": "CH", 
+    "lc": "de", 
+    "c": "Switzerland", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "de-DE", 
-    "country": "Germany", 
-    "language": "German" 
+    "i": "de-DE", 
+    "cc": "DE", 
+    "lc": "de", 
+    "c": "Germany", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "de-IT", 
-    "country": "Italy", 
-    "language": "German" 
+    "i": "de-IT", 
+    "cc": "IT", 
+    "lc": "de", 
+    "c": "Italy", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "de-LI", 
-    "country": "Liechtenstein", 
-    "language": "German" 
+    "i": "de-LI", 
+    "cc": "LI", 
+    "lc": "de", 
+    "c": "Liechtenstein", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "de-LU", 
-    "country": "Luxembourg", 
-    "language": "German" 
+    "i": "de-LU", 
+    "cc": "LU", 
+    "lc": "de", 
+    "c": "Luxembourg", 
+    "l": "German" 
   }, 
   { 
-    "i18n": "dz-BT", 
-    "country": "Bhutan", 
-    "language": "Dzongkha" 
+    "i": "dz-BT", 
+    "cc": "BT", 
+    "lc": "dz", 
+    "c": "Bhutan", 
+    "l": "Dzongkha" 
   }, 
   { 
-    "i18n": "ee-GH", 
-    "country": "Ghana", 
-    "language": "Ewe" 
+    "i": "ee-GH", 
+    "cc": "GH", 
+    "lc": "ee", 
+    "c": "Ghana", 
+    "l": "Ewe" 
   }, 
   { 
-    "i18n": "ee-TG", 
-    "country": "Togo", 
-    "language": "Ewe" 
+    "i": "ee-TG", 
+    "cc": "TG", 
+    "lc": "ee", 
+    "c": "Togo", 
+    "l": "Ewe" 
   }, 
   { 
-    "i18n": "el-CY", 
-    "country": "Cyprus", 
-    "language": "Greek, Modern (1453-)" 
+    "i": "el-CY", 
+    "cc": "CY", 
+    "lc": "el", 
+    "c": "Cyprus", 
+    "l": "Greek, Modern (1453-)" 
   }, 
   { 
-    "i18n": "el-GR", 
-    "country": "Greece", 
-    "language": "Greek, Modern (1453-)" 
+    "i": "el-GR", 
+    "cc": "GR", 
+    "lc": "el", 
+    "c": "Greece", 
+    "l": "Greek, Modern (1453-)" 
   }, 
   { 
-    "i18n": "en-AE", 
-    "country": "United Arab Emirates", 
-    "language": "English" 
+    "i": "en-AE", 
+    "cc": "AE", 
+    "lc": "en", 
+    "c": "United Arab Emirates", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-AG", 
-    "country": "Antigua and Barbuda", 
-    "language": "English" 
+    "i": "en-AG", 
+    "cc": "AG", 
+    "lc": "en", 
+    "c": "Antigua and Barbuda", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-AI", 
-    "country": "Anguilla", 
-    "language": "English" 
+    "i": "en-AI", 
+    "cc": "AI", 
+    "lc": "en", 
+    "c": "Anguilla", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-AS", 
-    "country": "American Samoa", 
-    "language": "English" 
+    "i": "en-AS", 
+    "cc": "AS", 
+    "lc": "en", 
+    "c": "American Samoa", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-AT", 
-    "country": "Austria", 
-    "language": "English" 
+    "i": "en-AT", 
+    "cc": "AT", 
+    "lc": "en", 
+    "c": "Austria", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-AU", 
-    "country": "Australia", 
-    "language": "English" 
+    "i": "en-AU", 
+    "cc": "AU", 
+    "lc": "en", 
+    "c": "Australia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BB", 
-    "country": "Barbados", 
-    "language": "English" 
+    "i": "en-BB", 
+    "cc": "BB", 
+    "lc": "en", 
+    "c": "Barbados", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BE", 
-    "country": "Belgium", 
-    "language": "English" 
+    "i": "en-BE", 
+    "cc": "BE", 
+    "lc": "en", 
+    "c": "Belgium", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BI", 
-    "country": "Burundi", 
-    "language": "English" 
+    "i": "en-BI", 
+    "cc": "BI", 
+    "lc": "en", 
+    "c": "Burundi", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BM", 
-    "country": "Bermuda", 
-    "language": "English" 
+    "i": "en-BM", 
+    "cc": "BM", 
+    "lc": "en", 
+    "c": "Bermuda", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BS", 
-    "country": "Bahamas", 
-    "language": "English" 
+    "i": "en-BS", 
+    "cc": "BS", 
+    "lc": "en", 
+    "c": "Bahamas", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BW", 
-    "country": "Botswana", 
-    "language": "English" 
+    "i": "en-BW", 
+    "cc": "BW", 
+    "lc": "en", 
+    "c": "Botswana", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-BZ", 
-    "country": "Belize", 
-    "language": "English" 
+    "i": "en-BZ", 
+    "cc": "BZ", 
+    "lc": "en", 
+    "c": "Belize", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CA", 
-    "country": "Canada", 
-    "language": "English" 
+    "i": "en-CA", 
+    "cc": "CA", 
+    "lc": "en", 
+    "c": "Canada", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CC", 
-    "country": "Cocos (Keeling) Islands", 
-    "language": "English" 
+    "i": "en-CC", 
+    "cc": "CC", 
+    "lc": "en", 
+    "c": "Cocos (Keeling) Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CH", 
-    "country": "Switzerland", 
-    "language": "English" 
+    "i": "en-CH", 
+    "cc": "CH", 
+    "lc": "en", 
+    "c": "Switzerland", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CK", 
-    "country": "Cook Islands", 
-    "language": "English" 
+    "i": "en-CK", 
+    "cc": "CK", 
+    "lc": "en", 
+    "c": "Cook Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CM", 
-    "country": "Cameroon", 
-    "language": "English" 
+    "i": "en-CM", 
+    "cc": "CM", 
+    "lc": "en", 
+    "c": "Cameroon", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CX", 
-    "country": "Christmas Island", 
-    "language": "English" 
+    "i": "en-CX", 
+    "cc": "CX", 
+    "lc": "en", 
+    "c": "Christmas Island", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-CY", 
-    "country": "Cyprus", 
-    "language": "English" 
+    "i": "en-CY", 
+    "cc": "CY", 
+    "lc": "en", 
+    "c": "Cyprus", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-DE", 
-    "country": "Germany", 
-    "language": "English" 
+    "i": "en-DE", 
+    "cc": "DE", 
+    "lc": "en", 
+    "c": "Germany", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-DK", 
-    "country": "Denmark", 
-    "language": "English" 
+    "i": "en-DK", 
+    "cc": "DK", 
+    "lc": "en", 
+    "c": "Denmark", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-DM", 
-    "country": "Dominica", 
-    "language": "English" 
+    "i": "en-DM", 
+    "cc": "DM", 
+    "lc": "en", 
+    "c": "Dominica", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-ER", 
-    "country": "Eritrea", 
-    "language": "English" 
+    "i": "en-ER", 
+    "cc": "ER", 
+    "lc": "en", 
+    "c": "Eritrea", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-FI", 
-    "country": "Finland", 
-    "language": "English" 
+    "i": "en-FI", 
+    "cc": "FI", 
+    "lc": "en", 
+    "c": "Finland", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-FJ", 
-    "country": "Fiji", 
-    "language": "English" 
+    "i": "en-FJ", 
+    "cc": "FJ", 
+    "lc": "en", 
+    "c": "Fiji", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-FK", 
-    "country": "Falkland Islands (Malvinas)", 
-    "language": "English" 
+    "i": "en-FK", 
+    "cc": "FK", 
+    "lc": "en", 
+    "c": "Falkland Islands (Malvinas)", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-FM", 
-    "country": "Micronesia, Federated States of", 
-    "language": "English" 
+    "i": "en-FM", 
+    "cc": "FM", 
+    "lc": "en", 
+    "c": "Micronesia, Federated States of", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GB", 
-    "country": "United Kingdom", 
-    "language": "English" 
+    "i": "en-GB", 
+    "cc": "GB", 
+    "lc": "en", 
+    "c": "United Kingdom", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GD", 
-    "country": "Grenada", 
-    "language": "English" 
+    "i": "en-GD", 
+    "cc": "GD", 
+    "lc": "en", 
+    "c": "Grenada", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GG", 
-    "country": "Guernsey", 
-    "language": "English" 
+    "i": "en-GG", 
+    "cc": "GG", 
+    "lc": "en", 
+    "c": "Guernsey", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GH", 
-    "country": "Ghana", 
-    "language": "English" 
+    "i": "en-GH", 
+    "cc": "GH", 
+    "lc": "en", 
+    "c": "Ghana", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GI", 
-    "country": "Gibraltar", 
-    "language": "English" 
+    "i": "en-GI", 
+    "cc": "GI", 
+    "lc": "en", 
+    "c": "Gibraltar", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GM", 
-    "country": "Gambia", 
-    "language": "English" 
+    "i": "en-GM", 
+    "cc": "GM", 
+    "lc": "en", 
+    "c": "Gambia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GU", 
-    "country": "Guam", 
-    "language": "English" 
+    "i": "en-GU", 
+    "cc": "GU", 
+    "lc": "en", 
+    "c": "Guam", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-GY", 
-    "country": "Guyana", 
-    "language": "English" 
+    "i": "en-GY", 
+    "cc": "GY", 
+    "lc": "en", 
+    "c": "Guyana", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-HK", 
-    "country": "Hong Kong", 
-    "language": "English" 
+    "i": "en-HK", 
+    "cc": "HK", 
+    "lc": "en", 
+    "c": "Hong Kong", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-IE", 
-    "country": "Ireland", 
-    "language": "English" 
+    "i": "en-IE", 
+    "cc": "IE", 
+    "lc": "en", 
+    "c": "Ireland", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-IL", 
-    "country": "Israel", 
-    "language": "English" 
+    "i": "en-IL", 
+    "cc": "IL", 
+    "lc": "en", 
+    "c": "Israel", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-IM", 
-    "country": "Isle of Man", 
-    "language": "English" 
+    "i": "en-IM", 
+    "cc": "IM", 
+    "lc": "en", 
+    "c": "Isle of Man", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-IN", 
-    "country": "India", 
-    "language": "English" 
+    "i": "en-IN", 
+    "cc": "IN", 
+    "lc": "en", 
+    "c": "India", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-IO", 
-    "country": "British Indian Ocean Territory", 
-    "language": "English" 
+    "i": "en-IO", 
+    "cc": "IO", 
+    "lc": "en", 
+    "c": "British Indian Ocean Territory", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-JE", 
-    "country": "Jersey", 
-    "language": "English" 
+    "i": "en-JE", 
+    "cc": "JE", 
+    "lc": "en", 
+    "c": "Jersey", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-JM", 
-    "country": "Jamaica", 
-    "language": "English" 
+    "i": "en-JM", 
+    "cc": "JM", 
+    "lc": "en", 
+    "c": "Jamaica", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-KE", 
-    "country": "Kenya", 
-    "language": "English" 
+    "i": "en-KE", 
+    "cc": "KE", 
+    "lc": "en", 
+    "c": "Kenya", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-KI", 
-    "country": "Kiribati", 
-    "language": "English" 
+    "i": "en-KI", 
+    "cc": "KI", 
+    "lc": "en", 
+    "c": "Kiribati", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-KN", 
-    "country": "Saint Kitts and Nevis", 
-    "language": "English" 
+    "i": "en-KN", 
+    "cc": "KN", 
+    "lc": "en", 
+    "c": "Saint Kitts and Nevis", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-KY", 
-    "country": "Cayman Islands", 
-    "language": "English" 
+    "i": "en-KY", 
+    "cc": "KY", 
+    "lc": "en", 
+    "c": "Cayman Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-LC", 
-    "country": "Saint Lucia", 
-    "language": "English" 
+    "i": "en-LC", 
+    "cc": "LC", 
+    "lc": "en", 
+    "c": "Saint Lucia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-LR", 
-    "country": "Liberia", 
-    "language": "English" 
+    "i": "en-LR", 
+    "cc": "LR", 
+    "lc": "en", 
+    "c": "Liberia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-LS", 
-    "country": "Lesotho", 
-    "language": "English" 
+    "i": "en-LS", 
+    "cc": "LS", 
+    "lc": "en", 
+    "c": "Lesotho", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MG", 
-    "country": "Madagascar", 
-    "language": "English" 
+    "i": "en-MG", 
+    "cc": "MG", 
+    "lc": "en", 
+    "c": "Madagascar", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MH", 
-    "country": "Marshall Islands", 
-    "language": "English" 
+    "i": "en-MH", 
+    "cc": "MH", 
+    "lc": "en", 
+    "c": "Marshall Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MO", 
-    "country": "Macao", 
-    "language": "English" 
+    "i": "en-MO", 
+    "cc": "MO", 
+    "lc": "en", 
+    "c": "Macao", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MP", 
-    "country": "Northern Mariana Islands", 
-    "language": "English" 
+    "i": "en-MP", 
+    "cc": "MP", 
+    "lc": "en", 
+    "c": "Northern Mariana Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MS", 
-    "country": "Montserrat", 
-    "language": "English" 
+    "i": "en-MS", 
+    "cc": "MS", 
+    "lc": "en", 
+    "c": "Montserrat", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MT", 
-    "country": "Malta", 
-    "language": "English" 
+    "i": "en-MT", 
+    "cc": "MT", 
+    "lc": "en", 
+    "c": "Malta", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MU", 
-    "country": "Mauritius", 
-    "language": "English" 
+    "i": "en-MU", 
+    "cc": "MU", 
+    "lc": "en", 
+    "c": "Mauritius", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MW", 
-    "country": "Malawi", 
-    "language": "English" 
+    "i": "en-MW", 
+    "cc": "MW", 
+    "lc": "en", 
+    "c": "Malawi", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-MY", 
-    "country": "Malaysia", 
-    "language": "English" 
+    "i": "en-MY", 
+    "cc": "MY", 
+    "lc": "en", 
+    "c": "Malaysia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NA", 
-    "country": "Namibia", 
-    "language": "English" 
+    "i": "en-NA", 
+    "cc": "NA", 
+    "lc": "en", 
+    "c": "Namibia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NF", 
-    "country": "Norfolk Island", 
-    "language": "English" 
+    "i": "en-NF", 
+    "cc": "NF", 
+    "lc": "en", 
+    "c": "Norfolk Island", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NG", 
-    "country": "Nigeria", 
-    "language": "English" 
+    "i": "en-NG", 
+    "cc": "NG", 
+    "lc": "en", 
+    "c": "Nigeria", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NL", 
-    "country": "Netherlands", 
-    "language": "English" 
+    "i": "en-NL", 
+    "cc": "NL", 
+    "lc": "en", 
+    "c": "Netherlands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NR", 
-    "country": "Nauru", 
-    "language": "English" 
+    "i": "en-NR", 
+    "cc": "NR", 
+    "lc": "en", 
+    "c": "Nauru", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NU", 
-    "country": "Niue", 
-    "language": "English" 
+    "i": "en-NU", 
+    "cc": "NU", 
+    "lc": "en", 
+    "c": "Niue", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-NZ", 
-    "country": "New Zealand", 
-    "language": "English" 
+    "i": "en-NZ", 
+    "cc": "NZ", 
+    "lc": "en", 
+    "c": "New Zealand", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-PG", 
-    "country": "Papua New Guinea", 
-    "language": "English" 
+    "i": "en-PG", 
+    "cc": "PG", 
+    "lc": "en", 
+    "c": "Papua New Guinea", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-PH", 
-    "country": "Philippines", 
-    "language": "English" 
+    "i": "en-PH", 
+    "cc": "PH", 
+    "lc": "en", 
+    "c": "Philippines", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-PK", 
-    "country": "Pakistan", 
-    "language": "English" 
+    "i": "en-PK", 
+    "cc": "PK", 
+    "lc": "en", 
+    "c": "Pakistan", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-PN", 
-    "country": "Pitcairn", 
-    "language": "English" 
+    "i": "en-PN", 
+    "cc": "PN", 
+    "lc": "en", 
+    "c": "Pitcairn", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-PR", 
-    "country": "Puerto Rico", 
-    "language": "English" 
+    "i": "en-PR", 
+    "cc": "PR", 
+    "lc": "en", 
+    "c": "Puerto Rico", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-PW", 
-    "country": "Palau", 
-    "language": "English" 
+    "i": "en-PW", 
+    "cc": "PW", 
+    "lc": "en", 
+    "c": "Palau", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-RW", 
-    "country": "Rwanda", 
-    "language": "English" 
+    "i": "en-RW", 
+    "cc": "RW", 
+    "lc": "en", 
+    "c": "Rwanda", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SB", 
-    "country": "Solomon Islands", 
-    "language": "English" 
+    "i": "en-SB", 
+    "cc": "SB", 
+    "lc": "en", 
+    "c": "Solomon Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SC", 
-    "country": "Seychelles", 
-    "language": "English" 
+    "i": "en-SC", 
+    "cc": "SC", 
+    "lc": "en", 
+    "c": "Seychelles", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SD", 
-    "country": "Sudan", 
-    "language": "English" 
+    "i": "en-SD", 
+    "cc": "SD", 
+    "lc": "en", 
+    "c": "Sudan", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SE", 
-    "country": "Sweden", 
-    "language": "English" 
+    "i": "en-SE", 
+    "cc": "SE", 
+    "lc": "en", 
+    "c": "Sweden", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SG", 
-    "country": "Singapore", 
-    "language": "English" 
+    "i": "en-SG", 
+    "cc": "SG", 
+    "lc": "en", 
+    "c": "Singapore", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SH", 
-    "country": "Saint Helena, Ascension and Tristan da Cunha", 
-    "language": "English" 
+    "i": "en-SH", 
+    "cc": "SH", 
+    "lc": "en", 
+    "c": "Saint Helena, Ascension and Tristan da Cunha", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SI", 
-    "country": "Slovenia", 
-    "language": "English" 
+    "i": "en-SI", 
+    "cc": "SI", 
+    "lc": "en", 
+    "c": "Slovenia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SL", 
-    "country": "Sierra Leone", 
-    "language": "English" 
+    "i": "en-SL", 
+    "cc": "SL", 
+    "lc": "en", 
+    "c": "Sierra Leone", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SS", 
-    "country": "South Sudan", 
-    "language": "English" 
+    "i": "en-SS", 
+    "cc": "SS", 
+    "lc": "en", 
+    "c": "South Sudan", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SX", 
-    "country": "Sint Maarten (Dutch part)", 
-    "language": "English" 
+    "i": "en-SX", 
+    "cc": "SX", 
+    "lc": "en", 
+    "c": "Sint Maarten (Dutch part)", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-SZ", 
-    "country": "Swaziland", 
-    "language": "English" 
+    "i": "en-SZ", 
+    "cc": "SZ", 
+    "lc": "en", 
+    "c": "Swaziland", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-TC", 
-    "country": "Turks and Caicos Islands", 
-    "language": "English" 
+    "i": "en-TC", 
+    "cc": "TC", 
+    "lc": "en", 
+    "c": "Turks and Caicos Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-TK", 
-    "country": "Tokelau", 
-    "language": "English" 
+    "i": "en-TK", 
+    "cc": "TK", 
+    "lc": "en", 
+    "c": "Tokelau", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-TO", 
-    "country": "Tonga", 
-    "language": "English" 
+    "i": "en-TO", 
+    "cc": "TO", 
+    "lc": "en", 
+    "c": "Tonga", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-TT", 
-    "country": "Trinidad and Tobago", 
-    "language": "English" 
+    "i": "en-TT", 
+    "cc": "TT", 
+    "lc": "en", 
+    "c": "Trinidad and Tobago", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-TV", 
-    "country": "Tuvalu", 
-    "language": "English" 
+    "i": "en-TV", 
+    "cc": "TV", 
+    "lc": "en", 
+    "c": "Tuvalu", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-TZ", 
-    "country": "Tanzania, United Republic of", 
-    "language": "English" 
+    "i": "en-TZ", 
+    "cc": "TZ", 
+    "lc": "en", 
+    "c": "Tanzania, United Republic of", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-UG", 
-    "country": "Uganda", 
-    "language": "English" 
+    "i": "en-UG", 
+    "cc": "UG", 
+    "lc": "en", 
+    "c": "Uganda", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-UM", 
-    "country": "United States Minor Outlying Islands", 
-    "language": "English" 
+    "i": "en-UM", 
+    "cc": "UM", 
+    "lc": "en", 
+    "c": "United States Minor Outlying Islands", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-US", 
-    "country": "United States", 
-    "language": "English" 
+    "i": "en-US", 
+    "cc": "US", 
+    "lc": "en", 
+    "c": "United States", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-VC", 
-    "country": "Saint Vincent and the Grenadines", 
-    "language": "English" 
+    "i": "en-VC", 
+    "cc": "VC", 
+    "lc": "en", 
+    "c": "Saint Vincent and the Grenadines", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-VG", 
-    "country": "Virgin Islands, British", 
-    "language": "English" 
+    "i": "en-VG", 
+    "cc": "VG", 
+    "lc": "en", 
+    "c": "Virgin Islands, British", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-VI", 
-    "country": "Virgin Islands, U.S.", 
-    "language": "English" 
+    "i": "en-VI", 
+    "cc": "VI", 
+    "lc": "en", 
+    "c": "Virgin Islands, U.S.", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-VU", 
-    "country": "Vanuatu", 
-    "language": "English" 
+    "i": "en-VU", 
+    "cc": "VU", 
+    "lc": "en", 
+    "c": "Vanuatu", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-WS", 
-    "country": "Samoa", 
-    "language": "English" 
+    "i": "en-WS", 
+    "cc": "WS", 
+    "lc": "en", 
+    "c": "Samoa", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-ZA", 
-    "country": "South Africa", 
-    "language": "English" 
+    "i": "en-ZA", 
+    "cc": "ZA", 
+    "lc": "en", 
+    "c": "South Africa", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-ZM", 
-    "country": "Zambia", 
-    "language": "English" 
+    "i": "en-ZM", 
+    "cc": "ZM", 
+    "lc": "en", 
+    "c": "Zambia", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "en-ZW", 
-    "country": "Zimbabwe", 
-    "language": "English" 
+    "i": "en-ZW", 
+    "cc": "ZW", 
+    "lc": "en", 
+    "c": "Zimbabwe", 
+    "l": "English" 
   }, 
   { 
-    "i18n": "es-AR", 
-    "country": "Argentina", 
-    "language": "Spanish; Castilian" 
+    "i": "es-AR", 
+    "cc": "AR", 
+    "lc": "es", 
+    "c": "Argentina", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-BO", 
-    "country": "Bolivia, Plurinational State of", 
-    "language": "Spanish; Castilian" 
+    "i": "es-BO", 
+    "cc": "BO", 
+    "lc": "es", 
+    "c": "Bolivia, Plurinational State of", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-BR", 
-    "country": "Brazil", 
-    "language": "Spanish; Castilian" 
+    "i": "es-BR", 
+    "cc": "BR", 
+    "lc": "es", 
+    "c": "Brazil", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-BZ", 
-    "country": "Belize", 
-    "language": "Spanish; Castilian" 
+    "i": "es-BZ", 
+    "cc": "BZ", 
+    "lc": "es", 
+    "c": "Belize", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-CL", 
-    "country": "Chile", 
-    "language": "Spanish; Castilian" 
+    "i": "es-CL", 
+    "cc": "CL", 
+    "lc": "es", 
+    "c": "Chile", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-CO", 
-    "country": "Colombia", 
-    "language": "Spanish; Castilian" 
+    "i": "es-CO", 
+    "cc": "CO", 
+    "lc": "es", 
+    "c": "Colombia", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-CR", 
-    "country": "Costa Rica", 
-    "language": "Spanish; Castilian" 
+    "i": "es-CR", 
+    "cc": "CR", 
+    "lc": "es", 
+    "c": "Costa Rica", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-CU", 
-    "country": "Cuba", 
-    "language": "Spanish; Castilian" 
+    "i": "es-CU", 
+    "cc": "CU", 
+    "lc": "es", 
+    "c": "Cuba", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-DO", 
-    "country": "Dominican Republic", 
-    "language": "Spanish; Castilian" 
+    "i": "es-DO", 
+    "cc": "DO", 
+    "lc": "es", 
+    "c": "Dominican Republic", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-EC", 
-    "country": "Ecuador", 
-    "language": "Spanish; Castilian" 
+    "i": "es-EC", 
+    "cc": "EC", 
+    "lc": "es", 
+    "c": "Ecuador", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-ES", 
-    "country": "Spain", 
-    "language": "Spanish; Castilian" 
+    "i": "es-ES", 
+    "cc": "ES", 
+    "lc": "es", 
+    "c": "Spain", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-GQ", 
-    "country": "Equatorial Guinea", 
-    "language": "Spanish; Castilian" 
+    "i": "es-GQ", 
+    "cc": "GQ", 
+    "lc": "es", 
+    "c": "Equatorial Guinea", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-GT", 
-    "country": "Guatemala", 
-    "language": "Spanish; Castilian" 
+    "i": "es-GT", 
+    "cc": "GT", 
+    "lc": "es", 
+    "c": "Guatemala", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-HN", 
-    "country": "Honduras", 
-    "language": "Spanish; Castilian" 
+    "i": "es-HN", 
+    "cc": "HN", 
+    "lc": "es", 
+    "c": "Honduras", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-MX", 
-    "country": "Mexico", 
-    "language": "Spanish; Castilian" 
+    "i": "es-MX", 
+    "cc": "MX", 
+    "lc": "es", 
+    "c": "Mexico", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-NI", 
-    "country": "Nicaragua", 
-    "language": "Spanish; Castilian" 
+    "i": "es-NI", 
+    "cc": "NI", 
+    "lc": "es", 
+    "c": "Nicaragua", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-PA", 
-    "country": "Panama", 
-    "language": "Spanish; Castilian" 
+    "i": "es-PA", 
+    "cc": "PA", 
+    "lc": "es", 
+    "c": "Panama", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-PE", 
-    "country": "Peru", 
-    "language": "Spanish; Castilian" 
+    "i": "es-PE", 
+    "cc": "PE", 
+    "lc": "es", 
+    "c": "Peru", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-PH", 
-    "country": "Philippines", 
-    "language": "Spanish; Castilian" 
+    "i": "es-PH", 
+    "cc": "PH", 
+    "lc": "es", 
+    "c": "Philippines", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-PR", 
-    "country": "Puerto Rico", 
-    "language": "Spanish; Castilian" 
+    "i": "es-PR", 
+    "cc": "PR", 
+    "lc": "es", 
+    "c": "Puerto Rico", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-PY", 
-    "country": "Paraguay", 
-    "language": "Spanish; Castilian" 
+    "i": "es-PY", 
+    "cc": "PY", 
+    "lc": "es", 
+    "c": "Paraguay", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-SV", 
-    "country": "El Salvador", 
-    "language": "Spanish; Castilian" 
+    "i": "es-SV", 
+    "cc": "SV", 
+    "lc": "es", 
+    "c": "El Salvador", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-US", 
-    "country": "United States", 
-    "language": "Spanish; Castilian" 
+    "i": "es-US", 
+    "cc": "US", 
+    "lc": "es", 
+    "c": "United States", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-UY", 
-    "country": "Uruguay", 
-    "language": "Spanish; Castilian" 
+    "i": "es-UY", 
+    "cc": "UY", 
+    "lc": "es", 
+    "c": "Uruguay", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "es-VE", 
-    "country": "Venezuela, Bolivarian Republic of", 
-    "language": "Spanish; Castilian" 
+    "i": "es-VE", 
+    "cc": "VE", 
+    "lc": "es", 
+    "c": "Venezuela, Bolivarian Republic of", 
+    "l": "Spanish; Castilian" 
   }, 
   { 
-    "i18n": "et-EE", 
-    "country": "Estonia", 
-    "language": "Estonian" 
+    "i": "et-EE", 
+    "cc": "EE", 
+    "lc": "et", 
+    "c": "Estonia", 
+    "l": "Estonian" 
   }, 
   { 
-    "i18n": "eu-ES", 
-    "country": "Spain", 
-    "language": "Basque" 
+    "i": "eu-ES", 
+    "cc": "ES", 
+    "lc": "eu", 
+    "c": "Spain", 
+    "l": "Basque" 
   }, 
   { 
-    "i18n": "fa-AF", 
-    "country": "Afghanistan", 
-    "language": "Persian" 
+    "i": "fa-AF", 
+    "cc": "AF", 
+    "lc": "fa", 
+    "c": "Afghanistan", 
+    "l": "Persian" 
   }, 
   { 
-    "i18n": "fa-IR", 
-    "country": "Iran, Islamic Republic of", 
-    "language": "Persian" 
+    "i": "fa-IR", 
+    "cc": "IR", 
+    "lc": "fa", 
+    "c": "Iran, Islamic Republic of", 
+    "l": "Persian" 
   }, 
   { 
-    "i18n": "fi-FI", 
-    "country": "Finland", 
-    "language": "Finnish" 
+    "i": "fi-FI", 
+    "cc": "FI", 
+    "lc": "fi", 
+    "c": "Finland", 
+    "l": "Finnish" 
   }, 
   { 
-    "i18n": "fo-DK", 
-    "country": "Denmark", 
-    "language": "Faroese" 
+    "i": "fo-DK", 
+    "cc": "DK", 
+    "lc": "fo", 
+    "c": "Denmark", 
+    "l": "Faroese" 
   }, 
   { 
-    "i18n": "fo-FO", 
-    "country": "Faroe Islands", 
-    "language": "Faroese" 
+    "i": "fo-FO", 
+    "cc": "FO", 
+    "lc": "fo", 
+    "c": "Faroe Islands", 
+    "l": "Faroese" 
   }, 
   { 
-    "i18n": "fr-BE", 
-    "country": "Belgium", 
-    "language": "French" 
+    "i": "fr-BE", 
+    "cc": "BE", 
+    "lc": "fr", 
+    "c": "Belgium", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-BF", 
-    "country": "Burkina Faso", 
-    "language": "French" 
+    "i": "fr-BF", 
+    "cc": "BF", 
+    "lc": "fr", 
+    "c": "Burkina Faso", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-BI", 
-    "country": "Burundi", 
-    "language": "French" 
+    "i": "fr-BI", 
+    "cc": "BI", 
+    "lc": "fr", 
+    "c": "Burundi", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-BJ", 
-    "country": "Benin", 
-    "language": "French" 
+    "i": "fr-BJ", 
+    "cc": "BJ", 
+    "lc": "fr", 
+    "c": "Benin", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-BL", 
-    "country": "Saint Barthélemy", 
-    "language": "French" 
+    "i": "fr-BL", 
+    "cc": "BL", 
+    "lc": "fr", 
+    "c": "Saint Barthélemy", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CA", 
-    "country": "Canada", 
-    "language": "French" 
+    "i": "fr-CA", 
+    "cc": "CA", 
+    "lc": "fr", 
+    "c": "Canada", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CD", 
-    "country": "Congo, the Democratic Republic of the", 
-    "language": "French" 
+    "i": "fr-CD", 
+    "cc": "CD", 
+    "lc": "fr", 
+    "c": "Congo, the Democratic Republic of the", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CF", 
-    "country": "Central African Republic", 
-    "language": "French" 
+    "i": "fr-CF", 
+    "cc": "CF", 
+    "lc": "fr", 
+    "c": "Central African Republic", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CG", 
-    "country": "Congo", 
-    "language": "French" 
+    "i": "fr-CG", 
+    "cc": "CG", 
+    "lc": "fr", 
+    "c": "Congo", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CH", 
-    "country": "Switzerland", 
-    "language": "French" 
+    "i": "fr-CH", 
+    "cc": "CH", 
+    "lc": "fr", 
+    "c": "Switzerland", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CI", 
-    "country": "Côte d'Ivoire", 
-    "language": "French" 
+    "i": "fr-CI", 
+    "cc": "CI", 
+    "lc": "fr", 
+    "c": "Côte d'Ivoire", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-CM", 
-    "country": "Cameroon", 
-    "language": "French" 
+    "i": "fr-CM", 
+    "cc": "CM", 
+    "lc": "fr", 
+    "c": "Cameroon", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-DJ", 
-    "country": "Djibouti", 
-    "language": "French" 
+    "i": "fr-DJ", 
+    "cc": "DJ", 
+    "lc": "fr", 
+    "c": "Djibouti", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-DZ", 
-    "country": "Algeria", 
-    "language": "French" 
+    "i": "fr-DZ", 
+    "cc": "DZ", 
+    "lc": "fr", 
+    "c": "Algeria", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-FR", 
-    "country": "France", 
-    "language": "French" 
+    "i": "fr-FR", 
+    "cc": "FR", 
+    "lc": "fr", 
+    "c": "France", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-GA", 
-    "country": "Gabon", 
-    "language": "French" 
+    "i": "fr-GA", 
+    "cc": "GA", 
+    "lc": "fr", 
+    "c": "Gabon", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-GF", 
-    "country": "French Guiana", 
-    "language": "French" 
+    "i": "fr-GF", 
+    "cc": "GF", 
+    "lc": "fr", 
+    "c": "French Guiana", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-GN", 
-    "country": "Guinea", 
-    "language": "French" 
+    "i": "fr-GN", 
+    "cc": "GN", 
+    "lc": "fr", 
+    "c": "Guinea", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-GP", 
-    "country": "Guadeloupe", 
-    "language": "French" 
+    "i": "fr-GP", 
+    "cc": "GP", 
+    "lc": "fr", 
+    "c": "Guadeloupe", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-GQ", 
-    "country": "Equatorial Guinea", 
-    "language": "French" 
+    "i": "fr-GQ", 
+    "cc": "GQ", 
+    "lc": "fr", 
+    "c": "Equatorial Guinea", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-HT", 
-    "country": "Haiti", 
-    "language": "French" 
+    "i": "fr-HT", 
+    "cc": "HT", 
+    "lc": "fr", 
+    "c": "Haiti", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-KM", 
-    "country": "Comoros", 
-    "language": "French" 
+    "i": "fr-KM", 
+    "cc": "KM", 
+    "lc": "fr", 
+    "c": "Comoros", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-LU", 
-    "country": "Luxembourg", 
-    "language": "French" 
+    "i": "fr-LU", 
+    "cc": "LU", 
+    "lc": "fr", 
+    "c": "Luxembourg", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MA", 
-    "country": "Morocco", 
-    "language": "French" 
+    "i": "fr-MA", 
+    "cc": "MA", 
+    "lc": "fr", 
+    "c": "Morocco", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MC", 
-    "country": "Monaco", 
-    "language": "French" 
+    "i": "fr-MC", 
+    "cc": "MC", 
+    "lc": "fr", 
+    "c": "Monaco", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MF", 
-    "country": "Saint Martin (French part)", 
-    "language": "French" 
+    "i": "fr-MF", 
+    "cc": "MF", 
+    "lc": "fr", 
+    "c": "Saint Martin (French part)", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MG", 
-    "country": "Madagascar", 
-    "language": "French" 
+    "i": "fr-MG", 
+    "cc": "MG", 
+    "lc": "fr", 
+    "c": "Madagascar", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-ML", 
-    "country": "Mali", 
-    "language": "French" 
+    "i": "fr-ML", 
+    "cc": "ML", 
+    "lc": "fr", 
+    "c": "Mali", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MQ", 
-    "country": "Martinique", 
-    "language": "French" 
+    "i": "fr-MQ", 
+    "cc": "MQ", 
+    "lc": "fr", 
+    "c": "Martinique", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MR", 
-    "country": "Mauritania", 
-    "language": "French" 
+    "i": "fr-MR", 
+    "cc": "MR", 
+    "lc": "fr", 
+    "c": "Mauritania", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-MU", 
-    "country": "Mauritius", 
-    "language": "French" 
+    "i": "fr-MU", 
+    "cc": "MU", 
+    "lc": "fr", 
+    "c": "Mauritius", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-NC", 
-    "country": "New Caledonia", 
-    "language": "French" 
+    "i": "fr-NC", 
+    "cc": "NC", 
+    "lc": "fr", 
+    "c": "New Caledonia", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-NE", 
-    "country": "Niger", 
-    "language": "French" 
+    "i": "fr-NE", 
+    "cc": "NE", 
+    "lc": "fr", 
+    "c": "Niger", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-PF", 
-    "country": "French Polynesia", 
-    "language": "French" 
+    "i": "fr-PF", 
+    "cc": "PF", 
+    "lc": "fr", 
+    "c": "French Polynesia", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-PM", 
-    "country": "Saint Pierre and Miquelon", 
-    "language": "French" 
+    "i": "fr-PM", 
+    "cc": "PM", 
+    "lc": "fr", 
+    "c": "Saint Pierre and Miquelon", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-RE", 
-    "country": "Réunion", 
-    "language": "French" 
+    "i": "fr-RE", 
+    "cc": "RE", 
+    "lc": "fr", 
+    "c": "Réunion", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-RW", 
-    "country": "Rwanda", 
-    "language": "French" 
+    "i": "fr-RW", 
+    "cc": "RW", 
+    "lc": "fr", 
+    "c": "Rwanda", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-SC", 
-    "country": "Seychelles", 
-    "language": "French" 
+    "i": "fr-SC", 
+    "cc": "SC", 
+    "lc": "fr", 
+    "c": "Seychelles", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-SN", 
-    "country": "Senegal", 
-    "language": "French" 
+    "i": "fr-SN", 
+    "cc": "SN", 
+    "lc": "fr", 
+    "c": "Senegal", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-SY", 
-    "country": "Syrian Arab Republic", 
-    "language": "French" 
+    "i": "fr-SY", 
+    "cc": "SY", 
+    "lc": "fr", 
+    "c": "Syrian Arab Republic", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-TD", 
-    "country": "Chad", 
-    "language": "French" 
+    "i": "fr-TD", 
+    "cc": "TD", 
+    "lc": "fr", 
+    "c": "Chad", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-TG", 
-    "country": "Togo", 
-    "language": "French" 
+    "i": "fr-TG", 
+    "cc": "TG", 
+    "lc": "fr", 
+    "c": "Togo", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-TN", 
-    "country": "Tunisia", 
-    "language": "French" 
+    "i": "fr-TN", 
+    "cc": "TN", 
+    "lc": "fr", 
+    "c": "Tunisia", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-VU", 
-    "country": "Vanuatu", 
-    "language": "French" 
+    "i": "fr-VU", 
+    "cc": "VU", 
+    "lc": "fr", 
+    "c": "Vanuatu", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-WF", 
-    "country": "Wallis and Futuna", 
-    "language": "French" 
+    "i": "fr-WF", 
+    "cc": "WF", 
+    "lc": "fr", 
+    "c": "Wallis and Futuna", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fr-YT", 
-    "country": "Mayotte", 
-    "language": "French" 
+    "i": "fr-YT", 
+    "cc": "YT", 
+    "lc": "fr", 
+    "c": "Mayotte", 
+    "l": "French" 
   }, 
   { 
-    "i18n": "fy-NL", 
-    "country": "Netherlands", 
-    "language": "Western Frisian" 
+    "i": "fy-NL", 
+    "cc": "NL", 
+    "lc": "fy", 
+    "c": "Netherlands", 
+    "l": "Western Frisian" 
   }, 
   { 
-    "i18n": "ga-IE", 
-    "country": "Ireland", 
-    "language": "Irish" 
+    "i": "ga-IE", 
+    "cc": "IE", 
+    "lc": "ga", 
+    "c": "Ireland", 
+    "l": "Irish" 
   }, 
   { 
-    "i18n": "gd-GB", 
-    "country": "United Kingdom", 
-    "language": "Gaelic; Scottish Gaelic" 
+    "i": "gd-GB", 
+    "cc": "GB", 
+    "lc": "gd", 
+    "c": "United Kingdom", 
+    "l": "Gaelic; Scottish Gaelic" 
   }, 
   { 
-    "i18n": "gl-ES", 
-    "country": "Spain", 
-    "language": "Galician" 
+    "i": "gl-ES", 
+    "cc": "ES", 
+    "lc": "gl", 
+    "c": "Spain", 
+    "l": "Galician" 
   }, 
   { 
-    "i18n": "gu-IN", 
-    "country": "India", 
-    "language": "Gujarati" 
+    "i": "gu-IN", 
+    "cc": "IN", 
+    "lc": "gu", 
+    "c": "India", 
+    "l": "Gujarati" 
   }, 
   { 
-    "i18n": "gv-IM", 
-    "country": "Isle of Man", 
-    "language": "Manx" 
+    "i": "gv-IM", 
+    "cc": "IM", 
+    "lc": "gv", 
+    "c": "Isle of Man", 
+    "l": "Manx" 
   }, 
   { 
-    "i18n": "ha-GH", 
-    "country": "Ghana", 
-    "language": "Hausa" 
+    "i": "ha-GH", 
+    "cc": "GH", 
+    "lc": "ha", 
+    "c": "Ghana", 
+    "l": "Hausa" 
   }, 
   { 
-    "i18n": "ha-NE", 
-    "country": "Niger", 
-    "language": "Hausa" 
+    "i": "ha-NE", 
+    "cc": "NE", 
+    "lc": "ha", 
+    "c": "Niger", 
+    "l": "Hausa" 
   }, 
   { 
-    "i18n": "ha-NG", 
-    "country": "Nigeria", 
-    "language": "Hausa" 
+    "i": "ha-NG", 
+    "cc": "NG", 
+    "lc": "ha", 
+    "c": "Nigeria", 
+    "l": "Hausa" 
   }, 
   { 
-    "i18n": "he-IL", 
-    "country": "Israel", 
-    "language": "Hebrew" 
+    "i": "he-IL", 
+    "cc": "IL", 
+    "lc": "he", 
+    "c": "Israel", 
+    "l": "Hebrew" 
   }, 
   { 
-    "i18n": "hi-IN", 
-    "country": "India", 
-    "language": "Hindi" 
+    "i": "hi-IN", 
+    "cc": "IN", 
+    "lc": "hi", 
+    "c": "India", 
+    "l": "Hindi" 
   }, 
   { 
-    "i18n": "hr-BA", 
-    "country": "Bosnia and Herzegovina", 
-    "language": "Croatian" 
+    "i": "hr-BA", 
+    "cc": "BA", 
+    "lc": "hr", 
+    "c": "Bosnia and Herzegovina", 
+    "l": "Croatian" 
   }, 
   { 
-    "i18n": "hr-HR", 
-    "country": "Croatia", 
-    "language": "Croatian" 
+    "i": "hr-HR", 
+    "cc": "HR", 
+    "lc": "hr", 
+    "c": "Croatia", 
+    "l": "Croatian" 
   }, 
   { 
-    "i18n": "hu-HU", 
-    "country": "Hungary", 
-    "language": "Hungarian" 
+    "i": "hu-HU", 
+    "cc": "HU", 
+    "lc": "hu", 
+    "c": "Hungary", 
+    "l": "Hungarian" 
   }, 
   { 
-    "i18n": "hy-AM", 
-    "country": "Armenia", 
-    "language": "Armenian" 
+    "i": "hy-AM", 
+    "cc": "AM", 
+    "lc": "hy", 
+    "c": "Armenia", 
+    "l": "Armenian" 
   }, 
   { 
-    "i18n": "id-ID", 
-    "country": "Indonesia", 
-    "language": "Indonesian" 
+    "i": "id-ID", 
+    "cc": "ID", 
+    "lc": "id", 
+    "c": "Indonesia", 
+    "l": "Indonesian" 
   }, 
   { 
-    "i18n": "ig-NG", 
-    "country": "Nigeria", 
-    "language": "Igbo" 
+    "i": "ig-NG", 
+    "cc": "NG", 
+    "lc": "ig", 
+    "c": "Nigeria", 
+    "l": "Igbo" 
   }, 
   { 
-    "i18n": "ii-CN", 
-    "country": "China", 
-    "language": "Sichuan Yi; Nuosu" 
+    "i": "ii-CN", 
+    "cc": "CN", 
+    "lc": "ii", 
+    "c": "China", 
+    "l": "Sichuan Yi; Nuosu" 
   }, 
   { 
-    "i18n": "is-IS", 
-    "country": "Iceland", 
-    "language": "Icelandic" 
+    "i": "is-IS", 
+    "cc": "IS", 
+    "lc": "is", 
+    "c": "Iceland", 
+    "l": "Icelandic" 
   }, 
   { 
-    "i18n": "it-CH", 
-    "country": "Switzerland", 
-    "language": "Italian" 
+    "i": "it-CH", 
+    "cc": "CH", 
+    "lc": "it", 
+    "c": "Switzerland", 
+    "l": "Italian" 
   }, 
   { 
-    "i18n": "it-IT", 
-    "country": "Italy", 
-    "language": "Italian" 
+    "i": "it-IT", 
+    "cc": "IT", 
+    "lc": "it", 
+    "c": "Italy", 
+    "l": "Italian" 
   }, 
   { 
-    "i18n": "it-SM", 
-    "country": "San Marino", 
-    "language": "Italian" 
+    "i": "it-SM", 
+    "cc": "SM", 
+    "lc": "it", 
+    "c": "San Marino", 
+    "l": "Italian" 
   }, 
   { 
-    "i18n": "it-VA", 
-    "country": "Holy See (Vatican City State)", 
-    "language": "Italian" 
+    "i": "it-VA", 
+    "cc": "VA", 
+    "lc": "it", 
+    "c": "Holy See (Vatican City State)", 
+    "l": "Italian" 
   }, 
   { 
-    "i18n": "ja-JP", 
-    "country": "Japan", 
-    "language": "Japanese" 
+    "i": "ja-JP", 
+    "cc": "JP", 
+    "lc": "ja", 
+    "c": "Japan", 
+    "l": "Japanese" 
   }, 
   { 
-    "i18n": "jv-ID", 
-    "country": "Indonesia", 
-    "language": "Javanese" 
+    "i": "jv-ID", 
+    "cc": "ID", 
+    "lc": "jv", 
+    "c": "Indonesia", 
+    "l": "Javanese" 
   }, 
   { 
-    "i18n": "ka-GE", 
-    "country": "Georgia", 
-    "language": "Georgian" 
+    "i": "ka-GE", 
+    "cc": "GE", 
+    "lc": "ka", 
+    "c": "Georgia", 
+    "l": "Georgian" 
   }, 
   { 
-    "i18n": "ki-KE", 
-    "country": "Kenya", 
-    "language": "Kikuyu; Gikuyu" 
+    "i": "ki-KE", 
+    "cc": "KE", 
+    "lc": "ki", 
+    "c": "Kenya", 
+    "l": "Kikuyu; Gikuyu" 
   }, 
   { 
-    "i18n": "kk-KZ", 
-    "country": "Kazakhstan", 
-    "language": "Kazakh" 
+    "i": "kk-KZ", 
+    "cc": "KZ", 
+    "lc": "kk", 
+    "c": "Kazakhstan", 
+    "l": "Kazakh" 
   }, 
   { 
-    "i18n": "kl-GL", 
-    "country": "Greenland", 
-    "language": "Kalaallisut; Greenlandic" 
+    "i": "kl-GL", 
+    "cc": "GL", 
+    "lc": "kl", 
+    "c": "Greenland", 
+    "l": "Kalaallisut; Greenlandic" 
   }, 
   { 
-    "i18n": "km-KH", 
-    "country": "Cambodia", 
-    "language": "Central Khmer" 
+    "i": "km-KH", 
+    "cc": "KH", 
+    "lc": "km", 
+    "c": "Cambodia", 
+    "l": "Central Khmer" 
   }, 
   { 
-    "i18n": "kn-IN", 
-    "country": "India", 
-    "language": "Kannada" 
+    "i": "kn-IN", 
+    "cc": "IN", 
+    "lc": "kn", 
+    "c": "India", 
+    "l": "Kannada" 
   }, 
   { 
-    "i18n": "ko-KP", 
-    "country": "Korea, Democratic People's Republic of", 
-    "language": "Korean" 
+    "i": "ko-KP", 
+    "cc": "KP", 
+    "lc": "ko", 
+    "c": "Korea, Democratic People's Republic of", 
+    "l": "Korean" 
   }, 
   { 
-    "i18n": "ko-KR", 
-    "country": "Korea, Republic of", 
-    "language": "Korean" 
+    "i": "ko-KR", 
+    "cc": "KR", 
+    "lc": "ko", 
+    "c": "Korea, Republic of", 
+    "l": "Korean" 
   }, 
   { 
-    "i18n": "ks-IN", 
-    "country": "India", 
-    "language": "Kashmiri" 
+    "i": "ks-IN", 
+    "cc": "IN", 
+    "lc": "ks", 
+    "c": "India", 
+    "l": "Kashmiri" 
   }, 
   { 
-    "i18n": "ku-TR", 
-    "country": "Turkey", 
-    "language": "Kurdish" 
+    "i": "ku-TR", 
+    "cc": "TR", 
+    "lc": "ku", 
+    "c": "Turkey", 
+    "l": "Kurdish" 
   }, 
   { 
-    "i18n": "kw-GB", 
-    "country": "United Kingdom", 
-    "language": "Cornish" 
+    "i": "kw-GB", 
+    "cc": "GB", 
+    "lc": "kw", 
+    "c": "United Kingdom", 
+    "l": "Cornish" 
   }, 
   { 
-    "i18n": "ky-KG", 
-    "country": "Kyrgyzstan", 
-    "language": "Kirghiz; Kyrgyz" 
+    "i": "ky-KG", 
+    "cc": "KG", 
+    "lc": "ky", 
+    "c": "Kyrgyzstan", 
+    "l": "Kirghiz; Kyrgyz" 
   }, 
   { 
-    "i18n": "lb-LU", 
-    "country": "Luxembourg", 
-    "language": "Luxembourgish; Letzeburgesch" 
+    "i": "lb-LU", 
+    "cc": "LU", 
+    "lc": "lb", 
+    "c": "Luxembourg", 
+    "l": "Luxembourgish; Letzeburgesch" 
   }, 
   { 
-    "i18n": "lg-UG", 
-    "country": "Uganda", 
-    "language": "Ganda" 
+    "i": "lg-UG", 
+    "cc": "UG", 
+    "lc": "lg", 
+    "c": "Uganda", 
+    "l": "Ganda" 
   }, 
   { 
-    "i18n": "ln-AO", 
-    "country": "Angola", 
-    "language": "Lingala" 
+    "i": "ln-AO", 
+    "cc": "AO", 
+    "lc": "ln", 
+    "c": "Angola", 
+    "l": "Lingala" 
   }, 
   { 
-    "i18n": "ln-CD", 
-    "country": "Congo, the Democratic Republic of the", 
-    "language": "Lingala" 
+    "i": "ln-CD", 
+    "cc": "CD", 
+    "lc": "ln", 
+    "c": "Congo, the Democratic Republic of the", 
+    "l": "Lingala" 
   }, 
   { 
-    "i18n": "ln-CF", 
-    "country": "Central African Republic", 
-    "language": "Lingala" 
+    "i": "ln-CF", 
+    "cc": "CF", 
+    "lc": "ln", 
+    "c": "Central African Republic", 
+    "l": "Lingala" 
   }, 
   { 
-    "i18n": "ln-CG", 
-    "country": "Congo", 
-    "language": "Lingala" 
+    "i": "ln-CG", 
+    "cc": "CG", 
+    "lc": "ln", 
+    "c": "Congo", 
+    "l": "Lingala" 
   }, 
   { 
-    "i18n": "lo-LA", 
-    "country": "Lao People's Democratic Republic", 
-    "language": "Lao" 
+    "i": "lo-LA", 
+    "cc": "LA", 
+    "lc": "lo", 
+    "c": "Lao People's Democratic Republic", 
+    "l": "Lao" 
   }, 
   { 
-    "i18n": "lt-LT", 
-    "country": "Lithuania", 
-    "language": "Lithuanian" 
+    "i": "lt-LT", 
+    "cc": "LT", 
+    "lc": "lt", 
+    "c": "Lithuania", 
+    "l": "Lithuanian" 
   }, 
   { 
-    "i18n": "lu-CD", 
-    "country": "Congo, the Democratic Republic of the", 
-    "language": "Luba-Katanga" 
+    "i": "lu-CD", 
+    "cc": "CD", 
+    "lc": "lu", 
+    "c": "Congo, the Democratic Republic of the", 
+    "l": "Luba-Katanga" 
   }, 
   { 
-    "i18n": "lv-LV", 
-    "country": "Latvia", 
-    "language": "Latvian" 
+    "i": "lv-LV", 
+    "cc": "LV", 
+    "lc": "lv", 
+    "c": "Latvia", 
+    "l": "Latvian" 
   }, 
   { 
-    "i18n": "mg-MG", 
-    "country": "Madagascar", 
-    "language": "Malagasy" 
+    "i": "mg-MG", 
+    "cc": "MG", 
+    "lc": "mg", 
+    "c": "Madagascar", 
+    "l": "Malagasy" 
   }, 
   { 
-    "i18n": "mi-NZ", 
-    "country": "New Zealand", 
-    "language": "Maori" 
+    "i": "mi-NZ", 
+    "cc": "NZ", 
+    "lc": "mi", 
+    "c": "New Zealand", 
+    "l": "Maori" 
   }, 
   { 
-    "i18n": "mk-MK", 
-    "country": "Macedonia, the Former Yugoslav Republic of", 
-    "language": "Macedonian" 
+    "i": "mk-MK", 
+    "cc": "MK", 
+    "lc": "mk", 
+    "c": "Macedonia, the Former Yugoslav Republic of", 
+    "l": "Macedonian" 
   }, 
   { 
-    "i18n": "ml-IN", 
-    "country": "India", 
-    "language": "Malayalam" 
+    "i": "ml-IN", 
+    "cc": "IN", 
+    "lc": "ml", 
+    "c": "India", 
+    "l": "Malayalam" 
   }, 
   { 
-    "i18n": "mn-MN", 
-    "country": "Mongolia", 
-    "language": "Mongolian" 
+    "i": "mn-MN", 
+    "cc": "MN", 
+    "lc": "mn", 
+    "c": "Mongolia", 
+    "l": "Mongolian" 
   }, 
   { 
-    "i18n": "mr-IN", 
-    "country": "India", 
-    "language": "Marathi" 
+    "i": "mr-IN", 
+    "cc": "IN", 
+    "lc": "mr", 
+    "c": "India", 
+    "l": "Marathi" 
   }, 
   { 
-    "i18n": "ms-BN", 
-    "country": "Brunei Darussalam", 
-    "language": "Malay" 
+    "i": "ms-BN", 
+    "cc": "BN", 
+    "lc": "ms", 
+    "c": "Brunei Darussalam", 
+    "l": "Malay" 
   }, 
   { 
-    "i18n": "ms-MY", 
-    "country": "Malaysia", 
-    "language": "Malay" 
+    "i": "ms-MY", 
+    "cc": "MY", 
+    "lc": "ms", 
+    "c": "Malaysia", 
+    "l": "Malay" 
   }, 
   { 
-    "i18n": "ms-SG", 
-    "country": "Singapore", 
-    "language": "Malay" 
+    "i": "ms-SG", 
+    "cc": "SG", 
+    "lc": "ms", 
+    "c": "Singapore", 
+    "l": "Malay" 
   }, 
   { 
-    "i18n": "mt-MT", 
-    "country": "Malta", 
-    "language": "Maltese" 
+    "i": "mt-MT", 
+    "cc": "MT", 
+    "lc": "mt", 
+    "c": "Malta", 
+    "l": "Maltese" 
   }, 
   { 
-    "i18n": "my-MM", 
-    "country": "Myanmar", 
-    "language": "Burmese" 
+    "i": "my-MM", 
+    "cc": "MM", 
+    "lc": "my", 
+    "c": "Myanmar", 
+    "l": "Burmese" 
   }, 
   { 
-    "i18n": "nb-NO", 
-    "country": "Norway", 
-    "language": "Bokmål, Norwegian; Norwegian Bokmål" 
+    "i": "nb-NO", 
+    "cc": "NO", 
+    "lc": "nb", 
+    "c": "Norway", 
+    "l": "Bokmål, Norwegian; Norwegian Bokmål" 
   }, 
   { 
-    "i18n": "nb-SJ", 
-    "country": "Svalbard and Jan Mayen", 
-    "language": "Bokmål, Norwegian; Norwegian Bokmål" 
+    "i": "nb-SJ", 
+    "cc": "SJ", 
+    "lc": "nb", 
+    "c": "Svalbard and Jan Mayen", 
+    "l": "Bokmål, Norwegian; Norwegian Bokmål" 
   }, 
   { 
-    "i18n": "nd-ZW", 
-    "country": "Zimbabwe", 
-    "language": "Ndebele, North; North Ndebele" 
+    "i": "nd-ZW", 
+    "cc": "ZW", 
+    "lc": "nd", 
+    "c": "Zimbabwe", 
+    "l": "Ndebele, North; North Ndebele" 
   }, 
   { 
-    "i18n": "ne-IN", 
-    "country": "India", 
-    "language": "Nepali" 
+    "i": "ne-IN", 
+    "cc": "IN", 
+    "lc": "ne", 
+    "c": "India", 
+    "l": "Nepali" 
   }, 
   { 
-    "i18n": "ne-NP", 
-    "country": "Nepal", 
-    "language": "Nepali" 
+    "i": "ne-NP", 
+    "cc": "NP", 
+    "lc": "ne", 
+    "c": "Nepal", 
+    "l": "Nepali" 
   }, 
   { 
-    "i18n": "nl-AW", 
-    "country": "Aruba", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-AW", 
+    "cc": "AW", 
+    "lc": "nl", 
+    "c": "Aruba", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nl-BE", 
-    "country": "Belgium", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-BE", 
+    "cc": "BE", 
+    "lc": "nl", 
+    "c": "Belgium", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nl-BQ", 
-    "country": "Bonaire, Sint Eustatius and Saba", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-BQ", 
+    "cc": "BQ", 
+    "lc": "nl", 
+    "c": "Bonaire, Sint Eustatius and Saba", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nl-CW", 
-    "country": "Curaçao", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-CW", 
+    "cc": "CW", 
+    "lc": "nl", 
+    "c": "Curaçao", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nl-NL", 
-    "country": "Netherlands", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-NL", 
+    "cc": "NL", 
+    "lc": "nl", 
+    "c": "Netherlands", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nl-SR", 
-    "country": "Suriname", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-SR", 
+    "cc": "SR", 
+    "lc": "nl", 
+    "c": "Suriname", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nl-SX", 
-    "country": "Sint Maarten (Dutch part)", 
-    "language": "Dutch; Flemish" 
+    "i": "nl-SX", 
+    "cc": "SX", 
+    "lc": "nl", 
+    "c": "Sint Maarten (Dutch part)", 
+    "l": "Dutch; Flemish" 
   }, 
   { 
-    "i18n": "nn-NO", 
-    "country": "Norway", 
-    "language": "Norwegian Nynorsk; Nynorsk, Norwegian" 
+    "i": "nn-NO", 
+    "cc": "NO", 
+    "lc": "nn", 
+    "c": "Norway", 
+    "l": "Norwegian Nynorsk; Nynorsk, Norwegian" 
   }, 
   { 
-    "i18n": "om-ET", 
-    "country": "Ethiopia", 
-    "language": "Oromo" 
+    "i": "om-ET", 
+    "cc": "ET", 
+    "lc": "om", 
+    "c": "Ethiopia", 
+    "l": "Oromo" 
   }, 
   { 
-    "i18n": "om-KE", 
-    "country": "Kenya", 
-    "language": "Oromo" 
+    "i": "om-KE", 
+    "cc": "KE", 
+    "lc": "om", 
+    "c": "Kenya", 
+    "l": "Oromo" 
   }, 
   { 
-    "i18n": "or-IN", 
-    "country": "India", 
-    "language": "Oriya" 
+    "i": "or-IN", 
+    "cc": "IN", 
+    "lc": "or", 
+    "c": "India", 
+    "l": "Oriya" 
   }, 
   { 
-    "i18n": "os-GE", 
-    "country": "Georgia", 
-    "language": "Ossetian; Ossetic" 
+    "i": "os-GE", 
+    "cc": "GE", 
+    "lc": "os", 
+    "c": "Georgia", 
+    "l": "Ossetian; Ossetic" 
   }, 
   { 
-    "i18n": "os-RU", 
-    "country": "Russian Federation", 
-    "language": "Ossetian; Ossetic" 
+    "i": "os-RU", 
+    "cc": "RU", 
+    "lc": "os", 
+    "c": "Russian Federation", 
+    "l": "Ossetian; Ossetic" 
   }, 
   { 
-    "i18n": "pl-PL", 
-    "country": "Poland", 
-    "language": "Polish" 
+    "i": "pl-PL", 
+    "cc": "PL", 
+    "lc": "pl", 
+    "c": "Poland", 
+    "l": "Polish" 
   }, 
   { 
-    "i18n": "ps-AF", 
-    "country": "Afghanistan", 
-    "language": "Pushto; Pashto" 
+    "i": "ps-AF", 
+    "cc": "AF", 
+    "lc": "ps", 
+    "c": "Afghanistan", 
+    "l": "Pushto; Pashto" 
   }, 
   { 
-    "i18n": "ps-PK", 
-    "country": "Pakistan", 
-    "language": "Pushto; Pashto" 
+    "i": "ps-PK", 
+    "cc": "PK", 
+    "lc": "ps", 
+    "c": "Pakistan", 
+    "l": "Pushto; Pashto" 
   }, 
   { 
-    "i18n": "pt-AO", 
-    "country": "Angola", 
-    "language": "Portuguese" 
+    "i": "pt-AO", 
+    "cc": "AO", 
+    "lc": "pt", 
+    "c": "Angola", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-BR", 
-    "country": "Brazil", 
-    "language": "Portuguese" 
+    "i": "pt-BR", 
+    "cc": "BR", 
+    "lc": "pt", 
+    "c": "Brazil", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-CH", 
-    "country": "Switzerland", 
-    "language": "Portuguese" 
+    "i": "pt-CH", 
+    "cc": "CH", 
+    "lc": "pt", 
+    "c": "Switzerland", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-CV", 
-    "country": "Cape Verde", 
-    "language": "Portuguese" 
+    "i": "pt-CV", 
+    "cc": "CV", 
+    "lc": "pt", 
+    "c": "Cape Verde", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-GQ", 
-    "country": "Equatorial Guinea", 
-    "language": "Portuguese" 
+    "i": "pt-GQ", 
+    "cc": "GQ", 
+    "lc": "pt", 
+    "c": "Equatorial Guinea", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-GW", 
-    "country": "Guinea-Bissau", 
-    "language": "Portuguese" 
+    "i": "pt-GW", 
+    "cc": "GW", 
+    "lc": "pt", 
+    "c": "Guinea-Bissau", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-LU", 
-    "country": "Luxembourg", 
-    "language": "Portuguese" 
+    "i": "pt-LU", 
+    "cc": "LU", 
+    "lc": "pt", 
+    "c": "Luxembourg", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-MO", 
-    "country": "Macao", 
-    "language": "Portuguese" 
+    "i": "pt-MO", 
+    "cc": "MO", 
+    "lc": "pt", 
+    "c": "Macao", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-MZ", 
-    "country": "Mozambique", 
-    "language": "Portuguese" 
+    "i": "pt-MZ", 
+    "cc": "MZ", 
+    "lc": "pt", 
+    "c": "Mozambique", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-PT", 
-    "country": "Portugal", 
-    "language": "Portuguese" 
+    "i": "pt-PT", 
+    "cc": "PT", 
+    "lc": "pt", 
+    "c": "Portugal", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-ST", 
-    "country": "Sao Tome and Principe", 
-    "language": "Portuguese" 
+    "i": "pt-ST", 
+    "cc": "ST", 
+    "lc": "pt", 
+    "c": "Sao Tome and Principe", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "pt-TL", 
-    "country": "Timor-Leste", 
-    "language": "Portuguese" 
+    "i": "pt-TL", 
+    "cc": "TL", 
+    "lc": "pt", 
+    "c": "Timor-Leste", 
+    "l": "Portuguese" 
   }, 
   { 
-    "i18n": "qu-BO", 
-    "country": "Bolivia, Plurinational State of", 
-    "language": "Quechua" 
+    "i": "qu-BO", 
+    "cc": "BO", 
+    "lc": "qu", 
+    "c": "Bolivia, Plurinational State of", 
+    "l": "Quechua" 
   }, 
   { 
-    "i18n": "qu-EC", 
-    "country": "Ecuador", 
-    "language": "Quechua" 
+    "i": "qu-EC", 
+    "cc": "EC", 
+    "lc": "qu", 
+    "c": "Ecuador", 
+    "l": "Quechua" 
   }, 
   { 
-    "i18n": "qu-PE", 
-    "country": "Peru", 
-    "language": "Quechua" 
+    "i": "qu-PE", 
+    "cc": "PE", 
+    "lc": "qu", 
+    "c": "Peru", 
+    "l": "Quechua" 
   }, 
   { 
-    "i18n": "rm-CH", 
-    "country": "Switzerland", 
-    "language": "Romansh" 
+    "i": "rm-CH", 
+    "cc": "CH", 
+    "lc": "rm", 
+    "c": "Switzerland", 
+    "l": "Romansh" 
   }, 
   { 
-    "i18n": "rn-BI", 
-    "country": "Burundi", 
-    "language": "Rundi" 
+    "i": "rn-BI", 
+    "cc": "BI", 
+    "lc": "rn", 
+    "c": "Burundi", 
+    "l": "Rundi" 
   }, 
   { 
-    "i18n": "ro-MD", 
-    "country": "Moldova, Republic of", 
-    "language": "Romanian; Moldavian; Moldovan" 
+    "i": "ro-MD", 
+    "cc": "MD", 
+    "lc": "ro", 
+    "c": "Moldova, Republic of", 
+    "l": "Romanian; Moldavian; Moldovan" 
   }, 
   { 
-    "i18n": "ro-RO", 
-    "country": "Romania", 
-    "language": "Romanian; Moldavian; Moldovan" 
+    "i": "ro-RO", 
+    "cc": "RO", 
+    "lc": "ro", 
+    "c": "Romania", 
+    "l": "Romanian; Moldavian; Moldovan" 
   }, 
   { 
-    "i18n": "ru-BY", 
-    "country": "Belarus", 
-    "language": "Russian" 
+    "i": "ru-BY", 
+    "cc": "BY", 
+    "lc": "ru", 
+    "c": "Belarus", 
+    "l": "Russian" 
   }, 
   { 
-    "i18n": "ru-KG", 
-    "country": "Kyrgyzstan", 
-    "language": "Russian" 
+    "i": "ru-KG", 
+    "cc": "KG", 
+    "lc": "ru", 
+    "c": "Kyrgyzstan", 
+    "l": "Russian" 
   }, 
   { 
-    "i18n": "ru-KZ", 
-    "country": "Kazakhstan", 
-    "language": "Russian" 
+    "i": "ru-KZ", 
+    "cc": "KZ", 
+    "lc": "ru", 
+    "c": "Kazakhstan", 
+    "l": "Russian" 
   }, 
   { 
-    "i18n": "ru-MD", 
-    "country": "Moldova, Republic of", 
-    "language": "Russian" 
+    "i": "ru-MD", 
+    "cc": "MD", 
+    "lc": "ru", 
+    "c": "Moldova, Republic of", 
+    "l": "Russian" 
   }, 
   { 
-    "i18n": "ru-RU", 
-    "country": "Russian Federation", 
-    "language": "Russian" 
+    "i": "ru-RU", 
+    "cc": "RU", 
+    "lc": "ru", 
+    "c": "Russian Federation", 
+    "l": "Russian" 
   }, 
   { 
-    "i18n": "ru-UA", 
-    "country": "Ukraine", 
-    "language": "Russian" 
+    "i": "ru-UA", 
+    "cc": "UA", 
+    "lc": "ru", 
+    "c": "Ukraine", 
+    "l": "Russian" 
   }, 
   { 
-    "i18n": "rw-RW", 
-    "country": "Rwanda", 
-    "language": "Kinyarwanda" 
+    "i": "rw-RW", 
+    "cc": "RW", 
+    "lc": "rw", 
+    "c": "Rwanda", 
+    "l": "Kinyarwanda" 
   }, 
   { 
-    "i18n": "sd-PK", 
-    "country": "Pakistan", 
-    "language": "Sindhi" 
+    "i": "sd-PK", 
+    "cc": "PK", 
+    "lc": "sd", 
+    "c": "Pakistan", 
+    "l": "Sindhi" 
   }, 
   { 
-    "i18n": "se-FI", 
-    "country": "Finland", 
-    "language": "Northern Sami" 
+    "i": "se-FI", 
+    "cc": "FI", 
+    "lc": "se", 
+    "c": "Finland", 
+    "l": "Northern Sami" 
   }, 
   { 
-    "i18n": "se-NO", 
-    "country": "Norway", 
-    "language": "Northern Sami" 
+    "i": "se-NO", 
+    "cc": "NO", 
+    "lc": "se", 
+    "c": "Norway", 
+    "l": "Northern Sami" 
   }, 
   { 
-    "i18n": "se-SE", 
-    "country": "Sweden", 
-    "language": "Northern Sami" 
+    "i": "se-SE", 
+    "cc": "SE", 
+    "lc": "se", 
+    "c": "Sweden", 
+    "l": "Northern Sami" 
   }, 
   { 
-    "i18n": "sg-CF", 
-    "country": "Central African Republic", 
-    "language": "Sango" 
+    "i": "sg-CF", 
+    "cc": "CF", 
+    "lc": "sg", 
+    "c": "Central African Republic", 
+    "l": "Sango" 
   }, 
   { 
-    "i18n": "si-LK", 
-    "country": "Sri Lanka", 
-    "language": "Sinhala; Sinhalese" 
+    "i": "si-LK", 
+    "cc": "LK", 
+    "lc": "si", 
+    "c": "Sri Lanka", 
+    "l": "Sinhala; Sinhalese" 
   }, 
   { 
-    "i18n": "sk-SK", 
-    "country": "Slovakia", 
-    "language": "Slovak" 
+    "i": "sk-SK", 
+    "cc": "SK", 
+    "lc": "sk", 
+    "c": "Slovakia", 
+    "l": "Slovak" 
   }, 
   { 
-    "i18n": "sl-SI", 
-    "country": "Slovenia", 
-    "language": "Slovenian" 
+    "i": "sl-SI", 
+    "cc": "SI", 
+    "lc": "sl", 
+    "c": "Slovenia", 
+    "l": "Slovenian" 
   }, 
   { 
-    "i18n": "sn-ZW", 
-    "country": "Zimbabwe", 
-    "language": "Shona" 
+    "i": "sn-ZW", 
+    "cc": "ZW", 
+    "lc": "sn", 
+    "c": "Zimbabwe", 
+    "l": "Shona" 
   }, 
   { 
-    "i18n": "so-DJ", 
-    "country": "Djibouti", 
-    "language": "Somali" 
+    "i": "so-DJ", 
+    "cc": "DJ", 
+    "lc": "so", 
+    "c": "Djibouti", 
+    "l": "Somali" 
   }, 
   { 
-    "i18n": "so-ET", 
-    "country": "Ethiopia", 
-    "language": "Somali" 
+    "i": "so-ET", 
+    "cc": "ET", 
+    "lc": "so", 
+    "c": "Ethiopia", 
+    "l": "Somali" 
   }, 
   { 
-    "i18n": "so-KE", 
-    "country": "Kenya", 
-    "language": "Somali" 
+    "i": "so-KE", 
+    "cc": "KE", 
+    "lc": "so", 
+    "c": "Kenya", 
+    "l": "Somali" 
   }, 
   { 
-    "i18n": "so-SO", 
-    "country": "Somalia", 
-    "language": "Somali" 
+    "i": "so-SO", 
+    "cc": "SO", 
+    "lc": "so", 
+    "c": "Somalia", 
+    "l": "Somali" 
   }, 
   { 
-    "i18n": "sq-AL", 
-    "country": "Albania", 
-    "language": "Albanian" 
+    "i": "sq-AL", 
+    "cc": "AL", 
+    "lc": "sq", 
+    "c": "Albania", 
+    "l": "Albanian" 
   }, 
   { 
-    "i18n": "sq-MK", 
-    "country": "Macedonia, the Former Yugoslav Republic of", 
-    "language": "Albanian" 
+    "i": "sq-MK", 
+    "cc": "MK", 
+    "lc": "sq", 
+    "c": "Macedonia, the Former Yugoslav Republic of", 
+    "l": "Albanian" 
   }, 
   { 
-    "i18n": "sv-AX", 
-    "country": "Åland Islands", 
-    "language": "Swedish" 
+    "i": "sv-AX", 
+    "cc": "AX", 
+    "lc": "sv", 
+    "c": "Åland Islands", 
+    "l": "Swedish" 
   }, 
   { 
-    "i18n": "sv-FI", 
-    "country": "Finland", 
-    "language": "Swedish" 
+    "i": "sv-FI", 
+    "cc": "FI", 
+    "lc": "sv", 
+    "c": "Finland", 
+    "l": "Swedish" 
   }, 
   { 
-    "i18n": "sv-SE", 
-    "country": "Sweden", 
-    "language": "Swedish" 
+    "i": "sv-SE", 
+    "cc": "SE", 
+    "lc": "sv", 
+    "c": "Sweden", 
+    "l": "Swedish" 
   }, 
   { 
-    "i18n": "sw-CD", 
-    "country": "Congo, the Democratic Republic of the", 
-    "language": "Swahili" 
+    "i": "sw-CD", 
+    "cc": "CD", 
+    "lc": "sw", 
+    "c": "Congo, the Democratic Republic of the", 
+    "l": "Swahili" 
   }, 
   { 
-    "i18n": "sw-KE", 
-    "country": "Kenya", 
-    "language": "Swahili" 
+    "i": "sw-KE", 
+    "cc": "KE", 
+    "lc": "sw", 
+    "c": "Kenya", 
+    "l": "Swahili" 
   }, 
   { 
-    "i18n": "sw-TZ", 
-    "country": "Tanzania, United Republic of", 
-    "language": "Swahili" 
+    "i": "sw-TZ", 
+    "cc": "TZ", 
+    "lc": "sw", 
+    "c": "Tanzania, United Republic of", 
+    "l": "Swahili" 
   }, 
   { 
-    "i18n": "sw-UG", 
-    "country": "Uganda", 
-    "language": "Swahili" 
+    "i": "sw-UG", 
+    "cc": "UG", 
+    "lc": "sw", 
+    "c": "Uganda", 
+    "l": "Swahili" 
   }, 
   { 
-    "i18n": "ta-IN", 
-    "country": "India", 
-    "language": "Tamil" 
+    "i": "ta-IN", 
+    "cc": "IN", 
+    "lc": "ta", 
+    "c": "India", 
+    "l": "Tamil" 
   }, 
   { 
-    "i18n": "ta-LK", 
-    "country": "Sri Lanka", 
-    "language": "Tamil" 
+    "i": "ta-LK", 
+    "cc": "LK", 
+    "lc": "ta", 
+    "c": "Sri Lanka", 
+    "l": "Tamil" 
   }, 
   { 
-    "i18n": "ta-MY", 
-    "country": "Malaysia", 
-    "language": "Tamil" 
+    "i": "ta-MY", 
+    "cc": "MY", 
+    "lc": "ta", 
+    "c": "Malaysia", 
+    "l": "Tamil" 
   }, 
   { 
-    "i18n": "ta-SG", 
-    "country": "Singapore", 
-    "language": "Tamil" 
+    "i": "ta-SG", 
+    "cc": "SG", 
+    "lc": "ta", 
+    "c": "Singapore", 
+    "l": "Tamil" 
   }, 
   { 
-    "i18n": "te-IN", 
-    "country": "India", 
-    "language": "Telugu" 
+    "i": "te-IN", 
+    "cc": "IN", 
+    "lc": "te", 
+    "c": "India", 
+    "l": "Telugu" 
   }, 
   { 
-    "i18n": "tg-TJ", 
-    "country": "Tajikistan", 
-    "language": "Tajik" 
+    "i": "tg-TJ", 
+    "cc": "TJ", 
+    "lc": "tg", 
+    "c": "Tajikistan", 
+    "l": "Tajik" 
   }, 
   { 
-    "i18n": "th-TH", 
-    "country": "Thailand", 
-    "language": "Thai" 
+    "i": "th-TH", 
+    "cc": "TH", 
+    "lc": "th", 
+    "c": "Thailand", 
+    "l": "Thai" 
   }, 
   { 
-    "i18n": "ti-ER", 
-    "country": "Eritrea", 
-    "language": "Tigrinya" 
+    "i": "ti-ER", 
+    "cc": "ER", 
+    "lc": "ti", 
+    "c": "Eritrea", 
+    "l": "Tigrinya" 
   }, 
   { 
-    "i18n": "ti-ET", 
-    "country": "Ethiopia", 
-    "language": "Tigrinya" 
+    "i": "ti-ET", 
+    "cc": "ET", 
+    "lc": "ti", 
+    "c": "Ethiopia", 
+    "l": "Tigrinya" 
   }, 
   { 
-    "i18n": "tk-TM", 
-    "country": "Turkmenistan", 
-    "language": "Turkmen" 
+    "i": "tk-TM", 
+    "cc": "TM", 
+    "lc": "tk", 
+    "c": "Turkmenistan", 
+    "l": "Turkmen" 
   }, 
   { 
-    "i18n": "to-TO", 
-    "country": "Tonga", 
-    "language": "Tonga (Tonga Islands)" 
+    "i": "to-TO", 
+    "cc": "TO", 
+    "lc": "to", 
+    "c": "Tonga", 
+    "l": "Tonga (Tonga Islands)" 
   }, 
   { 
-    "i18n": "tr-CY", 
-    "country": "Cyprus", 
-    "language": "Turkish" 
+    "i": "tr-CY", 
+    "cc": "CY", 
+    "lc": "tr", 
+    "c": "Cyprus", 
+    "l": "Turkish" 
   }, 
   { 
-    "i18n": "tr-TR", 
-    "country": "Turkey", 
-    "language": "Turkish" 
+    "i": "tr-TR", 
+    "cc": "TR", 
+    "lc": "tr", 
+    "c": "Turkey", 
+    "l": "Turkish" 
   }, 
   { 
-    "i18n": "tt-RU", 
-    "country": "Russian Federation", 
-    "language": "Tatar" 
+    "i": "tt-RU", 
+    "cc": "RU", 
+    "lc": "tt", 
+    "c": "Russian Federation", 
+    "l": "Tatar" 
   }, 
   { 
-    "i18n": "ug-CN", 
-    "country": "China", 
-    "language": "Uighur; Uyghur" 
+    "i": "ug-CN", 
+    "cc": "CN", 
+    "lc": "ug", 
+    "c": "China", 
+    "l": "Uighur; Uyghur" 
   }, 
   { 
-    "i18n": "uk-UA", 
-    "country": "Ukraine", 
-    "language": "Ukrainian" 
+    "i": "uk-UA", 
+    "cc": "UA", 
+    "lc": "uk", 
+    "c": "Ukraine", 
+    "l": "Ukrainian" 
   }, 
   { 
-    "i18n": "ur-IN", 
-    "country": "India", 
-    "language": "Urdu" 
+    "i": "ur-IN", 
+    "cc": "IN", 
+    "lc": "ur", 
+    "c": "India", 
+    "l": "Urdu" 
   }, 
   { 
-    "i18n": "ur-PK", 
-    "country": "Pakistan", 
-    "language": "Urdu" 
+    "i": "ur-PK", 
+    "cc": "PK", 
+    "lc": "ur", 
+    "c": "Pakistan", 
+    "l": "Urdu" 
   }, 
   { 
-    "i18n": "vi-VN", 
-    "country": "Viet Nam", 
-    "language": "Vietnamese" 
+    "i": "vi-VN", 
+    "cc": "VN", 
+    "lc": "vi", 
+    "c": "Viet Nam", 
+    "l": "Vietnamese" 
   }, 
   { 
-    "i18n": "wo-SN", 
-    "country": "Senegal", 
-    "language": "Wolof" 
+    "i": "wo-SN", 
+    "cc": "SN", 
+    "lc": "wo", 
+    "c": "Senegal", 
+    "l": "Wolof" 
   }, 
   { 
-    "i18n": "xh-ZA", 
-    "country": "South Africa", 
-    "language": "Xhosa" 
+    "i": "xh-ZA", 
+    "cc": "ZA", 
+    "lc": "xh", 
+    "c": "South Africa", 
+    "l": "Xhosa" 
   }, 
   { 
-    "i18n": "yo-BJ", 
-    "country": "Benin", 
-    "language": "Yoruba" 
+    "i": "yo-BJ", 
+    "cc": "BJ", 
+    "lc": "yo", 
+    "c": "Benin", 
+    "l": "Yoruba" 
   }, 
   { 
-    "i18n": "yo-NG", 
-    "country": "Nigeria", 
-    "language": "Yoruba" 
+    "i": "yo-NG", 
+    "cc": "NG", 
+    "lc": "yo", 
+    "c": "Nigeria", 
+    "l": "Yoruba" 
   }, 
   { 
-    "i18n": "zu-ZA", 
-    "country": "South Africa", 
-    "language": "Zulu" 
+    "i": "zu-ZA", 
+    "cc": "ZA", 
+    "lc": "zu", 
+    "c": "South Africa", 
+    "l": "Zulu" 
   } 
-] 
+];
+
+export const searchLocale = searchTerm => {
+  return new Promise((resolve, reject) => {    
+    try {
+      const foundLocales = i18n.filter(
+        locale =>
+          locale.i.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          locale.l.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1 ||
+          locale.c.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1
+      );
+
+      resolve(foundLocales);
+    } catch (error) {
+      reject(error)
+    }
+    
+  });
+};

@@ -22,7 +22,7 @@ const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
     <TableCell key={key}>
       <Grid container alignItems="center">
-        <Grid item>{locale}</Grid>
+        <Grid item>{locale.i}</Grid>
         <Grid item>
           <IconButton
             onClick={() => showConfirmRemoveLocale(locale)}
@@ -50,7 +50,7 @@ const buildTranslationsRow = (
       </Typography>
     </TableCell>
     {locales.map((locale, index) => (
-      <TableCell key={index}>{localizationDataLabel[locale]}</TableCell>
+      <TableCell key={index}>{localizationDataLabel[locale.i]}</TableCell>
     ))}
     <TableCell>
       <IconButton size="small">

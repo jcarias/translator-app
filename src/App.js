@@ -21,6 +21,7 @@ import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteL
 import Icon from "./components/utils/Icon";
 import { ICONS } from "./utils/constants/icons";
 import { Divider, Badge, Typography, Link } from "@material-ui/core";
+import DialogLocales from "./components/dialogs/DialogLocales";
 
 const styles = theme => ({
   fab: {
@@ -42,7 +43,8 @@ class App extends Component {
       openDeleteRowDialog: false,
       selKey: null,
       selLocale: null,
-      deleteLocaleDialogOpen: false
+      deleteLocaleDialogOpen: false,
+      localesDialogOpen: false
     };
   }
 
@@ -97,6 +99,13 @@ class App extends Component {
     this.setState({ selLocale: null, deleteLocaleDialogOpen: false });
   };
 
+  showLocalesDialog = () => {
+    this.setState({ localesDialogOpen: true });
+  };
+  closeLocalesDialog = () => {
+    this.setState({ localesDialogOpen: false });
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -123,6 +132,10 @@ class App extends Component {
           handleClose={this.closeConfirmDeleteLocale}
           confirmDeleteLocale={this.confirmDeleteLocale}
         />
+        <DialogLocales
+          open={this.state.localesDialogOpen}
+          handleClose={this.closeLocalesDialog}
+        />
         <TopBar>
           <Tooltip title="Import existing localization files">
             <IconButton color="inherit" onClick={this.showImportDialog}>
@@ -134,18 +147,20 @@ class App extends Component {
           <Grid item xs={12}>
             <Toolbar>
               <Tooltip title={"Add a new Translation key"}>
-                <IconButton
-                  disabled={
-                    !this.props.locales || this.props.locales.length === 0
-                  }
-                  onClick={this.showEditKeyDialog}
-                >
-                  <Icon icon={ICONS.EDIT} />
-                </IconButton>
+                <div>
+                  <IconButton
+                    disabled={
+                      !this.props.locales || this.props.locales.length === 0
+                    }
+                    onClick={this.showEditKeyDialog}
+                  >
+                    <Icon icon={ICONS.EDIT} />
+                  </IconButton>
+                </div>
               </Tooltip>
 
               <Tooltip title={"Manage locales"}>
-                <IconButton>
+                <IconButton onClick={this.showLocalesDialog}>
                   <Badge
                     className={classes.margin}
                     badgeContent={

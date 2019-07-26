@@ -12,11 +12,11 @@ export default function BaseDialog(props) {
   const { open, handleClose, title, content, actions, ...rest } = props;
   return (
     <Dialog
-      {...rest}
       open={open}
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
+      {...rest}
     >
       <DialogTitle id="alert-dialog-title">
         <Grid container alignItems="baseline">

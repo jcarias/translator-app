@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import _ from "lodash";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -16,7 +17,14 @@ import { localizationParser } from "../../utils/FileUtils";
 import FileItem from "../FileItem";
 
 import ClearIcon from "@material-ui/icons/Clear";
-import { IconButton } from "@material-ui/core";
+import {
+  IconButton,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  Link
+} from "@material-ui/core";
 
 const styles = theme => ({
   root: {
@@ -51,16 +59,14 @@ class ImportFileDialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      locale: "en-US",
+      locale: {},
       file: null,
       fileData: null
     };
   }
 
-  handleChange = evt => {
-    if (evt && evt.target) {
-      this.setState({ [evt.target.name]: evt.target.value });
-    }
+  handleChange = ev => {
+    if (ev && ev.target) this.setState({ [ev.target.name]: ev.target.value });
   };
 
   handleFilesChanged = files => {
@@ -94,20 +100,25 @@ class ImportFileDialog extends Component {
         <DialogContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField
-                autoFocus
-                margin="dense"
-                id="locale"
-                name="locale"
-                label="Locale"
-                type="text"
-                value={this.state.locale}
-                placeholder="e.g. en-EN"
-                helperText="Enter a locale using a ISO 639-1 language code and a ISO 3166-2 country code."
-                fullWidth
-                onChange={this.handleChange}
-              />
+              <FormControl className={classes.formControl} fullWidth>
+                <InputLabel htmlFor="age-simple">Locale</InputLabel>
+                <Select
+                  name="locale"
+                  value={this.state.locale}
+                  onChange={this.handleChange}
+                >
+                  {this.props.locales.map((locale, key) => (
+                    <MenuItem value={locale} key={key}>{`${locale.i} (${
+                      locale.l
+                    }:${locale.c})`}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
             </Grid>
+            <Grid item xs={12}>
+              <Link variant="body1">Manage locales...</Link>
+            </Grid>
+
             <Grid item xs={12}>
               <DialogContentText>
                 Select the file with localization string to import
@@ -155,4 +166,12 @@ class ImportFileDialog extends Component {
   }
 }
 
-export default withStyles(styles)(ImportFileDialog);
+const mapStateToProps = (state, ownProps) => {
+  return {
+    locales: state.locales
+  };
+};
+export default connect(
+  mapStateToProps,
+  {}
+)(withStyles(styles)(ImportFileDialog));
