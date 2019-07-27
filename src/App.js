@@ -44,7 +44,7 @@ class App extends Component {
       selKey: null,
       selLocale: null,
       deleteLocaleDialogOpen: false,
-      localesDialogOpen: false
+      localesDialogOpen: true
     };
   }
 

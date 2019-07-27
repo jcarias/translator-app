@@ -9,8 +9,8 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
-import Switch from "@material-ui/core/Switch";
 import actions from "../../modules/actions";
+import { IconButton } from "@material-ui/core";
 
 const isLocaleBeingUsed = (usedLocales, locale) => {
   const retVal = usedLocales.some(l => l.i === locale.i);
@@ -19,7 +19,7 @@ const isLocaleBeingUsed = (usedLocales, locale) => {
 };
 
 const LocalesList = props => {
-  const { locales, usedLocales, toggleLocale } = props;
+  const { locales, usedLocales } = props;
   return (
     <List>
       {locales.map((locale, index) => {
@@ -34,14 +34,13 @@ const LocalesList = props => {
               secondary={locale.i}
             />
             <ListItemSecondaryAction>
-              <Switch
-                edge="end"
-                onChange={() => toggleLocale(usedLocales, locale)}
-                checked={usedLocale}
-                inputProps={{
-                  "aria-labelledby": "switch-list-label-bluetooth"
-                }}
-              />
+              <IconButton
+                color="primary"
+                onClick={() => props.addLocale(locale)}
+                disabled={usedLocale}
+              >
+                <Icon icon={ICONS.ADD} />
+              </IconButton>
             </ListItemSecondaryAction>
           </ListItem>
         );
@@ -55,8 +54,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    toggleLocale: (locales, locale) => {
-      dispatch(actions.toggleLocale(locales, locale));
+    addLocale: locale => {
+      dispatch(actions.addLocale(locale));
     }
   };
 };
