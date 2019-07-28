@@ -19,33 +19,40 @@ import {
   Button,
   Typography,
   Divider,
-  AppBar,
-  Paper,
   ListItem,
   List,
   ListItemText,
-  ListItemAvatar,
   ListItemIcon,
   ListItemSecondaryAction
 } from "@material-ui/core";
 import LocalesList from "./LocalesList";
 import actions from "../../modules/actions";
 
+const styles = {
+  dialogContent: {},
+  localesList: {
+    height: "calc(100vh - 394px)",
+    overflow: "auto",
+    boxShadow: "0 0 1px 0px rgba(0,0,0,0.5)",
+    marginBottom: 16
+  }
+};
+
 const CurrentLocales = props => {
-  const { locales } = props;
+  const { locales, deleteLocale } = props;
   return (
-    <List>
+    <List style={styles.localesList}>
       {locales.map(locale => (
         <ListItem divider key={locale.i}>
           <ListItemIcon color={"red"}>
-            <Icon icon={ICONS.GLOBE} size={32} />
+            <Icon icon={ICONS.BOOK} size={32} />
           </ListItemIcon>
           <ListItemText
             primary={`${locale.l} (${locale.c})`}
             secondary={locale.i}
           />
           <ListItemSecondaryAction>
-            <IconButton onClick={() => props.deleteLocale(locale)}>
+            <IconButton onClick={() => deleteLocale(locale)}>
               <Icon icon={ICONS["TRASH-2"]} />
             </IconButton>
           </ListItemSecondaryAction>
@@ -55,11 +62,6 @@ const CurrentLocales = props => {
   );
 };
 
-const styles = {
-  dialogContent: {
-    height: "calc(100vh - 245px)"
-  }
-};
 class DialogLocales extends Component {
   constructor(props) {
     super(props);
@@ -97,7 +99,7 @@ class DialogLocales extends Component {
   };
 
   render() {
-    const { open, handleClose, title, content, actions, ...rest } = this.props;
+    const { open, handleClose } = this.props;
     return (
       <BaseDialog
         open={open}
@@ -106,7 +108,7 @@ class DialogLocales extends Component {
         fullWidth
         maxWidth={"md"}
         content={
-          <div style={styles.dialogContent}>
+          <div>
             <Tabs
               value={this.state.selTab}
               onChange={this.handleTabChange}
@@ -114,20 +116,24 @@ class DialogLocales extends Component {
               textColor="primary"
               centered
             >
-              <Tab label="Locales" icon={<Icon icon={ICONS.GLOBE} />} />
+              <Tab label="Locales" icon={<Icon icon={ICONS.BOOK} />} />
               <Tab label="Search" icon={<Icon icon={ICONS.SEARCH} />} />
             </Tabs>
             <Divider />
 
-            <div style={{ padding: 16 }}>
+            <div style={styles.dialogContent}>
               {this.state.selTab === 0 && (
                 <React.Fragment>
-                  <Typography paragraph variant="subtitle1">
+                  <Typography
+                    style={{ marginTop: 16 }}
+                    variant="subtitle1"
+                    color="textSecondary"
+                  >
                     List of locales in use:
                   </Typography>
                   <CurrentLocales
                     locales={this.props.locales}
-                    deleteLocale={this.props.deleteLocale}
+                    deleteLocale={this.props.removeLocale}
                   />
                 </React.Fragment>
               )}
@@ -136,6 +142,7 @@ class DialogLocales extends Component {
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
+                      style={{ marginTop: 16 }}
                       label="Search locales to add"
                       placeholder="type the code, country or langage name"
                       name="searchTerm"
@@ -145,6 +152,7 @@ class DialogLocales extends Component {
                         endAdornment: (
                           <InputAdornment position="end">
                             <IconButton
+                              color="primary"
                               aria-label="search"
                               onClick={this.searchLocales}
                               disabled={
@@ -152,7 +160,7 @@ class DialogLocales extends Component {
                                 this.state.searching
                               }
                             >
-                              <Icon icon={ICONS.SEARCH} />
+                              <Icon icon={ICONS.SEARCH} size={16} />
                             </IconButton>
                           </InputAdornment>
                         )

@@ -14,34 +14,42 @@ import { IconButton } from "@material-ui/core";
 
 const isLocaleBeingUsed = (usedLocales, locale) => {
   const retVal = usedLocales.some(l => l.i === locale.i);
-  console.log(retVal, locale);
   return retVal;
+};
+
+const styles = {
+  root: {
+    height: "calc(100vh - 430px)",
+    overflow: "auto",
+    boxShadow: "0 0 1px 0px rgba(0,0,0,0.5)"
+  }
 };
 
 const LocalesList = props => {
   const { locales, usedLocales } = props;
   return (
-    <List>
+    <List style={styles.root}>
       {locales.map((locale, index) => {
         const usedLocale = isLocaleBeingUsed(usedLocales, locale);
         return (
-          <ListItem button key={index}>
+          <ListItem divider key={index} disabled={usedLocale}>
             <ListItemIcon>
-              <Icon icon={ICONS.GLOBE} size={24} />
+              <Icon icon={ICONS.BOOK} size={24} />
             </ListItemIcon>
             <ListItemText
               primary={`${locale.l} (${locale.c})`}
               secondary={locale.i}
             />
-            <ListItemSecondaryAction>
-              <IconButton
-                color="primary"
-                onClick={() => props.addLocale(locale)}
-                disabled={usedLocale}
-              >
-                <Icon icon={ICONS.ADD} />
-              </IconButton>
-            </ListItemSecondaryAction>
+            {!usedLocale && (
+              <ListItemSecondaryAction>
+                <IconButton
+                  color="primary"
+                  onClick={() => props.addLocale(locale)}
+                >
+                  <Icon icon={ICONS.ADD} />
+                </IconButton>
+              </ListItemSecondaryAction>
+            )}
           </ListItem>
         );
       })}
