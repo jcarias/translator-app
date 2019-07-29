@@ -31,15 +31,13 @@ class AutomaticTranslationDialog extends Component {
       overwriteExisting: false,
       loading: false,
       progress: 0,
-      translatingKey: ""
+      translatingKey: "",
+      generatedData: { locale: {}, localizationStrings: {} }
     };
   }
 
   handleChange = ev => {
-    if (ev && ev.target)
-      this.setState({ [ev.target.name]: ev.target.value }, () => {
-        console.log(this.state);
-      });
+    if (ev && ev.target) this.setState({ [ev.target.name]: ev.target.value });
   };
 
   handleCheckChange = event => {
@@ -54,12 +52,17 @@ class AutomaticTranslationDialog extends Component {
       !isEmpty(targetLocale) &&
       !isEqual(sourceLocale, targetLocale);
 
-    console.log(this.state, ready);
     return ready;
   };
 
   getTranslations = () => {
-    this.setState({ loading: true });
+    this.setState({
+      loading: true,
+      generatedData: {
+        localizationStrings: {},
+        locale: this.state.targetLocale
+      }
+    });
     const { translations } = this.props;
     const sourceLanguage = this.state.sourceLocale.lc;
     const targetLanguage = this.state.targetLocale.lc;
@@ -70,7 +73,9 @@ class AutomaticTranslationDialog extends Component {
     Object.keys(translations).forEach(async key => {
       if (
         isNil(translations[key][this.state.sourceLocale.i]) ||
+        isEmpty(translations[key][this.state.sourceLocale.i]) ||
         (!isNil(translations[key][this.state.targetLocale.i]) &&
+          !isEmpty(translations[key][this.state.targetLocale.i]) &&
           !this.state.overwriteExisting)
       ) {
         //Skip if target translation exists and  overwrite is not set
@@ -89,10 +94,18 @@ class AutomaticTranslationDialog extends Component {
         translations[key][this.state.sourceLocale.i]
       ).then(result => {
         count++;
+        const translations = {
+          ...this.state.generatedData.localizationStrings,
+          [key]: result.outputs[0].output
+        };
         this.setState({
           translatingKey: key,
           progress: (count * 100) / total,
-          loading: count < total
+          loading: count < total,
+          generatedData: {
+            ...this.state.generatedData,
+            localizationStrings: translations
+          }
         });
         return console.log(
           this.state.progress,
@@ -176,18 +189,22 @@ class AutomaticTranslationDialog extends Component {
             </Grid>
 
             <Grid item xs={12}>
-              <Button
-                color="primary"
-                variant="contained"
-                disabled={!this.isReadyToTranslate()}
-                onClick={this.getTranslations}
-              >
-                Translate online
-              </Button>
+              <Typography align="right" component="div">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  disabled={!this.isReadyToTranslate()}
+                  onClick={this.getTranslations}
+                >
+                  Translate online
+                </Button>
+              </Typography>
             </Grid>
             <Grid item xs={12}>
               <Typography variant="body2" align="center">
-                {` Translating key '${this.state.translatingKey}'...`}
+                {this.state.loading
+                  ? `Translating key '${this.state.translatingKey}'...`
+                  : "Ready"}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -196,11 +213,32 @@ class AutomaticTranslationDialog extends Component {
                 value={this.state.progress}
               />
             </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body2" align="center">
+                {`Progress ${this.state.progress}%`}
+              </Typography>
+            </Grid>
           </Grid>
         </DialogContent>
         <DialogActions>
           <Button variant="outlined" onClick={handleClose}>
             Close
+          </Button>
+          <Button
+            color="primary"
+            variant="contained"
+            disabled={
+              this.state.loading ||
+              isEmpty(this.state.generatedData.localizationStrings)
+            }
+            onClick={() =>
+              this.props.importLocalizations(
+                this.state.generatedData.locale,
+                this.state.generatedData.localizationStrings
+              )
+            }
+          >
+            Save generated translations
           </Button>
         </DialogActions>
       </Dialog>
@@ -219,7 +257,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addLocalizedString: (key, localizedValues) => {
       dispatch(actions.addLocalizedString(key, localizedValues));
-    }
+    },
+    importLocalizations: (locale, localizationStrings) =>
+      dispatch(actions.importFile(locale, localizationStrings))
   };
 };
 
