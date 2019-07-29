@@ -1,0 +1,229 @@
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import Grid from "@material-ui/core/Grid";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Checkbox from "@material-ui/core/Checkbox";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import LinearProgress from "@material-ui/core/LinearProgress";
+import isEmpty from "lodash/isEmpty";
+import isEqual from "lodash/isEqual";
+import isNil from "lodash/isNil";
+
+import actions from "../../modules/actions";
+import { Typography } from "@material-ui/core";
+import { translate } from "../../utils/constants/translator";
+
+class AutomaticTranslationDialog extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sourceLocale: {},
+      targetLocale: {},
+      overwriteExisting: false,
+      loading: false,
+      progress: 0,
+      translatingKey: ""
+    };
+  }
+
+  handleChange = ev => {
+    if (ev && ev.target)
+      this.setState({ [ev.target.name]: ev.target.value }, () => {
+        console.log(this.state);
+      });
+  };
+
+  handleCheckChange = event => {
+    this.setState({ ...this.state, [event.target.name]: event.target.checked });
+  };
+
+  isReadyToTranslate = () => {
+    const { sourceLocale, targetLocale, loading } = this.state;
+    const ready =
+      !loading &&
+      !isEmpty(sourceLocale) &&
+      !isEmpty(targetLocale) &&
+      !isEqual(sourceLocale, targetLocale);
+
+    console.log(this.state, ready);
+    return ready;
+  };
+
+  getTranslations = () => {
+    this.setState({ loading: true });
+    const { translations } = this.props;
+    const sourceLanguage = this.state.sourceLocale.lc;
+    const targetLanguage = this.state.targetLocale.lc;
+
+    let count = 0;
+    let total = Object.keys(translations).length;
+
+    Object.keys(translations).forEach(async key => {
+      if (
+        isNil(translations[key][this.state.sourceLocale.i]) ||
+        (!isNil(translations[key][this.state.targetLocale.i]) &&
+          !this.state.overwriteExisting)
+      ) {
+        //Skip if target translation exists and  overwrite is not set
+        count++;
+        this.setState({
+          translatingKey: key,
+          progress: (count * 100) / total,
+          loading: count < total
+        });
+        return;
+      }
+
+      await translate(
+        sourceLanguage,
+        targetLanguage,
+        translations[key][this.state.sourceLocale.i]
+      ).then(result => {
+        count++;
+        this.setState({
+          translatingKey: key,
+          progress: (count * 100) / total,
+          loading: count < total
+        });
+        return console.log(
+          this.state.progress,
+          this.state.translatingKey,
+          result
+        );
+      });
+    });
+  };
+
+  render() {
+    const { open, handleClose } = this.props;
+    return (
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        fullWidth
+        maxWidth="lg"
+        disableBackdropClick={this.state.loading}
+        disableEscapeKeyDown={this.state.loading}
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Automatic translations"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {
+              "Choose the Source and the Target locales and generate translations for each key using the source value. "
+            }
+          </DialogContentText>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <FormControl fullWidth disabled={this.state.loading}>
+                <InputLabel htmlFor="source-locale">Source Locale</InputLabel>
+                <Select
+                  id="source-locale"
+                  name="sourceLocale"
+                  value={this.state.sourceLocale}
+                  onChange={this.handleChange}
+                >
+                  {this.props.locales.map((locale, key) => (
+                    <MenuItem value={locale} key={key}>{`${locale.i} (${
+                      locale.l
+                    }:${locale.c})`}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormControl fullWidth disabled={this.state.loading}>
+                <InputLabel htmlFor="target-locale">Target Locale</InputLabel>
+                <Select
+                  id="target-locale"
+                  name="targetLocale"
+                  value={this.state.targetLocale}
+                  onChange={this.handleChange}
+                >
+                  {this.props.locales.map((locale, key) => (
+                    <MenuItem value={locale} key={key}>{`${locale.i} (${
+                      locale.l
+                    }:${locale.c})`}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={this.state.overwriteExisting}
+                    onChange={this.handleCheckChange}
+                    value={this.state.overwriteExisting}
+                    color="primary"
+                    name="overwriteExisting"
+                  />
+                }
+                label="Overwrite existing translations in the target"
+                labelPlacement="start"
+                disabled={this.state.loading}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <Button
+                color="primary"
+                variant="contained"
+                disabled={!this.isReadyToTranslate()}
+                onClick={this.getTranslations}
+              >
+                Translate online
+              </Button>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography variant="body2" align="center">
+                {` Translating key '${this.state.translatingKey}'...`}
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <LinearProgress
+                variant="determinate"
+                value={this.state.progress}
+              />
+            </Grid>
+          </Grid>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="outlined" onClick={handleClose}>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    );
+  }
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    locales: state.locales,
+    translations: state.localizationData
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    addLocalizedString: (key, localizedValues) => {
+      dispatch(actions.addLocalizedString(key, localizedValues));
+    }
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AutomaticTranslationDialog);

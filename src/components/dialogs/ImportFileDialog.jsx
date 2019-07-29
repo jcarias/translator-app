@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -87,7 +86,7 @@ class ImportFileDialog extends Component {
   };
 
   render() {
-    const { classes, open, handleClose } = this.props;
+    const { classes, open, handleClose, showLocalesManager } = this.props;
     return (
       <Dialog
         open={open}
@@ -116,7 +115,13 @@ class ImportFileDialog extends Component {
               </FormControl>
             </Grid>
             <Grid item xs={12}>
-              <Link variant="body1">Manage locales...</Link>
+              <Link
+                component="button"
+                variant="body1"
+                onClick={showLocalesManager}
+              >
+                Manage locales...
+              </Link>
             </Grid>
 
             <Grid item xs={12}>

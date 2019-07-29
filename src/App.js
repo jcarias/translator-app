@@ -22,6 +22,7 @@ import Icon from "./components/utils/Icon";
 import { ICONS } from "./utils/constants/icons";
 import { Divider, Badge, Typography, Link } from "@material-ui/core";
 import DialogLocales from "./components/dialogs/DialogLocales";
+import AutomaticTranslationDialog from "./components/dialogs/AutomaticTranslationDialog";
 
 const styles = theme => ({
   fab: {
@@ -44,7 +45,8 @@ class App extends Component {
       selKey: null,
       selLocale: null,
       deleteLocaleDialogOpen: false,
-      localesDialogOpen: true
+      localesDialogOpen: false,
+      automaticTranslationDialogOpen: true
     };
   }
 
@@ -106,6 +108,13 @@ class App extends Component {
     this.setState({ localesDialogOpen: false });
   };
 
+  showAutomaticTranslationDialog = () => {
+    this.setState({ automaticTranslationDialogOpen: true });
+  };
+  closeAutomaticTranslationDialog = () => {
+    this.setState({ automaticTranslationDialogOpen: false });
+  };
+
   render() {
     const { classes } = this.props;
     return (
@@ -114,6 +123,7 @@ class App extends Component {
           open={this.state.importDialogOpen}
           handleClose={this.closeImportDialog}
           handleImport={this.handleFileImport}
+          showLocalesManager={this.showLocalesDialog}
         />
         <DialogEditKey
           open={this.state.editKeyDialogOpen}
@@ -136,6 +146,12 @@ class App extends Component {
           open={this.state.localesDialogOpen}
           handleClose={this.closeLocalesDialog}
         />
+
+        <AutomaticTranslationDialog
+          open={this.state.automaticTranslationDialogOpen}
+          handleClose={this.closeAutomaticTranslationDialog}
+        />
+
         <TopBar>
           <Tooltip title="Import existing localization files">
             <IconButton color="inherit" onClick={this.showImportDialog}>
@@ -169,8 +185,14 @@ class App extends Component {
                     max={10}
                     color="primary"
                   >
-                    <Icon icon={ICONS.GLOBE} />
+                    <Icon icon={ICONS.BOOK} />
                   </Badge>
+                </IconButton>
+              </Tooltip>
+
+              <Tooltip title={"Generate translations"}>
+                <IconButton onClick={this.showAutomaticTranslationDialog}>
+                  <Icon icon={ICONS.SETTINGS} />
                 </IconButton>
               </Tooltip>
             </Toolbar>
@@ -215,7 +237,7 @@ class App extends Component {
                 >
                   <Grid item>
                     <Icon
-                      icon={ICONS.GLOBE}
+                      icon={ICONS.BOOK}
                       size={250}
                       color={"rgba(0,0,0,0.1)"}
                     />
@@ -226,7 +248,11 @@ class App extends Component {
                     </Typography>
                   </Grid>
                   <Typography variant="subtitle2" color="textSecondary">
-                    <Link component="button" variant="subtitle2">
+                    <Link
+                      component="button"
+                      variant="subtitle2"
+                      onClick={this.showLocalesDialog}
+                    >
                       Manage
                     </Link>{" "}
                     your locales or{" "}

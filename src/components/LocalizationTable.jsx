@@ -12,28 +12,25 @@ import {
   IconButton,
   Link
 } from "@material-ui/core";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
+
 import { makeStyles } from "@material-ui/styles";
 import Icon from "./utils/Icon";
 import { ICONS } from "../utils/constants/icons";
+import { translate } from "../utils/constants/translator";
 
 const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
-    <TableCell key={key}>
-      <Grid container alignItems="center">
-        <Grid item>{locale.i}</Grid>
-        <Grid item>
-          <IconButton
-            onClick={() => showConfirmRemoveLocale(locale)}
-            size="small"
-          >
-            <DeleteIcon fontSize="inherit" />
-          </IconButton>
-        </Grid>
-      </Grid>
-    </TableCell>
+    <TableCell key={key}>{`${locale.i} (${locale.l}: ${locale.c})`}</TableCell>
   ));
+
+const findTranslation = (key, locale) => {
+  const source = "en";
+  const target = locale.lc;
+  const text = key["en-US"];
+  translate(source, target, text)
+    .then(result => console.log(result.outputs["0"].output))
+    .catch(err => console.error(err));
+};
 
 const buildTranslationsRow = (
   localizationKey,
@@ -50,11 +47,22 @@ const buildTranslationsRow = (
       </Typography>
     </TableCell>
     {locales.map((locale, index) => (
-      <TableCell key={index}>{localizationDataLabel[locale.i]}</TableCell>
+      <TableCell key={index}>
+        {localizationDataLabel[locale.i] ? (
+          localizationDataLabel[locale.i]
+        ) : (
+          <IconButton
+            color="primary"
+            onClick={() => findTranslation(localizationDataLabel, locale)}
+          >
+            <Icon icon={ICONS["DOWNLOAD-CLOUD"]} />
+          </IconButton>
+        )}
+      </TableCell>
     ))}
     <TableCell>
       <IconButton size="small">
-        <EditIcon fontSize="inherit" />
+        <Icon icon={ICONS.EDIT} size={16} />
       </IconButton>
 
       <IconButton
@@ -62,7 +70,7 @@ const buildTranslationsRow = (
         onClick={() => showConfirmDeleteRow(localizationKey)}
         className={classes.destructiveBtn}
       >
-        <DeleteIcon fontSize="inherit" />
+        <Icon icon={ICONS["TRASH-2"]} size={16} />
       </IconButton>
     </TableCell>
   </TableRow>
