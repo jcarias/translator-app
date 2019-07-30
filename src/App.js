@@ -46,7 +46,9 @@ class App extends Component {
       selLocale: null,
       deleteLocaleDialogOpen: false,
       localesDialogOpen: false,
-      automaticTranslationDialogOpen: true
+      automaticTranslationDialogOpen: false,
+      selectedKeyData: null,
+      selectedKey: ""
     };
   }
 
@@ -63,8 +65,13 @@ class App extends Component {
     this.closeImportDialog();
   };
 
-  showEditKeyDialog = () => {
-    this.setState({ editKeyDialogOpen: true });
+  showEditKeyDialog = (localizationData, selectedKey) => {
+    console.log(localizationData, selectedKey);
+    this.setState({
+      editKeyDialogOpen: true,
+      selectedKeyData: localizationData,
+      selectedKey: selectedKey || ""
+    });
   };
 
   closeEditKeyDialog = () => {
@@ -129,6 +136,8 @@ class App extends Component {
           open={this.state.editKeyDialogOpen}
           handleClose={this.closeEditKeyDialog}
           confirmUpdate={this.confirmSave}
+          translations={this.state.selectedKeyData}
+          selKey={this.state.selectedKey}
         />
         <DialogDeleteKeyConfirm
           open={this.state.openDeleteRowDialog}
@@ -162,19 +171,6 @@ class App extends Component {
         <Grid container>
           <Grid item xs={12}>
             <Toolbar>
-              <Tooltip title={"Add a new Translation key"}>
-                <div>
-                  <IconButton
-                    disabled={
-                      !this.props.locales || this.props.locales.length === 0
-                    }
-                    onClick={this.showEditKeyDialog}
-                  >
-                    <Icon icon={ICONS.EDIT} />
-                  </IconButton>
-                </div>
-              </Tooltip>
-
               <Tooltip title={"Manage locales"}>
                 <IconButton onClick={this.showLocalesDialog}>
                   <Badge
@@ -190,31 +186,52 @@ class App extends Component {
                 </IconButton>
               </Tooltip>
 
+              <Tooltip title={"Add a new Translation key"}>
+                <div>
+                  <IconButton
+                    disabled={
+                      !this.props.locales || this.props.locales.length === 0
+                    }
+                    onClick={() => this.showEditKeyDialog(null, null)}
+                  >
+                    <Icon icon={ICONS.EDIT} />
+                  </IconButton>
+                </div>
+              </Tooltip>
+
+              <Tooltip title={"Import existing localization file"}>
+                <IconButton onClick={this.showImportDialog}>
+                  <Icon icon={ICONS["UPLOAD"]} />
+                </IconButton>
+              </Tooltip>
+
               <Tooltip title={"Generate translations"}>
                 <IconButton onClick={this.showAutomaticTranslationDialog}>
-                  <Icon icon={ICONS.SETTINGS} />
+                  <Icon icon={ICONS["DOWNLOAD-CLOUD"]} />
                 </IconButton>
               </Tooltip>
             </Toolbar>
             <Divider />
           </Grid>
-          <Grid item xs={12}>
-            <Toolbar>
-              <IconButton variant="contained" color="primary">
-                <AddIcon />
-              </IconButton>
-              <IconButton variant="contained" color="primary">
-                <ImportExport />
-              </IconButton>
-              {Object.keys(ICONS).map(iconKey => (
-                <Tooltip title={iconKey} key={iconKey}>
-                  <IconButton variant="contained" color="primary">
-                    <Icon icon={ICONS[iconKey]} size={16} />
-                  </IconButton>
-                </Tooltip>
-              ))}
-            </Toolbar>
-          </Grid>
+          {false && (
+            <Grid item xs={12}>
+              <Toolbar>
+                <IconButton variant="contained" color="primary">
+                  <AddIcon />
+                </IconButton>
+                <IconButton variant="contained" color="primary">
+                  <ImportExport />
+                </IconButton>
+                {Object.keys(ICONS).map(iconKey => (
+                  <Tooltip title={iconKey} key={iconKey}>
+                    <IconButton variant="contained" color="primary">
+                      <Icon icon={ICONS[iconKey]} size={16} />
+                    </IconButton>
+                  </Tooltip>
+                ))}
+              </Toolbar>
+            </Grid>
+          )}
           <Grid item xs={12}>
             {this.props.locales && this.props.locales.length > 0 ? (
               <div>
@@ -274,7 +291,7 @@ class App extends Component {
         <Fab
           color="secondary"
           className={classes.fab}
-          onClick={this.showEditKeyDialog}
+          onClick={() => this.showEditKeyDialog(null, null)}
         >
           <EditIcon />
         </Fab>

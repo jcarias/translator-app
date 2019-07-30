@@ -17,10 +17,13 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 import isNil from "lodash/isNil";
+import Typography from "@material-ui/core/Typography";
 
 import actions from "../../modules/actions";
-import { Typography } from "@material-ui/core";
 import { translate } from "../../utils/constants/translator";
+import Icon from "../utils/Icon";
+import { ICONS } from "../../utils/constants/icons";
+import { IconButton, Divider } from "@material-ui/core";
 
 class AutomaticTranslationDialog extends Component {
   constructor(props) {
@@ -128,7 +131,19 @@ class AutomaticTranslationDialog extends Component {
         disableEscapeKeyDown={this.state.loading}
       >
         <DialogTitle id="alert-dialog-title">
-          {"Automatic translations"}
+          <Grid container spacing={1}>
+            <Grid item>
+              <Icon icon={ICONS["DOWNLOAD-CLOUD"]} size={32} />
+            </Grid>
+            <Grid item style={{ flexGrow: 1 }}>
+              {"Automatic translations"}
+            </Grid>
+            <Grid item>
+              <IconButton>
+                <Icon icon={ICONS["X"]} size={16} />
+              </IconButton>
+            </Grid>
+          </Grid>
         </DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -220,6 +235,7 @@ class AutomaticTranslationDialog extends Component {
             </Grid>
           </Grid>
         </DialogContent>
+
         <DialogActions>
           <Button variant="outlined" onClick={handleClose}>
             Close

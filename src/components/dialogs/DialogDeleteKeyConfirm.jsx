@@ -9,7 +9,7 @@ export default function DialogDeleteKeyConfirm(props) {
     <BaseDialog
       open={props.open}
       handleClose={handleClose}
-      title={`Confirm remvoval of "${localizationKey}"?`}
+      title={`Confirm removal of "${localizationKey}"?`}
       content={
         <React.Fragment>
           <DialogContentText>

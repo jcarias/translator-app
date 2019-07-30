@@ -11,7 +11,7 @@ class DialogEditKey extends Component {
     super(props);
     this.state = {
       locales: [],
-      key: "",
+      translationKey: "",
       translations: {}
     };
   }
@@ -34,12 +34,13 @@ class DialogEditKey extends Component {
     this.setState({
       ...this.state,
       locales: this.props.locales,
-      key: this.props.key || "",
+      translationKey: this.props.selKey || "",
       translations: this.generateDefaultTranslations(this.props.locales)
     });
   }
 
   componentDidUpdate(prevProps) {
+    console.log(this.props);
     if (!_.isEqual(prevProps.locales, this.props.locales)) {
       this.setState({
         ...this.state,
@@ -48,18 +49,22 @@ class DialogEditKey extends Component {
       });
     }
 
-    if (!_.isEqual(prevProps.key, this.props.key)) {
-      this.setState({ ...this.state, key: this.props.key });
+    if (!_.isEqual(prevProps.selKey, this.props.selKey)) {
+      this.setState({ ...this.state, translationKey: this.props.selKey });
     }
 
-    if (!_.isEqual(prevProps.key, this.props.translations)) {
-      this.setState({ ...this.state, translations: this.props.translations });
+    if (!_.isEqual(prevProps.translations, this.props.translations)) {
+      this.setState({
+        ...this.state,
+        translations: this.props.translations,
+        translationKey: this.props.selKey
+      });
     }
   }
 
   handleKeyChange = evt => {
     if (evt && evt.target) {
-      this.setState({ key: evt.target.value });
+      this.setState({ selKey: evt.target.value });
     }
   };
 
@@ -75,7 +80,10 @@ class DialogEditKey extends Component {
   };
 
   handleSubmit = () => {
-    this.props.addLocalizedString(this.state.key, this.state.translations);
+    this.props.addLocalizedString(
+      this.state.translationKey,
+      this.state.translations
+    );
     this.props.handleClose();
   };
 
@@ -89,13 +97,13 @@ class DialogEditKey extends Component {
         content={
           <React.Fragment>
             <TextField
-              autoFocus={_.isEmpty(this.state.key)}
+              autoFocus={_.isEmpty(this.state.translationKey)}
               margin="dense"
-              id="key"
-              name="key"
+              id="translationKey"
+              name="translationKey"
               label="Translation key"
               type="text"
-              value={this.state.key}
+              value={this.state.translationKey}
               placeholder="my-key"
               fullWidth
               onChange={this.handleKeyChange}

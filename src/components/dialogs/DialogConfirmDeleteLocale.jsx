@@ -12,13 +12,16 @@ export default function DialogConfirmDeleteLocale(props) {
     <BaseDialog
       open={props.open}
       handleClose={handleClose}
-      title={`Confirm remvoval of "${locale.i}"?`}
+      title={`Confirm removal of "${locale.i}"?`}
       content={
         <React.Fragment>
           <DialogContentText>
             {`Are you sure want to permanently delete the locale "${
               locale.i
             }" (${locale.l} - ${locale.c})? `}
+          </DialogContentText>
+          <DialogContentText color="error">
+            {`If the locale is removed all it's translations will also be removed! `}
           </DialogContentText>
           <DialogContentText>
             {`This is irreversible and cannot be undone. `}

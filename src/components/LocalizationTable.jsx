@@ -38,7 +38,8 @@ const buildTranslationsRow = (
   locales,
   localizationDataLabel,
   classes,
-  showConfirmDeleteRow
+  showConfirmDeleteRow,
+  showEditKeyDialog
 ) => (
   <TableRow hover key={index}>
     <TableCell variant="body" nowrap="nowrap">
@@ -61,7 +62,12 @@ const buildTranslationsRow = (
       </TableCell>
     ))}
     <TableCell>
-      <IconButton size="small">
+      <IconButton
+        size="small"
+        onClick={() =>
+          showEditKeyDialog(localizationDataLabel, localizationKey)
+        }
+      >
         <Icon icon={ICONS.EDIT} size={16} />
       </IconButton>
 
@@ -87,7 +93,7 @@ const useStyles = makeStyles(theme => ({
 
 const LocalizationTable = props => {
   const classes = useStyles();
-
+  console.log(props);
   return (
     <React.Fragment>
       <Table className={classes.table}>
@@ -108,12 +114,13 @@ const LocalizationTable = props => {
                 props.data.locales,
                 props.data.localizationData[localizationKey],
                 classes,
-                props.showConfirmDeleteRow
+                props.showConfirmDeleteRow,
+                props.showEditKeyDialog
               )
           )}
           {isEmpty(props.data.localizationData) && (
             <TableRow>
-              <TableCell colSpan={3}>
+              <TableCell colSpan={props.data.locales.length + 2}>
                 <Grid
                   container
                   direction="column"
