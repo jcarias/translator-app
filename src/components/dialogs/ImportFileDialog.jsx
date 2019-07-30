@@ -10,20 +10,22 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Link from "@material-ui/core/Link";
+
 import { withStyles } from "@material-ui/core/styles";
 import FilesDropper from "../utils/FilesDropper";
 import { localizationParser } from "../../utils/FileUtils";
 import FileItem from "../FileItem";
-
-import ClearIcon from "@material-ui/icons/Clear";
-import {
-  IconButton,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Link
-} from "@material-ui/core";
+import isEmpty from "lodash/isEmpty";
+import isEqual from "lodash/isEqual";
+import isNil from "lodash/isNil";
+import Icon from "../utils/Icon";
+import { ICONS } from "../../utils/constants/icons";
 
 const styles = theme => ({
   root: {
@@ -85,8 +87,25 @@ class ImportFileDialog extends Component {
       .catch(err => console.error(err));
   };
 
+  componentDidUpdate(prevProps) {
+    if (!isEqual(prevProps.locales, this.props.locales)) {
+      if (this.props.locales.length === 1) {
+        this.setState({ locale: this.props.locales[0] });
+      }
+    }
+  }
+
+  resetState = () => {
+    this.setState({ locale: {}, file: null, fileData: null });
+  };
+
   render() {
     const { classes, open, handleClose, showLocalesManager } = this.props;
+    console.log(
+      this.state,
+      isEmpty(this.state.locale),
+      isEmpty(this.state.file)
+    );
     return (
       <Dialog
         open={open}
@@ -94,12 +113,31 @@ class ImportFileDialog extends Component {
         aria-labelledby="form-dialog-title"
         fullWidth
         maxWidth="md"
+        onEnter={this.resetState}
       >
-        <DialogTitle id="form-dialog-title">Import file</DialogTitle>
+        <DialogTitle id="form-dialog-title">
+          <Grid container spacing={1}>
+            <Grid item>
+              <Icon icon={ICONS["UPLOAD"]} size={32} />
+            </Grid>
+            <Grid item style={{ flexGrow: 1 }}>
+              Import file
+            </Grid>
+            <Grid item>
+              <IconButton onClick={handleClose}>
+                <Icon icon={ICONS["X"]} size={16} />
+              </IconButton>
+            </Grid>
+          </Grid>
+        </DialogTitle>
         <DialogContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <FormControl className={classes.formControl} fullWidth>
+              <FormControl
+                className={classes.formControl}
+                fullWidth
+                disabled={isEmpty(this.props.locales)}
+              >
                 <InputLabel htmlFor="age-simple">Locale</InputLabel>
                 <Select
                   name="locale"
@@ -138,7 +176,7 @@ class ImportFileDialog extends Component {
                   {this.state.file ? (
                     <FileItem file={this.state.file}>
                       <IconButton>
-                        <ClearIcon />
+                        <Icon icon={ICONS.X} size={16} />
                       </IconButton>
                     </FileItem>
                   ) : (
@@ -159,6 +197,7 @@ class ImportFileDialog extends Component {
             Cancel
           </Button>
           <Button
+            disabled={isEmpty(this.state.locale) || isNil(this.state.file)}
             onClick={this.handleImportClick}
             color="primary"
             variant="contained"

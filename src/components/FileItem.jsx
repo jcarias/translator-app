@@ -1,14 +1,15 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import FileIcon from "@material-ui/icons/DescriptionOutlined";
+import Icon from "./utils/Icon";
+import { ICONS } from "../utils/constants/icons";
 
 const FileItem = props => {
   const { file } = props;
   return (
     <Grid container alignItems="flex-start" spacing={2}>
       <Grid item>
-        <FileIcon fontSize="large" color="action" />
+        <Icon icon={ICONS["FILE"]} />
       </Grid>
       <Grid item xs>
         <Grid container spacing={1}>

@@ -6,7 +6,9 @@ import DialogContent from "@material-ui/core/DialogContent";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import CloseIcon from "@material-ui/icons/Close";
+
+import Icon from "../utils/Icon";
+import { ICONS } from "../../utils/constants/icons";
 
 export default function BaseDialog(props) {
   const { open, handleClose, title, content, actions, ...rest } = props;
@@ -25,7 +27,7 @@ export default function BaseDialog(props) {
           </Grid>
           <Grid item>
             <IconButton onClick={handleClose}>
-              <CloseIcon />
+              <Icon icon={ICONS["X"]} size={16} />
             </IconButton>
           </Grid>
         </Grid>

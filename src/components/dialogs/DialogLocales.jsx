@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { searchLocale } from "../../utils/constants/i18nData";
-import BaseDialog from "./BaseDialog";
-
-import Icon from "../utils/Icon";
-import { ICONS } from "../../utils/constants/icons";
+import cloneDeep from "lodash/cloneDeep";
+import isEmpty from "lodash/isEmpty";
 
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
-
 import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Tabs from "@material-ui/core/Tabs";
@@ -23,10 +19,18 @@ import {
   List,
   ListItemText,
   ListItemIcon,
-  ListItemSecondaryAction
+  ListItemSecondaryAction,
+  Badge,
+  Link
 } from "@material-ui/core";
+
+import { searchLocale } from "../../utils/constants/i18nData";
+import Icon from "../utils/Icon";
+import { ICONS } from "../../utils/constants/icons";
+import BaseDialog from "./BaseDialog";
 import LocalesList from "./LocalesList";
 import actions from "../../modules/actions";
+import DialogConfirmDeleteLocale from "./DialogConfirmDeleteLocale";
 
 const styles = {
   dialogContent: {},
@@ -38,29 +42,60 @@ const styles = {
   }
 };
 
-const CurrentLocales = props => {
-  const { locales, deleteLocale } = props;
-  return (
-    <List style={styles.localesList}>
-      {locales.map(locale => (
-        <ListItem divider key={locale.i}>
-          <ListItemIcon color={"red"}>
-            <Icon icon={ICONS.BOOK} size={32} />
-          </ListItemIcon>
-          <ListItemText
-            primary={`${locale.l} (${locale.c})`}
-            secondary={locale.i}
-          />
-          <ListItemSecondaryAction>
-            <IconButton onClick={() => deleteLocale(locale)}>
-              <Icon icon={ICONS["TRASH-2"]} />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      ))}
-    </List>
-  );
-};
+class CurrentLocales extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { deleteLocaleDialogOpen: false, selLocale: null };
+  }
+
+  showConfirmDeleteLocale = locale => {
+    console.log(locale);
+    this.setState({ deleteLocaleDialogOpen: true, selLocale: locale });
+  };
+
+  closeConfirmDeleteLocale = () => {
+    this.setState({ deleteLocaleDialogOpen: false, selLocale: null });
+  };
+
+  confirmDeleteLocale = () => {
+    this.props.deleteLocale(cloneDeep(this.state.selLocale));
+    this.closeConfirmDeleteLocale();
+  };
+
+  render() {
+    const { locales } = this.props;
+    return (
+      <React.Fragment>
+        <DialogConfirmDeleteLocale
+          open={this.state.deleteLocaleDialogOpen}
+          locale={this.state.selLocale}
+          handleClose={this.closeConfirmDeleteLocale}
+          confirmDeleteLocale={this.confirmDeleteLocale}
+        />
+        <List style={styles.localesList}>
+          {locales.map(locale => (
+            <ListItem divider key={locale.i}>
+              <ListItemIcon color={"red"}>
+                <Icon icon={ICONS.BOOK} size={32} />
+              </ListItemIcon>
+              <ListItemText
+                primary={`${locale.l} (${locale.c})`}
+                secondary={locale.i}
+              />
+              <ListItemSecondaryAction>
+                <IconButton
+                  onClick={() => this.showConfirmDeleteLocale(locale)}
+                >
+                  <Icon icon={ICONS["TRASH-2"]} />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItem>
+          ))}
+        </List>
+      </React.Fragment>
+    );
+  }
+}
 
 class DialogLocales extends Component {
   constructor(props) {
@@ -99,7 +134,7 @@ class DialogLocales extends Component {
   };
 
   render() {
-    const { open, handleClose } = this.props;
+    const { open, handleClose, removeLocale } = this.props;
     return (
       <BaseDialog
         open={open}
@@ -116,7 +151,21 @@ class DialogLocales extends Component {
               textColor="primary"
               centered
             >
-              <Tab label="Locales" icon={<Icon icon={ICONS.BOOK} />} />
+              <Tab
+                label={"Locales"}
+                icon={
+                  <Badge
+                    badgeContent={
+                      this.props.locales ? this.props.locales.length : 0
+                    }
+                    max={10}
+                    color="primary"
+                  >
+                    <Icon icon={ICONS.BOOK} />{" "}
+                  </Badge>
+                }
+              />
+
               <Tab label="Search" icon={<Icon icon={ICONS.SEARCH} />} />
             </Tabs>
             <Divider />
@@ -131,10 +180,34 @@ class DialogLocales extends Component {
                   >
                     List of locales in use:
                   </Typography>
-                  <CurrentLocales
-                    locales={this.props.locales}
-                    deleteLocale={this.props.removeLocale}
-                  />
+                  {isEmpty(this.props.locales) ? (
+                    <div
+                      style={{
+                        ...styles.localesList,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                      }}
+                    >
+                      <Typography>
+                        No locales in use.{" "}
+                        <Link
+                          component="button"
+                          variant="body1"
+                          onClick={() => {
+                            this.setState({ selTab: 1 });
+                          }}
+                        >
+                          Search locales
+                        </Link>{" "}
+                      </Typography>
+                    </div>
+                  ) : (
+                    <CurrentLocales
+                      locales={this.props.locales}
+                      deleteLocale={removeLocale}
+                    />
+                  )}
                 </React.Fragment>
               )}
 

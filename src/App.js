@@ -30,8 +30,9 @@ const styles = theme => ({
     bottom: theme.spacing(2),
     right: theme.spacing(2)
   },
-  test: {
-    fill: theme.palette.primary.main
+  table: {
+    maxHeight: "calc(100vh - 145px)",
+    overflow: "auto"
   }
 });
 

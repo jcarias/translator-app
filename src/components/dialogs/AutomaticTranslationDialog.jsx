@@ -18,12 +18,12 @@ import isEmpty from "lodash/isEmpty";
 import isEqual from "lodash/isEqual";
 import isNil from "lodash/isNil";
 import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
 
 import actions from "../../modules/actions";
 import { translate } from "../../utils/constants/translator";
 import Icon from "../utils/Icon";
 import { ICONS } from "../../utils/constants/icons";
-import { IconButton, Divider } from "@material-ui/core";
 
 class AutomaticTranslationDialog extends Component {
   constructor(props) {
@@ -38,6 +38,18 @@ class AutomaticTranslationDialog extends Component {
       generatedData: { locale: {}, localizationStrings: {} }
     };
   }
+
+  resetState = () => {
+    this.setState({
+      sourceLocale: {},
+      targetLocale: {},
+      overwriteExisting: false,
+      loading: false,
+      progress: 0,
+      translatingKey: "",
+      generatedData: { locale: {}, localizationStrings: {} }
+    });
+  };
 
   handleChange = ev => {
     if (ev && ev.target) this.setState({ [ev.target.name]: ev.target.value });
@@ -59,64 +71,61 @@ class AutomaticTranslationDialog extends Component {
   };
 
   getTranslations = () => {
-    this.setState({
-      loading: true,
-      generatedData: {
-        localizationStrings: {},
-        locale: this.state.targetLocale
-      }
-    });
     const { translations } = this.props;
-    const sourceLanguage = this.state.sourceLocale.lc;
-    const targetLanguage = this.state.targetLocale.lc;
-
-    let count = 0;
-    let total = Object.keys(translations).length;
-
-    Object.keys(translations).forEach(async key => {
-      if (
-        isNil(translations[key][this.state.sourceLocale.i]) ||
-        isEmpty(translations[key][this.state.sourceLocale.i]) ||
-        (!isNil(translations[key][this.state.targetLocale.i]) &&
-          !isEmpty(translations[key][this.state.targetLocale.i]) &&
-          !this.state.overwriteExisting)
-      ) {
-        //Skip if target translation exists and  overwrite is not set
-        count++;
-        this.setState({
-          translatingKey: key,
-          progress: (count * 100) / total,
-          loading: count < total
-        });
-        return;
-      }
-
-      await translate(
-        sourceLanguage,
-        targetLanguage,
-        translations[key][this.state.sourceLocale.i]
-      ).then(result => {
-        count++;
-        const translations = {
-          ...this.state.generatedData.localizationStrings,
-          [key]: result.outputs[0].output
-        };
-        this.setState({
-          translatingKey: key,
-          progress: (count * 100) / total,
-          loading: count < total,
-          generatedData: {
-            ...this.state.generatedData,
-            localizationStrings: translations
-          }
-        });
-        return console.log(
-          this.state.progress,
-          this.state.translatingKey,
-          result
-        );
+    if (!isEmpty(translations)) {
+      this.setState({
+        loading: true,
+        generatedData: {
+          localizationStrings: {},
+          locale: this.state.targetLocale
+        }
       });
-    });
+      const sourceLanguage = this.state.sourceLocale.lc;
+      const targetLanguage = this.state.targetLocale.lc;
+
+      let count = 0;
+      let total = Object.keys(translations).length;
+
+      Object.keys(translations).forEach(async key => {
+        if (
+          isNil(translations[key][this.state.sourceLocale.i]) ||
+          isEmpty(translations[key][this.state.sourceLocale.i]) ||
+          (!isNil(translations[key][this.state.targetLocale.i]) &&
+            !isEmpty(translations[key][this.state.targetLocale.i]) &&
+            !this.state.overwriteExisting)
+        ) {
+          //Skip if target translation exists and  overwrite is not set
+          count++;
+          this.setState({
+            translatingKey: key,
+            progress: (count * 100) / total,
+            loading: count < total
+          });
+          return;
+        }
+
+        await translate(
+          sourceLanguage,
+          targetLanguage,
+          translations[key][this.state.sourceLocale.i]
+        ).then(result => {
+          count++;
+          const translations = {
+            ...this.state.generatedData.localizationStrings,
+            [key]: result.outputs[0].output
+          };
+          this.setState({
+            translatingKey: key,
+            progress: (count * 100) / total,
+            loading: count < total,
+            generatedData: {
+              ...this.state.generatedData,
+              localizationStrings: translations
+            }
+          });
+        });
+      });
+    }
   };
 
   render() {
@@ -129,6 +138,7 @@ class AutomaticTranslationDialog extends Component {
         maxWidth="lg"
         disableBackdropClick={this.state.loading}
         disableEscapeKeyDown={this.state.loading}
+        onEnter={this.resetState}
       >
         <DialogTitle id="alert-dialog-title">
           <Grid container spacing={1}>
@@ -139,7 +149,7 @@ class AutomaticTranslationDialog extends Component {
               {"Automatic translations"}
             </Grid>
             <Grid item>
-              <IconButton>
+              <IconButton disabled={this.state.loading} onClick={handleClose}>
                 <Icon icon={ICONS["X"]} size={16} />
               </IconButton>
             </Grid>
@@ -219,7 +229,9 @@ class AutomaticTranslationDialog extends Component {
               <Typography variant="body2" align="center">
                 {this.state.loading
                   ? `Translating key '${this.state.translatingKey}'...`
-                  : "Ready"}
+                  : this.isReadyToTranslate()
+                  ? "Ready"
+                  : "Awaiting translation setup."}
               </Typography>
             </Grid>
             <Grid item xs={12}>
@@ -230,7 +242,7 @@ class AutomaticTranslationDialog extends Component {
             </Grid>
             <Grid item xs={12}>
               <Typography variant="body2" align="center">
-                {`Progress ${this.state.progress}%`}
+                {`Progress ${this.state.progress.toFixed(0)}%`}
               </Typography>
             </Grid>
           </Grid>
