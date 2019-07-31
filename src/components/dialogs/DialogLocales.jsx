@@ -24,9 +24,7 @@ import Icon from "../utils/Icon";
 import { ICONS } from "../../utils/constants/icons";
 import BaseDialog from "./BaseDialog";
 import LocalesList from "./LocalesList";
-import actions from "../../modules/actions";
 
-import { getLocaleTranslations } from "../../modules/localizationReducer";
 import CurrentLocales from "./CurrentLocales";
 
 const styles = {

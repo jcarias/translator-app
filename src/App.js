@@ -18,30 +18,29 @@ import withTheme from "@material-ui/styles/withTheme";
 import DialogEditKey from "./components/dialogs/DialogEditKey";
 import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm";
 import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteLocale";
-import Icon from "./components/utils/Icon";
-import { ICONS } from "./utils/constants/icons";
-import {
-  Divider,
-  Badge,
-  Typography,
-  Link,
-  Popper,
-  Fade,
-  Paper,
-  Button,
-  List,
-  ListItemText,
-  ListItem,
-  ListItemIcon,
-  Card,
-  CardHeader,
-  CardContent,
-  CardActions,
-  Avatar
-} from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
+import Badge from "@material-ui/core/Badge";
+import Typography from "@material-ui/core/Typography";
+import Link from "@material-ui/core/Link";
+import Popper from "@material-ui/core/Popper";
+import Fade from "@material-ui/core/Fade";
+import Button from "@material-ui/core/Button";
+import List from "@material-ui/core/List";
+import ListItemText from "@material-ui/core/ListItemText";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
+import CardActions from "@material-ui/core/CardActions";
+import Avatar from "@material-ui/core/Avatar";
+import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import DialogLocales from "./components/dialogs/DialogLocales";
 import AutomaticTranslationDialog from "./components/dialogs/AutomaticTranslationDialog";
 import FlagAvatar from "./components/utils/FlagImage";
+
+import Icon from "./components/utils/Icon";
+import { ICONS } from "./utils/constants/icons";
 
 const styles = theme => ({
   fab: {
@@ -252,6 +251,20 @@ class App extends Component {
                           primary={locale.i}
                           secondary={`${locale.l} (${locale.c})`}
                         />
+                        <Tooltip title={"There are no keys for this locale!"}>
+                          <ListItemIcon>
+                            <Icon
+                              icon={ICONS["ALERT-TRIANGLE"]}
+                              size={16}
+                              color="red"
+                            />
+                          </ListItemIcon>
+                        </Tooltip>
+                        <ListItemSecondaryAction>
+                          <IconButton>
+                            <Icon icon={ICONS["DOWNLOAD"]} />
+                          </IconButton>
+                        </ListItemSecondaryAction>
                       </ListItem>
                     ))}
                   </List>

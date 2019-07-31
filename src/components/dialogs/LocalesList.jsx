@@ -6,11 +6,12 @@ import { ICONS } from "../../utils/constants/icons";
 
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
+import IconButton from "@material-ui/core/IconButton";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+
 import actions from "../../modules/actions";
-import { IconButton, ListItemAvatar, Avatar } from "@material-ui/core";
 import FlagAvatar from "../utils/FlagImage";
 
 const isLocaleBeingUsed = (usedLocales, locale) => {

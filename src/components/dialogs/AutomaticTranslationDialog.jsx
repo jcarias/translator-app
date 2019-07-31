@@ -20,7 +20,6 @@ import isNil from "lodash/isNil";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
 import Avatar from "@material-ui/core/Avatar";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
 
 import actions from "../../modules/actions";
 import { translate } from "../../utils/constants/translator";
