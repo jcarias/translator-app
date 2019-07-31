@@ -19,11 +19,14 @@ import isEqual from "lodash/isEqual";
 import isNil from "lodash/isNil";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
+import Avatar from "@material-ui/core/Avatar";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
 
 import actions from "../../modules/actions";
 import { translate } from "../../utils/constants/translator";
 import Icon from "../utils/Icon";
 import { ICONS } from "../../utils/constants/icons";
+import FlagAvatar from "../utils/FlagImage";
 
 class AutomaticTranslationDialog extends Component {
   constructor(props) {
@@ -108,22 +111,32 @@ class AutomaticTranslationDialog extends Component {
           sourceLanguage,
           targetLanguage,
           translations[key][this.state.sourceLocale.i]
-        ).then(result => {
-          count++;
-          const translations = {
-            ...this.state.generatedData.localizationStrings,
-            [key]: result.outputs[0].output
-          };
-          this.setState({
-            translatingKey: key,
-            progress: (count * 100) / total,
-            loading: count < total,
-            generatedData: {
-              ...this.state.generatedData,
-              localizationStrings: translations
-            }
+        )
+          .then(result => {
+            count++;
+            const translations = {
+              ...this.state.generatedData.localizationStrings,
+              [key]: result.outputs[0].output
+            };
+            this.setState({
+              translatingKey: key,
+              progress: (count * 100) / total,
+              loading: count < total,
+              generatedData: {
+                ...this.state.generatedData,
+                localizationStrings: translations
+              }
+            });
+          })
+          .catch(err => {
+            count++;
+            console.error(err);
+            this.setState({
+              translatingKey: key,
+              progress: (count * 100) / total,
+              loading: count < total
+            });
           });
-        });
       });
     }
   };
@@ -148,9 +161,11 @@ class AutomaticTranslationDialog extends Component {
         onEnter={this.resetState}
       >
         <DialogTitle id="alert-dialog-title">
-          <Grid container spacing={1}>
+          <Grid container spacing={1} alignItems="center">
             <Grid item>
-              <Icon icon={ICONS["GLOBE"]} size={32} />
+              <Avatar>
+                <Icon icon={ICONS["GLOBE"]} size={32} />
+              </Avatar>
             </Grid>
             <Grid item style={{ flexGrow: 1 }}>
               {"Automatic translations"}
@@ -170,38 +185,70 @@ class AutomaticTranslationDialog extends Component {
           </DialogContentText>
           <Grid container spacing={2}>
             <Grid item xs={12} md={6}>
-              <FormControl fullWidth disabled={this.state.loading}>
-                <InputLabel htmlFor="source-locale">Source Locale</InputLabel>
-                <Select
-                  id="source-locale"
-                  name="sourceLocale"
-                  value={this.state.sourceLocale}
-                  onChange={this.handleChange}
-                >
-                  {this.props.locales.map((locale, key) => (
-                    <MenuItem value={locale} key={key}>{`${locale.i} (${
-                      locale.l
-                    }:${locale.c})`}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+              <Grid container alignItems="center" spacing={1}>
+                <Grid item>
+                  {!isEmpty(this.state.sourceLocale) && (
+                    <FlagAvatar
+                      countryCode={this.state.sourceLocale.cc}
+                      countryName={this.state.sourceLocale.c}
+                      size={30}
+                    />
+                  )}
+                </Grid>
+                <Grid item xs>
+                  <FormControl fullWidth disabled={this.state.loading}>
+                    <InputLabel htmlFor="source-locale">
+                      Source Locale
+                    </InputLabel>
+                    <Select
+                      id="source-locale"
+                      name="sourceLocale"
+                      value={this.state.sourceLocale}
+                      onChange={this.handleChange}
+                    >
+                      {this.props.locales.map((locale, key) => (
+                        <MenuItem value={locale} key={key}>
+                          <Typography>{`${locale.i} (${locale.l}:${
+                            locale.c
+                          })`}</Typography>
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item xs={12} md={6}>
-              <FormControl fullWidth disabled={this.state.loading}>
-                <InputLabel htmlFor="target-locale">Target Locale</InputLabel>
-                <Select
-                  id="target-locale"
-                  name="targetLocale"
-                  value={this.state.targetLocale}
-                  onChange={this.handleChange}
-                >
-                  {this.props.locales.map((locale, key) => (
-                    <MenuItem value={locale} key={key}>{`${locale.i} (${
-                      locale.l
-                    }:${locale.c})`}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+              <Grid container alignItems="center" spacing={1}>
+                <Grid item>
+                  {!isEmpty(this.state.targetLocale) && (
+                    <FlagAvatar
+                      countryCode={this.state.targetLocale.cc}
+                      countryName={this.state.targetLocale.c}
+                      size={30}
+                    />
+                  )}
+                </Grid>
+                <Grid item xs>
+                  <FormControl fullWidth disabled={this.state.loading}>
+                    <InputLabel htmlFor="target-locale">
+                      Target Locale
+                    </InputLabel>
+                    <Select
+                      id="target-locale"
+                      name="targetLocale"
+                      value={this.state.targetLocale}
+                      onChange={this.handleChange}
+                    >
+                      {this.props.locales.map((locale, key) => (
+                        <MenuItem value={locale} key={key}>{`${locale.i} (${
+                          locale.l
+                        }:${locale.c})`}</MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              </Grid>
             </Grid>
             <Grid item xs={12} md={6}>
               <FormControlLabel
@@ -235,7 +282,9 @@ class AutomaticTranslationDialog extends Component {
             <Grid item xs={12}>
               <Typography variant="body2" align="center">
                 {this.state.loading
-                  ? `Translating key '${this.state.translatingKey}'...`
+                  ? this.state.translatingKey
+                    ? `Translating key '${this.state.translatingKey}'...`
+                    : "Preparing. Please wait..."
                   : this.isReadyToTranslate()
                   ? "Ready"
                   : "Awaiting translation setup."}
@@ -249,7 +298,7 @@ class AutomaticTranslationDialog extends Component {
             </Grid>
             <Grid item xs={12}>
               <Typography variant="body2" align="center">
-                {`Progress ${this.state.progress.toFixed(0)}%`}
+                {`Progress ${this.state.progress.toFixed(2)}%`}
               </Typography>
             </Grid>
           </Grid>

@@ -10,7 +10,8 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import actions from "../../modules/actions";
-import { IconButton } from "@material-ui/core";
+import { IconButton, ListItemAvatar, Avatar } from "@material-ui/core";
+import FlagAvatar from "../utils/FlagImage";
 
 const isLocaleBeingUsed = (usedLocales, locale) => {
   const retVal = usedLocales.some(l => l.i === locale.i);
@@ -28,14 +29,14 @@ const styles = {
 const LocalesList = props => {
   const { locales, usedLocales } = props;
   return (
-    <List style={styles.root}>
+    <List style={styles.root} dense>
       {locales.map((locale, index) => {
         const usedLocale = isLocaleBeingUsed(usedLocales, locale);
         return (
           <ListItem divider key={index} disabled={usedLocale}>
-            <ListItemIcon>
-              <Icon icon={ICONS.BOOK} size={24} />
-            </ListItemIcon>
+            <ListItemAvatar>
+              <FlagAvatar countryCode={locale.cc} countryName={locale.c} />
+            </ListItemAvatar>
             <ListItemText
               primary={`${locale.l} (${locale.c})`}
               secondary={locale.i}

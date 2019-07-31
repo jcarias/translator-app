@@ -16,18 +16,22 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import Icon from "./utils/Icon";
 import { ICONS } from "../utils/constants/icons";
-import { translate } from "../utils/constants/translator";
+import { translate, translateV2 } from "../utils/constants/translator";
 
 const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
     <TableCell key={key}>{`${locale.i} (${locale.l}: ${locale.c})`}</TableCell>
   ));
 
-const findTranslation = (key, locale) => {
+const findTranslation = async (key, locale) => {
   const source = "en";
   const target = locale.lc;
   const text = key["en-US"];
-  translate(source, target, text)
+  await translate(source, target, text)
+    .then(result => console.log(result.outputs["0"].output))
+    .catch(err => console.error(err));
+
+  await translateV2(source, target, text)
     .then(result => console.log(result.outputs["0"].output))
     .catch(err => console.error(err));
 };

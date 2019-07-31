@@ -8,7 +8,7 @@ import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 
 import Icon from "../utils/Icon";
@@ -17,6 +17,7 @@ import { ICONS } from "../../utils/constants/icons";
 import DialogConfirmDeleteLocale from "./DialogConfirmDeleteLocale";
 import { getLocaleTranslations } from "../../modules/localizationReducer";
 import actions from "../../modules/actions";
+import FlagAvatar from "../utils/FlagImage";
 
 const styles = {
   dialogContent: {},
@@ -68,9 +69,9 @@ class CurrentLocales extends Component {
         <List style={styles.localesList}>
           {locales.map(locale => (
             <ListItem divider key={locale.i}>
-              <ListItemIcon color={"red"}>
-                <Icon icon={ICONS.BOOK} size={32} />
-              </ListItemIcon>
+              <ListItemAvatar>
+                <FlagAvatar countryCode={locale.cc} countryName={locale.c} />
+              </ListItemAvatar>
               <ListItemText
                 primary={`${locale.l} (${locale.c})`}
                 secondary={locale.i}
