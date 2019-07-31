@@ -41,6 +41,7 @@ import {
 } from "@material-ui/core";
 import DialogLocales from "./components/dialogs/DialogLocales";
 import AutomaticTranslationDialog from "./components/dialogs/AutomaticTranslationDialog";
+import FlagAvatar from "./components/utils/FlagImage";
 
 const styles = theme => ({
   fab: {
@@ -241,7 +242,11 @@ class App extends Component {
                     {this.props.locales.map((locale, key) => (
                       <ListItem key={key} divider>
                         <ListItemIcon>
-                          <Icon icon={ICONS["BOOK"]} />
+                          <FlagAvatar
+                            countryCode={locale.cc}
+                            countryName={locale.c}
+                            size={32}
+                          />
                         </ListItemIcon>
                         <ListItemText
                           primary={locale.i}

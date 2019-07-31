@@ -17,10 +17,14 @@ import { makeStyles } from "@material-ui/styles";
 import Icon from "./utils/Icon";
 import { ICONS } from "../utils/constants/icons";
 import { translate, translateV2 } from "../utils/constants/translator";
+import FlagAvatar from "./utils/FlagImage";
 
 const buildHeaderRow = (locales, showConfirmRemoveLocale) =>
   locales.map((locale, key) => (
-    <TableCell key={key}>{`${locale.i} (${locale.l}: ${locale.c})`}</TableCell>
+    <TableCell key={key} noWrap>
+      <FlagAvatar countryCode={locale.cc} countryName={locale.c} size={19} />
+      {`${locale.i} (${locale.l}: ${locale.c})`}
+    </TableCell>
   ));
 
 const findTranslation = async (key, locale) => {

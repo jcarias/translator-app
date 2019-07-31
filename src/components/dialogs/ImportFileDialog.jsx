@@ -26,6 +26,8 @@ import isEqual from "lodash/isEqual";
 import isNil from "lodash/isNil";
 import Icon from "../utils/Icon";
 import { ICONS } from "../../utils/constants/icons";
+import { TextField, InputAdornment } from "@material-ui/core";
+import FlagAvatar from "../utils/FlagImage";
 
 const styles = theme => ({
   root: {
@@ -128,24 +130,35 @@ class ImportFileDialog extends Component {
         <DialogContent>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <FormControl
-                className={classes.formControl}
+              <TextField
+                select
+                label="Locale"
                 fullWidth
                 disabled={isEmpty(this.props.locales)}
+                name="locale"
+                value={this.state.locale}
+                onChange={this.handleChange}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      {!isEmpty(this.state.locale) && (
+                        <FlagAvatar
+                          countryCode={this.state.locale.cc}
+                          countryName={this.state.locale.c}
+                          size={20}
+                        />
+                      )}
+                    </InputAdornment>
+                  )
+                }}
               >
-                <InputLabel htmlFor="age-simple">Locale</InputLabel>
-                <Select
-                  name="locale"
-                  value={this.state.locale}
-                  onChange={this.handleChange}
-                >
-                  {this.props.locales.map((locale, key) => (
-                    <MenuItem value={locale} key={key}>{`${locale.i} (${
-                      locale.l
-                    }:${locale.c})`}</MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+                <MenuItem value={null} />
+                {this.props.locales.map((locale, key) => (
+                  <MenuItem value={locale} key={key}>{`${locale.i} (${
+                    locale.l
+                  }:${locale.c})`}</MenuItem>
+                ))}
+              </TextField>
             </Grid>
             <Grid item xs={12}>
               <Link
