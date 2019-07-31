@@ -20,7 +20,25 @@ import DialogDeleteKeyConfirm from "./components/dialogs/DialogDeleteKeyConfirm"
 import DialogConfirmDeleteLocale from "./components/dialogs/DialogConfirmDeleteLocale";
 import Icon from "./components/utils/Icon";
 import { ICONS } from "./utils/constants/icons";
-import { Divider, Badge, Typography, Link } from "@material-ui/core";
+import {
+  Divider,
+  Badge,
+  Typography,
+  Link,
+  Popper,
+  Fade,
+  Paper,
+  Button,
+  List,
+  ListItemText,
+  ListItem,
+  ListItemIcon,
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Avatar
+} from "@material-ui/core";
 import DialogLocales from "./components/dialogs/DialogLocales";
 import AutomaticTranslationDialog from "./components/dialogs/AutomaticTranslationDialog";
 
@@ -33,6 +51,21 @@ const styles = theme => ({
   table: {
     maxHeight: "calc(100vh - 145px)",
     overflow: "auto"
+  },
+
+  popper: {
+    width: "30vw",
+    minWidth: 400
+  },
+  popperList: {
+    maxHeight: "25vh",
+    minHeight: "5vh",
+    overflow: "auto",
+    border: "1px solid",
+    borderColor: theme.palette.divider
+  },
+  popperAvatar: {
+    backgroundColor: theme.palette.primary.light
   }
 });
 
@@ -49,7 +82,8 @@ class App extends Component {
       localesDialogOpen: false,
       automaticTranslationDialogOpen: false,
       selectedKeyData: null,
-      selectedKey: ""
+      selectedKey: "",
+      anchorElPopper: null
     };
   }
 
@@ -67,7 +101,6 @@ class App extends Component {
   };
 
   showEditKeyDialog = (localizationData, selectedKey) => {
-    console.log(localizationData, selectedKey);
     this.setState({
       editKeyDialogOpen: true,
       selectedKeyData: localizationData,
@@ -123,8 +156,16 @@ class App extends Component {
     this.setState({ automaticTranslationDialogOpen: false });
   };
 
+  togglePopper = ev => {
+    this.setState({
+      anchorElPopper: this.state.anchorElPopper ? null : ev.currentTarget
+    });
+  };
+
   render() {
     const { classes } = this.props;
+    const open = Boolean(this.state.anchorElPopper);
+    const id = open ? "simple-popper" : undefined;
     return (
       <div>
         <ImportFileDialog
@@ -162,6 +203,71 @@ class App extends Component {
           handleClose={this.closeAutomaticTranslationDialog}
         />
 
+        <Popper
+          id={id}
+          open={open}
+          anchorEl={this.state.anchorElPopper}
+          transition
+          placement="bottom-end"
+          disablePortal={false}
+          modifiers={{
+            flip: {
+              enabled: true
+            },
+            preventOverflow: {
+              enabled: false,
+              boundariesElement: "scrollParent"
+            },
+            arrow: {
+              enabled: true
+            }
+          }}
+          className={classes.popper}
+        >
+          {({ TransitionProps }) => (
+            <Fade {...TransitionProps} timeout={350}>
+              <Card>
+                <CardHeader
+                  avatar={
+                    <Avatar className={classes.popperAvatar}>
+                      <Icon icon={ICONS["DOWNLOAD-CLOUD"]} />
+                    </Avatar>
+                  }
+                  title="Download translations"
+                  subheader={`Using ${this.props.locales.length} locales`}
+                />
+                <CardContent>
+                  <List className={classes.popperList} dense>
+                    {this.props.locales.map((locale, key) => (
+                      <ListItem key={key} divider>
+                        <ListItemIcon>
+                          <Icon icon={ICONS["BOOK"]} />
+                        </ListItemIcon>
+                        <ListItemText
+                          primary={locale.i}
+                          secondary={`${locale.l} (${locale.c})`}
+                        />
+                      </ListItem>
+                    ))}
+                  </List>
+                </CardContent>
+                <CardActions>
+                  <Button variant="outlined" size="small" color="primary">
+                    Download All
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={this.togglePopper}
+                  >
+                    Close
+                  </Button>
+                </CardActions>
+              </Card>
+            </Fade>
+          )}
+        </Popper>
+
         <TopBar>
           <Tooltip title="Import existing localization files">
             <IconButton color="inherit" onClick={this.showImportDialog}>
@@ -193,7 +299,7 @@ class App extends Component {
                     disabled={
                       !this.props.locales || this.props.locales.length === 0
                     }
-                    onClick={() => this.showEditKeyDialog(null, null)}
+                    onClick={() => this.showEditKeyDialog(null, "")}
                   >
                     <Icon icon={ICONS.EDIT} />
                   </IconButton>
@@ -206,8 +312,14 @@ class App extends Component {
                 </IconButton>
               </Tooltip>
 
-              <Tooltip title={"Generate translations"}>
+              <Tooltip title={"Online translations"}>
                 <IconButton onClick={this.showAutomaticTranslationDialog}>
+                  <Icon icon={ICONS["GLOBE"]} />
+                </IconButton>
+              </Tooltip>
+              <div style={{ flexGrow: 1 }} />
+              <Tooltip title={"Downloads"}>
+                <IconButton onClick={this.togglePopper} aria-describedby={id}>
                   <Icon icon={ICONS["DOWNLOAD-CLOUD"]} />
                 </IconButton>
               </Tooltip>
@@ -292,7 +404,7 @@ class App extends Component {
         <Fab
           color="secondary"
           className={classes.fab}
-          onClick={() => this.showEditKeyDialog(null, null)}
+          onClick={() => this.showEditKeyDialog(null, "")}
         >
           <EditIcon />
         </Fab>

@@ -101,11 +101,6 @@ class ImportFileDialog extends Component {
 
   render() {
     const { classes, open, handleClose, showLocalesManager } = this.props;
-    console.log(
-      this.state,
-      isEmpty(this.state.locale),
-      isEmpty(this.state.file)
-    );
     return (
       <Dialog
         open={open}

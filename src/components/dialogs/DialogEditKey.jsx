@@ -40,7 +40,6 @@ class DialogEditKey extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props);
     if (!_.isEqual(prevProps.locales, this.props.locales)) {
       this.setState({
         ...this.state,
@@ -63,8 +62,9 @@ class DialogEditKey extends Component {
   }
 
   handleKeyChange = evt => {
+    console.log(evt);
     if (evt && evt.target) {
-      this.setState({ selKey: evt.target.value });
+      this.setState({ translationKey: evt.target.value });
     }
   };
 
@@ -117,7 +117,11 @@ class DialogEditKey extends Component {
                 name={`value-${locale.i}`}
                 label={`Translation for: ${locale.i} (${locale.l})`}
                 type="text"
-                value={this.state.translations[locale.i]}
+                value={
+                  !_.isEmpty(this.state.translations)
+                    ? this.state.translations[locale.i]
+                    : ""
+                }
                 fullWidth
                 onChange={evt => this.handleTranslationChange(evt, locale)}
               />

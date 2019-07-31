@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import cloneDeep from "lodash/cloneDeep";
+
 import isEmpty from "lodash/isEmpty";
 
 import Grid from "@material-ui/core/Grid";
@@ -15,11 +15,6 @@ import {
   Button,
   Typography,
   Divider,
-  ListItem,
-  List,
-  ListItemText,
-  ListItemIcon,
-  ListItemSecondaryAction,
   Badge,
   Link
 } from "@material-ui/core";
@@ -30,7 +25,9 @@ import { ICONS } from "../../utils/constants/icons";
 import BaseDialog from "./BaseDialog";
 import LocalesList from "./LocalesList";
 import actions from "../../modules/actions";
-import DialogConfirmDeleteLocale from "./DialogConfirmDeleteLocale";
+
+import { getLocaleTranslations } from "../../modules/localizationReducer";
+import CurrentLocales from "./CurrentLocales";
 
 const styles = {
   dialogContent: {},
@@ -41,61 +38,6 @@ const styles = {
     marginBottom: 16
   }
 };
-
-class CurrentLocales extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { deleteLocaleDialogOpen: false, selLocale: null };
-  }
-
-  showConfirmDeleteLocale = locale => {
-    console.log(locale);
-    this.setState({ deleteLocaleDialogOpen: true, selLocale: locale });
-  };
-
-  closeConfirmDeleteLocale = () => {
-    this.setState({ deleteLocaleDialogOpen: false, selLocale: null });
-  };
-
-  confirmDeleteLocale = () => {
-    this.props.deleteLocale(cloneDeep(this.state.selLocale));
-    this.closeConfirmDeleteLocale();
-  };
-
-  render() {
-    const { locales } = this.props;
-    return (
-      <React.Fragment>
-        <DialogConfirmDeleteLocale
-          open={this.state.deleteLocaleDialogOpen}
-          locale={this.state.selLocale}
-          handleClose={this.closeConfirmDeleteLocale}
-          confirmDeleteLocale={this.confirmDeleteLocale}
-        />
-        <List style={styles.localesList}>
-          {locales.map(locale => (
-            <ListItem divider key={locale.i}>
-              <ListItemIcon color={"red"}>
-                <Icon icon={ICONS.BOOK} size={32} />
-              </ListItemIcon>
-              <ListItemText
-                primary={`${locale.l} (${locale.c})`}
-                secondary={locale.i}
-              />
-              <ListItemSecondaryAction>
-                <IconButton
-                  onClick={() => this.showConfirmDeleteLocale(locale)}
-                >
-                  <Icon icon={ICONS["TRASH-2"]} />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItem>
-          ))}
-        </List>
-      </React.Fragment>
-    );
-  }
-}
 
 class DialogLocales extends Component {
   constructor(props) {
@@ -134,7 +76,7 @@ class DialogLocales extends Component {
   };
 
   render() {
-    const { open, handleClose, removeLocale } = this.props;
+    const { open, handleClose } = this.props;
     return (
       <BaseDialog
         open={open}
@@ -203,10 +145,7 @@ class DialogLocales extends Component {
                       </Typography>
                     </div>
                   ) : (
-                    <CurrentLocales
-                      locales={this.props.locales}
-                      deleteLocale={removeLocale}
-                    />
+                    <CurrentLocales />
                   )}
                 </React.Fragment>
               )}
@@ -287,11 +226,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    removeLocale: locale => {
-      dispatch(actions.removeLocale(locale));
-    }
-  };
+  return {};
 };
 
 export default connect(

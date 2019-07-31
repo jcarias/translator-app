@@ -51,6 +51,21 @@ const todoReducer = (state = defaultState, action) => {
       return newState;
     }
 
+    case ACTIONS.Types.ADD_TRANSLATED_STRINGS: {
+      let newState = _.cloneDeep(state);
+
+      for (const key in action.localizationStrings) {
+        if (action.localizationStrings.hasOwnProperty(key)) {
+          const localizationString = action.localizationStrings[key];
+          newState.localizationData[key] = {
+            ...newState.localizationData[key],
+            [action.locale.i]: localizationString
+          };
+        }
+      }
+      return newState;
+    }
+
     case ACTIONS.Types.REMOVE_LOCALIZED_STRING: {
       let newState = _.cloneDeep(state);
       delete newState.localizationData[action.key];
@@ -88,6 +103,18 @@ const addLocale = (locale, stateData) => {
   }
 
   return stateData;
+};
+
+export const getLocaleTranslations = (state, locale) => {
+  const keys = Object.keys(state.localizationData);
+
+  let retVal = {};
+
+  keys.forEach(key => {
+    retVal[key] = state.localizationData[key][locale];
+  });
+
+  return retVal;
 };
 
 export default todoReducer;

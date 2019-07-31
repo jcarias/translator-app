@@ -7,7 +7,8 @@ const Types = {
   EXPORT_LOCALE_DATA: "EXPORT_LOCALE_DATA",
   ADD_LOCALIZED_STRING: "ADD_LOCALIZED_STRING",
   TOGGLE_LOCALE: "TOGGLE_LOCALE",
-  REMOVE_LOCALIZED_STRING: "REMOVE_LOCALIZED_STRING"
+  REMOVE_LOCALIZED_STRING: "REMOVE_LOCALIZED_STRING",
+  ADD_TRANSLATED_STRINGS: "ADD_TRANSLATED_STRINGS"
 };
 
 // actions
@@ -68,6 +69,12 @@ const removeLocalizedString = key => ({
   key
 });
 
+const addTranslatedStrings = (locale, localizationStrings) => ({
+  type: Types.ADD_TRANSLATED_STRINGS,
+  locale,
+  localizationStrings
+});
+
 export default {
   addLocale,
   removeLocale,
@@ -77,5 +84,6 @@ export default {
   addLocalizedString,
   removeLocalizedString,
   Types,
-  toggleLocale
+  toggleLocale,
+  addTranslatedStrings
 };

@@ -128,6 +128,13 @@ class AutomaticTranslationDialog extends Component {
     }
   };
 
+  saveGenerated = () => {
+    this.props.addTranslatedStrings(
+      this.state.generatedData.locale,
+      this.state.generatedData.localizationStrings
+    );
+  };
+
   render() {
     const { open, handleClose } = this.props;
     return (
@@ -143,7 +150,7 @@ class AutomaticTranslationDialog extends Component {
         <DialogTitle id="alert-dialog-title">
           <Grid container spacing={1}>
             <Grid item>
-              <Icon icon={ICONS["DOWNLOAD-CLOUD"]} size={32} />
+              <Icon icon={ICONS["GLOBE"]} size={32} />
             </Grid>
             <Grid item style={{ flexGrow: 1 }}>
               {"Automatic translations"}
@@ -259,12 +266,7 @@ class AutomaticTranslationDialog extends Component {
               this.state.loading ||
               isEmpty(this.state.generatedData.localizationStrings)
             }
-            onClick={() =>
-              this.props.importLocalizations(
-                this.state.generatedData.locale,
-                this.state.generatedData.localizationStrings
-              )
-            }
+            onClick={this.saveGenerated}
           >
             Save generated translations
           </Button>
@@ -286,8 +288,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     addLocalizedString: (key, localizedValues) => {
       dispatch(actions.addLocalizedString(key, localizedValues));
     },
-    importLocalizations: (locale, localizationStrings) =>
-      dispatch(actions.importFile(locale, localizationStrings))
+    addTranslatedStrings: (locale, localizationStrings) =>
+      dispatch(actions.addTranslatedStrings(locale, localizationStrings))
   };
 };
 
